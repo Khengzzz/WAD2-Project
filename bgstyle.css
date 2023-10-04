@@ -1,0 +1,18 @@
+.greybg{
+    background-color: lightgrey;
+}
+.overhead{
+    padding-top: 5px;
+    display:inline;
+
+}
+
+.navbarcolour{
+    background-color: lightpink;
+}
+.navbar-nav>li>.dropdown-menu{
+    background-color: lightpink;
+}
+.nav-link{
+color: white;
+}
