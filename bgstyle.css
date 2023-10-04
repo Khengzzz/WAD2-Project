@@ -13,6 +13,9 @@
 .navbar-nav>li>.dropdown-menu{
     background-color: lightpink;
 }
-.nav-link{
-color: white;
+.navtext{
+    color: rgba(244, 246, 248, 0.903);
+}
+.navbar-nav>li>.nav-link, .navbar-nav>li>.dropdown-menu>li>a{
+    color: rgba(244, 246, 248, 0.903);
 }
