@@ -10,8 +10,8 @@
     <!-- bootstrap link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-<body>
-<div class="container-flex">
+<body class="pinkbg">
+<div class="container-fluid">
 
     <!-- toprow -->
     <div class="row greybg">
@@ -29,45 +29,73 @@
 
 
         <!-- navbar -->
-        <div class="row ">
-            <div class="col d-flex navbarcolour ">
                 <nav class="navbar navbar-expand-lg ">
                     <div class="container-fluid">
-                      <a class="navbar-brand text-light" href="#">Navbar</a>
+
+                                             <!-- user icon profile thing -->
+
+          <li class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <!-- put user icon here -->
+          <img src="imagedump/food_logo.jpeg" alt="" width="30px">
+
+        
+        <ul class="dropdown-menu " id="txtchange">
+          <li class="pinkbg"><a class="dropdown-item pinkbg " href="userProfile/profilePage.html">Profile</a></li>
+          <li class="pinkbg"><a class="dropdown-item " href="userProfile/settings.html">Settings</a></li>
+        </ul>
+      </li>
+               
+                      <!-- Home onwards -->
                       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                       </button>
                       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                          <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+
+
+   
+
+                          <li class="nav-item ms-3">
+                            <a class="nav-link active" aria-current="page" href="homepage.html">Home</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="#">What to Eat</a>
+                            <a class="nav-link" href="whatToEat.html">What to Eat</a>
                           </li>
                           <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle me-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                               Community
                             </a>
-                            <ul class="dropdown-menu navbarcolour">
-                              <li><a class="dropdown-item navbarcolour" href="#">Recipes</a></li>
-                              <li><a class="dropdown-item navbarcolour" href="#">Buy Food</a></li>
+                            <ul class="dropdown-menu ">
+                              <li><a class="dropdown-item" href="#">Recipes</a></li>
+                              <li><a class="dropdown-item " href="#">Buy Food</a></li>
                             </ul>
                           </li>
+
+
+                          
+                          
+
+                          
+                          
                         </ul>
-                        <form class="d-flex" role="search">
-                          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                          <button class="btn" type="submit"><img src="imagedump/searchicon.jpeg" alt="" width="20px"></button>
-                        </form>
+
+
+                        
                       </div>
+                      <form class="d-flex" role="search">
+                        <input class="form-control ms-5 float-end" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn" type="submit"><img src="imagedump/searchicon.jpeg" alt="" width="20px"></button>
+                      </form>
 
-
-
+                    
                   </nav>
-        </div>
-    </div>
+
+                  <hr>
+    <!-- homepage item list -->
+<div class="row">
 
 
+</div>
 
 
     
