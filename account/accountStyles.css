@@ -1,0 +1,14 @@
+/* register.html and login.html top banner */
+#banner {
+    color:black;
+    font-weight: bold;
+    background-image: url(../images/bannerimage.jpg);
+    background-size: cover;
+}
+
+.hyperlink {
+    color:blue;
+    text-decoration: underline;
+    font-weight: bold;
+}
+

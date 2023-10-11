@@ -12,67 +12,76 @@
 <body class="pinkbg">
   <div class="container-fluid">
 
-      <!-- ECOBITES BANNER -->
-      <div class="row greybg">
-          <div class="col-4" ></div>
-          <div class="col-4 d-flex justify-content-center">
-              <span> <img src="./imagedump/food_logo.jpeg" alt="" style="width: 50px; margin-bottom: 10px; margin-top: 4px; margin-right: 10px;"></span>
-              <span>
-                  <p class="fs-1 overhead fw-bold">ECOBITES</p>
-              </span>
-          </div>
-          <div class="col-4" ></div>
-      </div>
+    <!-- ECOBITES BANNER -->
+    <div class="row greybg">
+        <div class="col-4" ></div>
+        <div class="col-4 d-flex justify-content-center">
+            <span> <img src="images/food_logo.jpeg" alt="" style="width: 50px; margin-bottom: 10px; margin-top: 4px; margin-right: 10px;"></span>
+            <span>
+                <p class="fs-1 overhead fw-bold">Home | EcoBites</p>
+            </span>
+        </div>
+        <div class="col-4" ></div>
+    </div>
 
-      <!-- NAVIGATION BAR -->
-      <div class="row">
-        <nav class="navbar navbar-expand-lg ">
-          <div class="container-fluid">
-            <li class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <!-- If user is logged in, replace with their profile picture -->
-              <img src="imagedump/food_logo.jpeg" alt="" width="30px">
-              <ul class="dropdown-menu " id="txtchange">
-                <li class="pinkbg"><a class="dropdown-item pinkbg " href="userProfile/profilePage.html">Profile</a></li>
-                <li class="pinkbg"><a class="dropdown-item " href="userProfile/settings.html">Settings</a></li>
-              </ul>
+    <!-- NAVIGATION BAR -->
+    <div class="row">
+      <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+          <!-- DISPLAY THESE LINES OF CODE WHEN USER IS LOGGED IN -->
+          <li class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <!-- Replace icon with logged in user's profile picture if they have one -->
+            <img src="images/usericon.png" alt="" width="30px">
+            <ul class="dropdown-menu " id="txtchange">
+              <li class="pinkbg"><a class="dropdown-item pinkbg" href="userProfile/profilePage.html">Profile</a></li>
+              <li class="pinkbg"><a class="dropdown-item" href="userProfile/settings.html">Settings</a></li>
+              <li class="pinkbg"><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
+          </li>
+          <!-- ELSE DISPLAY THESE LINES OF CODE IF USER IS NOT LOGGED IN -->
+<!--      <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="account/register.html">Sign Up</a>
             </li>
-            <!-- Home onwards -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item ms-3">
-                  <a class="nav-link active" aria-current="page" href="homepage.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="whatToEat.html">What to Eat</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle me-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Community
-                  </a>
-                  <ul class="dropdown-menu ">
-                    <li><a class="dropdown-item" href="#">Recipes</a></li>
-                    <li><a class="dropdown-item " href="#">Buy Food</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-            <form class="d-flex" role="search">
-              <input class="form-control ms-5 float-end" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn" type="submit"><img src="imagedump/searchicon.jpeg" alt="" width="20px"></button>
-            </form>
-          </div>  
-        </nav>
-      </div>
-                    
-      <!--HOMEPAGE CONTENT-->
-      <div class="row">
-
-
-      </div>
-      
+            <li class="nav-item">
+              <a class="nav-link" href="account/login.html">Login</a>
+            </li>
+          </ul> -->
+          <!-- Home onwards -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+              <li class="nav-item ms-3">
+                <a class="nav-link active" aria-current="page" href="homepage.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="whatToEat.html">What to Eat</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle me-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Community
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Recipes</a></li>
+                  <li><a class="dropdown-item" href="#">Buy Food</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <form class="d-flex" role="search">
+            <input class="form-control ms-5 float-end" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn" type="submit"><img src="images/searchicon.jpeg" alt="" width="20px"></button>
+          </form>
+        </div>  
+      </nav>
+    </div>
+                  
+    <!--HOMEPAGE CONTENT-->
+    <div class="row">
+      <p>HOMEPAGE</p>
+    </div>
   </div>
 </body>
 
