@@ -8,7 +8,7 @@
 }
 /* background */
 .pinkbg{
-    background-color: lightpink;
+    background-color: #E9859E;
 }
 
 
@@ -59,3 +59,24 @@
 }
 
 
+.bg-colour-pinky{
+    background-color: #fadadd;
+    color: black;
+}
+
+.bg-image-recipe {
+    background-image: url("images/whitebgfood.avif"); 
+    background-size: cover;
+  }
+
+  .bg-image-recipe h1,
+  .bg-image-recipe p {
+    font-weight: bold;
+    color: black;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  .white-box {
+    background-color: white;
+    padding: 10px; /* You can adjust the padding as needed */
+  }
