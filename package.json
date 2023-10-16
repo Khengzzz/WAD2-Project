@@ -1,5 +1,16 @@
 {
   "dependencies": {
-    "firebase": "^10.4.0"
-  }
+    "firebase": "^10.5.0"
+  },
+  "name": "wad2-project",
+  "version": "1.0.0",
+  "main": "firebase.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

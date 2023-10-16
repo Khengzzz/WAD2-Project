@@ -10,6 +10,8 @@
 
     <!-- Bootstrap link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Firebase -->
+    <script type="module" src="firebaseLogin.js"></script>
 </head>
 <body id="register">
   <div class="container-fluid">
@@ -44,16 +46,16 @@
                             <div class="d-flex flex-row align-items-center mb-4">
                               
                               <div class="form-outline flex-fill mb-0">
-                                <label class="form-label" for="usernameInputField">Username</label>
-                                <input type="text" placeholder="Username" id="usernameInputField" class="form-control" style="border:2px solid lightgrey;" required/>
+                                <label class="form-label" for="emailLoginField">Email:</label>
+                                <input type="text" placeholder="Email" id="emailLoginField" class="form-control" style="border:2px solid lightgrey;" required/>
                               </div>
                             </div>
           
                             <div class="d-flex flex-row align-items-center mb-4">
                               
                               <div class="form-outline flex-fill mb-0">
-                                <label class="form-label" for="passwordInputField">Password</label>
-                                <input type="password" placeholder="Password" id="passwordInputField" class="form-control" style="border:2px solid lightgrey;" required/>
+                                <label class="form-label" for="passwordInputField">Password:</label>
+                                <input type="password" placeholder="Password" id="passwordLoginField" class="form-control" style="border:2px solid lightgrey;" required/>
                                 <p class="text-muted mb-0">
                                     <a href="resetPassword.html" class="hyperlink">Forgot Password?</a>
                                 </p>
@@ -61,7 +63,7 @@
                             </div>
           
                             <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                              <button type="submit" class="btn btn-success btn-lg">Login</button>
+                              <button type="button" id="btnLogin" class="btn btn-success btn-lg">Login</button>
                             </div>
                             <p class="text-center text-muted mb-0">Don't have an account?
                                 <a href="register.html" class="hyperlink">Register here!</a>
