@@ -39,14 +39,23 @@ document.getElementById("btnLogin").addEventListener('click', (e) => {
     const date = new Date();
     update(ref(database, 'users/' + user.uid), {
       last_login: date,
+    }).then(function() {
+      alert('Successfully logged in! You will now be redirected to the home page.');
+      location.replace("../homepage.html")
     })
-    console.log(emailLogin);
-    console.log(passwordLogin);
-    alert('User logged in!');
   })
   .catch((error) => {
     const errorCode = error.code;
-    const errorMessage = error.message;
-    alert(errorMessage);
+    // const errorMessage = error.message;
+    // Customise error messages to be more intuitive
+    if (errorCode == "auth/missing-password") {
+      alert("Please provide a password!")
+    }
+    if (errorCode == "auth/invalid-email") {
+      alert("Please provide a valid email format!")
+    }
+    if (errorCode == "auth/invalid-login-credentials") {
+      alert("Invalid login credentials! Check that you have entered them correctly.")
+    }
   })
 })

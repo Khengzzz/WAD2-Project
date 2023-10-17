@@ -34,12 +34,24 @@ document.getElementById("btnRegister").addEventListener('click', (e) => {
     set(ref(database, 'users/' + user.uid), {
       username: username,
       email: email
+      // Set redirecting user to registration success page to occur ONLY AFTER the data has been written into the database
+    }).then(function() {
+      location.replace("registerSuccess.html");
     })
-    alert('User created!');
   })
   .catch((error) => {
     const errorCode = error.code;
-    const errorMessage = error.message;
-    alert(errorMessage);
+    //const errorMessage = error.message;
+
+    // Customise error messages to be more intuitive
+    if (errorCode == "auth/missing-password") {
+      alert("Please provide a password!")
+    }
+    if (errorCode == "auth/invalid-email") {
+      alert("Please provide a valid email format!")
+    }
+    if (errorCode == "auth/weak-password") {
+      alert("Password should be at least 6 characters long!")
+    }
   })
 })
