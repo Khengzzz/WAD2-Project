@@ -17,10 +17,7 @@
     <div class="row greybg">
       <div class="col-4" ></div>
       <div class="col-4 d-flex justify-content-center">
-          <span> <img src="images/food_logo.jpeg" alt="" style="width: 50px; margin-bottom: 10px; margin-top: 4px; margin-right: 10px;"></span>
-          <span>
-              <p class="fs-1 overhead fw-bold">ECOBITES</p>
-          </span>
+          <span> <img src="../images/ecobiteslogo-removebg.png" alt="" style="width:250px; margin-bottom: 5px; margin-top: 2px; margin-right: 10px;"></span>
       </div>
       <div class="col-4" ></div>
     </div>
@@ -32,7 +29,7 @@
         <!-- DISPLAY THESE LINES OF CODE WHEN USER IS LOGGED IN -->
         <li class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <!-- Replace icon with logged in user's profile picture if they have one -->
-          <img src="images/usericon.png" alt="" width="30px">
+          <img src="../images/usericon.png" alt="" width="30px">
           <ul class="dropdown-menu " id="txtchange">
             <li class="pinkbg"><a class="dropdown-item pinkbg" href="userProfile/profilePage.html">Profile</a></li>
             <li class="pinkbg"><a class="dropdown-item" href="userProfile/settings.html">Settings</a></li>
@@ -80,14 +77,27 @@
     </div>
                   
     <!--WHAT TO EAT CONTENT-->
-    <div class="row">
-      <p>WHAT TO EAT PAGE</p>
+    <div class="quizApp">
+      <h2>Take our meal-planning quiz now!</h2>
+      <div class="quiz">
+        <h4 id="question"></h4>
+        <div id="answer-choices">
+          <button class="choice">answer1</button>
+          <button class="choice">answer2</button>
+          <button class="choice">answer3</button>
+          <button class="choice">answer4</button>
+        </div>
+        <div>
+          <button id="next-btn">Next</button>
+        </div>
+      </div>
     </div>
+    
   </div>
     
 
 
-
+<script src="quizScript.js"></script>
 </body>
 
 
