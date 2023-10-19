@@ -51,9 +51,9 @@ const answerChoices = document.getElementById("answer-choices");
 const nextBtn = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
+var answers = [];
 
 function startQuiz(){
-    let answers = [];
     currentQuestionIndex = 0;
     nextBtn.innerHTML = "Next";
     showQuestion();
@@ -86,12 +86,22 @@ function resetState(){
     }
 }
 
+let selectedAnswer = null;
 function selectAnswer(e){
     const selectedBtn = e.target;
-    const isCorrect = selectedBtn.dataset.correct === "true";
-    if (isCorrect){
-        selectedBtn.classList.add("correct");
+    // const isCorrect = selectedBtn.dataset.correct === "true";
+
+    // console.log(selectedBtn);
+    if (selectedAnswer !== null) {
+        selectedAnswer.classList.remove("correct");
     }
+    if (selectedAnswer === selectedBtn) {
+        selectedAnswer = null;
+    } else {
+        selectedBtn.classList.add("correct");
+        selectedAnswer = selectedBtn;
+    }
+
     nextBtn.style.display = "block";
 }
 
@@ -114,6 +124,10 @@ function handleNextButton(){
 
 nextBtn.addEventListener("click", ()=>{
     if (currentQuestionIndex < questions.length){
+        console.log(selectedAnswer);
+        let answer = selectedAnswer.innerText;
+        answers.push(answer);
+        console.log(answers);
         handleNextButton();
     }
     else{
