@@ -135,6 +135,11 @@ nextBtn.addEventListener("click", ()=>{
     }
 })
 
+document.getElementById("recipe-redirection").addEventListener("click", function() {
+    window.location.href = "/recipe.html" ;
+});
+
+
 
 startQuiz();
 
