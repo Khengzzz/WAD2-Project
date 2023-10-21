@@ -33,8 +33,6 @@ document.getElementById("btnLogin").addEventListener('click', (e) => {
   .then((userCredential) => {
     // Logged in
     const user = userCredential.user;
-    console.log(emailLogin);
-    console.log(passwordLogin);
 
     const date = new Date();
     update(ref(database, 'users/' + user.uid), {

@@ -33,7 +33,7 @@ document.getElementById("btnRegister").addEventListener('click', (e) => {
     const user = userCredential.user;
     set(ref(database, 'users/' + user.uid), {
       username: username,
-      email: email
+      email: email,
       // Set redirecting user to registration success page to occur ONLY AFTER the data has been written into the database
     }).then(function() {
       location.replace("registerSuccess.html");
@@ -53,5 +53,10 @@ document.getElementById("btnRegister").addEventListener('click', (e) => {
     if (errorCode == "auth/weak-password") {
       alert("Password should be at least 6 characters long!")
     }
+    if (errorCode == "auth/email-already-in-use") {
+      alert("Email is already in use! Please use another email.")
+    }
   })
 })
+
+
