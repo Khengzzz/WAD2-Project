@@ -27,8 +27,6 @@ const database = getDatabase(app);
 document.getElementById("btnLogin").addEventListener('click', (e) => {
   var emailLogin = document.getElementById("emailLoginField").value;
   var passwordLogin = document.getElementById("passwordLoginField").value;
-  console.log(emailLogin);
-  console.log(passwordLogin);
   signInWithEmailAndPassword(auth, emailLogin, passwordLogin)
   .then((userCredential) => {
     // Logged in
@@ -57,3 +55,4 @@ document.getElementById("btnLogin").addEventListener('click', (e) => {
     }
   })
 })
+

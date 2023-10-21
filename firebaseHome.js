@@ -32,7 +32,8 @@ onAuthStateChanged(auth, user => {
     if (user) {
         var uid = user.uid;
         // Retrieve user's username
-        const userProfile = ref(database, 'users/' + uid)
+        const userProfile = ref(database, 'users/' + uid + '/mealplans/')
+        console.log(userProfile)
         onValue(userProfile, (snapshot) => {
             const userData = snapshot.val()
             // Create label tag
