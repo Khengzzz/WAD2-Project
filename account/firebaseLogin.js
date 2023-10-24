@@ -37,7 +37,7 @@ document.getElementById("btnLogin").addEventListener('click', (e) => {
       last_login: date,
     }).then(function() {
       alert('Successfully logged in! You will now be redirected to the home page.');
-      location.replace("../homepage.html")
+      location.replace("../mainpages/homepage.html")
     })
   })
   .catch((error) => {

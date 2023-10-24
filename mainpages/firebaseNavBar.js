@@ -32,10 +32,11 @@ onAuthStateChanged(auth, user => {
     if (user) {
         var uid = user.uid;
         // Retrieve user's username
-        const userProfile = ref(database, 'users/' + uid + '/mealplans/')
+        const userProfile = ref(database, 'users/' + uid)
         console.log(userProfile)
         onValue(userProfile, (snapshot) => {
             const userData = snapshot.val()
+            console.log(userData)
             // Create label tag
             var labelElem = document.createElement('label');
             var textNode = document.createTextNode('Welcome ' + userData.username)
@@ -57,7 +58,7 @@ onAuthStateChanged(auth, user => {
 
         // Create account img
         var imgElem = document.createElement('img');
-        imgElem.src = "images/usericon.png"
+        imgElem.src = "../images/usericon.png"
         imgElem.style.width = "30px";
 
         // Create dropdownlist with Profile and Logout list elements
@@ -71,7 +72,7 @@ onAuthStateChanged(auth, user => {
         var profileAElem = document.createElement('a')
         var logoutAElem = document.createElement('a')
         profileAElem.classList.add('dropdown-item');
-        profileAElem.href = "userProfile/profilePage.html"
+        profileAElem.href = "../userProfile/profilePage.html"
         logoutAElem.classList.add('dropdown-item');
         var profileAElemText = document.createTextNode('Profile')
         var logoutAElemText = document.createTextNode('Logout')
@@ -122,13 +123,13 @@ onAuthStateChanged(auth, user => {
         loginLiElem.classList.add('nav-item')
         var registerAElem = document.createElement('a')
         registerAElem.classList.add("nav-link")
-        registerAElem.href = "account/register.html"
+        registerAElem.href = "../account/register.html"
         var registerText = document.createTextNode('Sign Up')
         registerAElem.appendChild(registerText)
         registerLiElem.appendChild(registerAElem)
         var loginAElem = document.createElement('a')
         loginAElem.classList.add("nav-link")
-        loginAElem.href = "account/login.html"
+        loginAElem.href = "../account/login.html"
         var loginText = document.createTextNode('Login')
 
         // Combining all elements and adding to dynamicDisplay elem
