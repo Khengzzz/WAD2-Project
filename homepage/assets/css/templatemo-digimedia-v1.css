@@ -1352,7 +1352,7 @@ Services Style
 
 .services .section-heading {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 20px;
 }
 
 .services .section-heading .line-dec {
@@ -1492,6 +1492,15 @@ Services Style
   margin-bottom: 20px;
   font-size: 15px;
   font-weight: 400;
+}
+
+.services .menu a{
+  color:black;
+}
+
+.services .naccs .nacc .active{
+  padding: 20px;
+  
 }
 
 
