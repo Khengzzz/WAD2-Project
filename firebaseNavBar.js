@@ -23,52 +23,63 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 // Initialize Realtime Database and get a reference to the service
 const database = getDatabase(app);
-var dynamicDisplay = document.getElementById('userDisplay');
+
+// Dynamic display elements
+var dynamicDisplay1 = document.getElementById('display');
+var dynamicDisplay2 = document.getElementById('display2');
 
 // Detect auth state
 onAuthStateChanged(auth, user => {
     // Check if user is logged in and display accordingly
     // Logged in display
     if (user) {
+        // Clear the display
+        dynamicDisplay1.innerHTML = "";
+        dynamicDisplay2.innerHTML = "";
+
+        // Current logged in user's uid
         var uid = user.uid;
+
         // Retrieve user's username
         const userProfile = ref(database, 'users/' + uid)
-        console.log(userProfile)
+        //console.log(userProfile)
         onValue(userProfile, (snapshot) => {
             const userData = snapshot.val()
-            console.log(userData)
-            // Create label tag
-            var labelElem = document.createElement('label');
-            var textNode = document.createTextNode('Welcome ' + userData.username)
-            labelElem.appendChild(textNode);
-            // Append to <a> elem
-            aElem.appendChild(labelElem)
+            //console.log(userData)
+            if (dynamicDisplay1.innerHTML == "") {
+                // Create h6 tag
+                var h6Elem = document.createElement('h6');
+                h6Elem.classList.add('d-none')
+                h6Elem.classList.add('d-sm-block')
+                var h6textNode = document.createTextNode('Welcome, ' + userData.username + "!")
+                h6Elem.appendChild(h6textNode);
+                // Append to dynamicDisplay1 elem
+                dynamicDisplay1.appendChild(h6Elem)
+            }
         })
-        // Clear the display
-        dynamicDisplay.innerHTML = "";
         // Populate the display
-        // Create <a> tag Elem
-        var aElem = document.createElement('a')
-        aElem.classList.add('nav-link')
-        aElem.classList.add('dropdown-toggle')
-        aElem.classList.add('me-5')
-        aElem.role = 'button'
-        aElem.setAttribute('data-bs-toggle', 'dropdown')
-        aElem.setAttribute('aria-expanded', 'false')
+        // Create button Elem
+        var buttonElem = document.createElement('button')
+        buttonElem.classList.add('btn')
+        buttonElem.classList.add('dropdown-toggle')
+        buttonElem.type = "button"
+        buttonElem.setAttribute('id', 'userDropdown')
+        
+        buttonElem.setAttribute('data-bs-toggle', 'dropdown')
+        buttonElem.setAttribute('aria-expanded', 'false')
 
-        // Create account img
-        var imgElem = document.createElement('img');
-        imgElem.src = "../images/usericon.png"
-        imgElem.style.width = "30px";
+        // Create <i> element
+        var iElem = document.createElement('i')
+        iElem.classList.add("fa")
+        iElem.classList.add("fa-user")
 
         // Create dropdownlist with Profile and Logout list elements
         var ulElem = document.createElement('ul')
-        ulElem.setAttribute('id', 'txtchange')
         ulElem.classList.add("dropdown-menu");
+        ulElem.classList.add("dropdown-menu-end");
+        ulElem.setAttribute('aria-labelledby', 'userDropdown')
         var profileLiElem = document.createElement("li")
-        profileLiElem.classList.add("pinkbg")
         var logoutLiElem = document.createElement("li")
-        logoutLiElem.classList.add("pinkbg")
         var profileAElem = document.createElement('a')
         var logoutAElem = document.createElement('a')
         profileAElem.classList.add('dropdown-item');
@@ -89,55 +100,45 @@ onAuthStateChanged(auth, user => {
                     last_logged_out: date,
                 }).then(function() {
                     alert('You have logged out successfully!');
+                    location.replace("../homepage/homepage.html")
                 })
             })
             .catch((error) => {
                 alert(error.code)
             })
         })
-        // Combining all elements and adding to dynamicDisplay elem
+        // Combining all elements and adding to dynamicDisplay2 elem
+        buttonElem.appendChild(iElem)
         profileLiElem.appendChild(profileAElem)
         logoutLiElem.appendChild(logoutAElem)
         ulElem.appendChild(profileLiElem)
         ulElem.appendChild(logoutLiElem)
-        aElem.appendChild(imgElem)
-        dynamicDisplay.appendChild(aElem)
-        dynamicDisplay.appendChild(ulElem)
+        
+        dynamicDisplay2.appendChild(buttonElem)
+        dynamicDisplay2.appendChild(ulElem)
 
     // Not logged in display
     } else {
         // Clear the display
-        dynamicDisplay.innerHTML = "";
+        dynamicDisplay1.innerHTML = "";
+        dynamicDisplay2.innerHTML = "";
         // Populate the display
 
-        // Create a ul element to store 2 link list elements
-        var ulElem = document.createElement('ul')
-        ulElem.classList.add("navbar-nav")
-        ulElem.classList.add("mb-2")
-        ulElem.classList.add("mb-lg-0")
-
-        // Create Sign Up and Login list link elements
-        var registerLiElem = document.createElement('li')
-        registerLiElem.classList.add('nav-item')
-        var loginLiElem = document.createElement('li')
-        loginLiElem.classList.add('nav-item')
+        // Create a 2 <a> elements linking to register.html and login.html respectively
         var registerAElem = document.createElement('a')
-        registerAElem.classList.add("nav-link")
         registerAElem.href = "../account/register.html"
+        registerAElem.style.marginRight = "10px"
         var registerText = document.createTextNode('Sign Up')
-        registerAElem.appendChild(registerText)
-        registerLiElem.appendChild(registerAElem)
+
         var loginAElem = document.createElement('a')
-        loginAElem.classList.add("nav-link")
         loginAElem.href = "../account/login.html"
         var loginText = document.createTextNode('Login')
 
-        // Combining all elements and adding to dynamicDisplay elem
+        // Combining all elements and adding to dynamicDisplay1
+        registerAElem.appendChild(registerText)
         loginAElem.appendChild(loginText)
-        loginLiElem.appendChild(loginAElem)
-        ulElem.appendChild(registerLiElem)
-        ulElem.appendChild(loginLiElem)
-        dynamicDisplay.appendChild(ulElem)
+        dynamicDisplay1.appendChild(registerAElem)
+        dynamicDisplay1.appendChild(loginAElem)
 
     }
 })

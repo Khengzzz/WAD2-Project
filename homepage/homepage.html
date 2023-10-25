@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>EcoBites</title>
+    <title>Home | EcoBites</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="assets/css/templatemo-digimedia-v1.css">
     <link rel="stylesheet" href="assets/css/animated.css">
     <link rel="stylesheet" href="assets/css/owl.css">
+
+    <!-- Firebase Scripts -->
+    <script type="module" src="../firebaseNavBar.js"></script>
 <!--
 
 TemplateMo 568 DigiMedia
@@ -57,17 +60,15 @@ https://templatemo.com/tm-568-digimedia
                 </ul>
             </div>
             <div class="col-lg-5 col-sm-5 col-5 text-end d-flex justify-content-end align-items-center">
-              <h6 class="d-none d-sm-block">Welcome, John!</h6>
+                <!-- Dynamic Display 1 -->
+                <div id="display">
+
+                </div>
                 <div class="dropdown d-flex">
-                    <button class="btn dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <i class="fa fa-user"></i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                        <li><a class="dropdown-item" href="../userProfile/profilePage.html">Profile</a></li>
-                        <li><a class="dropdown-item" href="../userProfile/settings.html">Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
-                    </ul>
+                    <!-- Dynamic Display 2 -->
+                    <div id="display2">
+
+                    </div>
                     <div id="searchBox" style="display:none; border-radius: 70px;">
                       <input type="text" id="searchInput" placeholder="Search">
                     </div>
@@ -112,7 +113,7 @@ https://templatemo.com/tm-568-digimedia
       </div>
     </div>
   </header>
-  <!-- ***** Header Area End ***** -->
+  <!-- ***** Nav Bar Header Area End Here ***** -->
 
   <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
     <div class="container">
