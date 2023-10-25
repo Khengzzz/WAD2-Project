@@ -1,0 +1,118 @@
+[debug] [2023-10-15T08:33:37.689Z] ----------------------------------------------------------------------
+[debug] [2023-10-15T08:33:37.691Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\kheng\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-10-15T08:33:37.691Z] CLI Version:   12.7.0
+[debug] [2023-10-15T08:33:37.691Z] Platform:      win32
+[debug] [2023-10-15T08:33:37.691Z] Node Version:  v18.17.1
+[debug] [2023-10-15T08:33:37.692Z] Time:          Sun Oct 15 2023 16:33:37 GMT+0800 (Singapore Standard Time)
+[debug] [2023-10-15T08:33:37.692Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-15T08:33:37.698Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-15T08:33:37.698Z] > authorizing via signed-in user (khsiew.2022@smu.edu.sg)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\wamp64\www\IS216\WAD2-Project
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-10-15T08:35:41.517Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/availableProjects pageSize=100
+[debug] [2023-10-15T08:35:42.605Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/availableProjects 200
+[debug] [2023-10-15T08:35:42.605Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/availableProjects [omitted]
+[debug] [2023-10-15T08:36:28.842Z] ----------------------------------------------------------------------
+[debug] [2023-10-15T08:36:28.843Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\kheng\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-10-15T08:36:28.843Z] CLI Version:   12.7.0
+[debug] [2023-10-15T08:36:28.844Z] Platform:      win32
+[debug] [2023-10-15T08:36:28.844Z] Node Version:  v18.17.1
+[debug] [2023-10-15T08:36:28.844Z] Time:          Sun Oct 15 2023 16:36:28 GMT+0800 (Singapore Standard Time)
+[debug] [2023-10-15T08:36:28.844Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-15T08:36:28.849Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-15T08:36:28.850Z] > authorizing via signed-in user (khsiew.2022@smu.edu.sg)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\wamp64\www\IS216\WAD2-Project
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-10-15T08:37:26.396Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2023-10-15T08:37:27.183Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2023-10-15T08:37:27.183Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project ecobites-b5084 (EcoBites) 
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2023-10-15T08:37:31.137Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/ecobites-b5084/services/firebasedatabase.googleapis.com [none]
+[debug] [2023-10-15T08:37:31.137Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/ecobites-b5084/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/ecobites-b5084
+[debug] [2023-10-15T08:37:32.570Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/ecobites-b5084/services/firebasedatabase.googleapis.com 200
+[debug] [2023-10-15T08:37:32.570Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/ecobites-b5084/services/firebasedatabase.googleapis.com [omitted]
+[warn] !  database: missing required API firebasedatabase.googleapis.com. Enabling now... 
+[debug] [2023-10-15T08:37:32.572Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/ecobites-b5084/services/firebasedatabase.googleapis.com:enable [none]
+[debug] [2023-10-15T08:37:32.572Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/ecobites-b5084/services/firebasedatabase.googleapis.com:enable x-goog-quota-user=projects/ecobites-b5084
+[debug] [2023-10-15T08:37:34.315Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/ecobites-b5084/services/firebasedatabase.googleapis.com:enable 200
+[debug] [2023-10-15T08:37:34.315Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/ecobites-b5084/services/firebasedatabase.googleapis.com:enable [omitted]
+[debug] [2023-10-15T08:37:44.322Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/ecobites-b5084/services/firebasedatabase.googleapis.com [none]
+[debug] [2023-10-15T08:37:44.322Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/ecobites-b5084/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/ecobites-b5084
+[debug] [2023-10-15T08:37:45.848Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/ecobites-b5084/services/firebasedatabase.googleapis.com 200
+[debug] [2023-10-15T08:37:45.848Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/ecobites-b5084/services/firebasedatabase.googleapis.com [omitted]
+[info] +  database: required API firebasedatabase.googleapis.com is enabled 
+[info] 
+[debug] [2023-10-15T08:37:45.856Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ecobites-b5084 [none]
+[debug] [2023-10-15T08:37:46.460Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ecobites-b5084 200
+[debug] [2023-10-15T08:37:46.460Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/ecobites-b5084 {"projectId":"ecobites-b5084","projectNumber":"256057404957","displayName":"EcoBites","name":"projects/ecobites-b5084","resources":{"hostingSite":"ecobites-b5084"},"state":"ACTIVE","etag":"1_b8208761-44b6-443c-bb2f-c4722cf10335"}
+[debug] [2023-10-15T08:38:20.122Z] >>> [apiv2][query] POST https://firebasedatabase.googleapis.com/v1beta/projects/ecobites-b5084/locations/asia-southeast1/instances databaseId=ecobites-b5084-default-rtdb&validateOnly=true
+[debug] [2023-10-15T08:38:20.123Z] >>> [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/ecobites-b5084/locations/asia-southeast1/instances {"type":"default_database"}
+[debug] [2023-10-15T08:38:21.630Z] <<< [apiv2][status] POST https://firebasedatabase.googleapis.com/v1beta/projects/ecobites-b5084/locations/asia-southeast1/instances 200
+[debug] [2023-10-15T08:38:21.630Z] <<< [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/ecobites-b5084/locations/asia-southeast1/instances {"name":"projects/256057404957/locations/asia-southeast1/instances/ecobites-b5084-default-rtdb","project":"projects/256057404957","databaseUrl":"https://ecobites-b5084-default-rtdb.asia-southeast1.firebasedatabase.app","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[debug] [2023-10-15T08:38:21.633Z] >>> [apiv2][query] POST https://firebasedatabase.googleapis.com/v1beta/projects/ecobites-b5084/locations/asia-southeast1/instances databaseId=ecobites-b5084-default-rtdb
+[debug] [2023-10-15T08:38:21.633Z] >>> [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/ecobites-b5084/locations/asia-southeast1/instances {"type":"default_database"}
+[debug] [2023-10-15T08:38:23.327Z] <<< [apiv2][status] POST https://firebasedatabase.googleapis.com/v1beta/projects/ecobites-b5084/locations/asia-southeast1/instances 200
+[debug] [2023-10-15T08:38:23.327Z] <<< [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/ecobites-b5084/locations/asia-southeast1/instances {"name":"projects/256057404957/locations/asia-southeast1/instances/ecobites-b5084-default-rtdb","project":"projects/256057404957","databaseUrl":"https://ecobites-b5084-default-rtdb.asia-southeast1.firebasedatabase.app","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[info] 
+[info] Firebase Realtime Database Security Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2023-10-15T08:38:29.684Z] >>> [apiv2][query] GET https://ecobites-b5084-default-rtdb.asia-southeast1.firebasedatabase.app/.settings/rules.json [none]
+[debug] [2023-10-15T08:38:31.309Z] <<< [apiv2][status] GET https://ecobites-b5084-default-rtdb.asia-southeast1.firebasedatabase.app/.settings/rules.json 200
+[debug] [2023-10-15T08:38:31.310Z] <<< [apiv2][body] GET https://ecobites-b5084-default-rtdb.asia-southeast1.firebasedatabase.app/.settings/rules.json [stream]
+[info] +  Database Rules for ecobites-b5084-default-rtdb have been written to database.rules.json. 
+[info] Future modifications to database.rules.json will update Realtime Database Security Rules when you run
+[info] firebase deploy.
+[info] 
+=== Firestore Setup
+[debug] [2023-10-15T08:38:31.317Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/ecobites-b5084/services/firestore.googleapis.com [none]
+[debug] [2023-10-15T08:38:31.318Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/ecobites-b5084/services/firestore.googleapis.com x-goog-quota-user=projects/ecobites-b5084
+[debug] [2023-10-15T08:38:33.048Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/ecobites-b5084/services/firestore.googleapis.com 200
+[debug] [2023-10-15T08:38:33.049Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/ecobites-b5084/services/firestore.googleapis.com [omitted]
+[error] 
+[error] Error: It looks like you haven't used Cloud Firestore in this project before. Go to https://console.firebase.google.com/project/ecobites-b5084/firestore to create your Cloud Firestore database.
