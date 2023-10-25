@@ -135,6 +135,15 @@ img {
   overflow: hidden;
 }
 
+
+
+.small-height-image {
+  max-height: 100px; /* Adjust the height as needed */
+  width: auto; /* Maintain the aspect ratio */
+}
+
+
+
 /* 
 ---------------------------------------------
 global styles
