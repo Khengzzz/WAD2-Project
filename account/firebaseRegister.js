@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js';
-import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js';
+import { getDatabase, set, ref, onValue } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -23,35 +23,63 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 // Initialize Realtime Database and get a reference to the service
 const database = getDatabase(app);
-
+var userExists = false
 document.getElementById("btnRegister").addEventListener('click', (e) => {
   var username = document.getElementById("usernameRegisterField").value;
   var email = document.getElementById("emailRegisterField").value;
   var password = document.getElementById("passwordRegisterField").value;
-  createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    const user = userCredential.user;
-    set(ref(database, 'users/' + user.uid), {
-      username: username,
-      email: email
-      // Set redirecting user to registration success page to occur ONLY AFTER the data has been written into the database
-    }).then(function() {
-      location.replace("registerSuccess.html");
-    })
+  const usernames = ref(database, 'usernames/')
+  // Check database "usernames" folder if selected username exists
+  onValue(usernames, (snapshot) => {
+    // Username already exists 
+    if (snapshot.hasChild(username)) {
+      // Throw error message
+      userExists = true
+    // Create this user into database 
+    } else {
+      userExists = false
+      createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        set(ref(database, 'users/' + user.uid), {
+          email: email,
+          // Set redirecting user to registration success page to occur ONLY AFTER the data has been written into the database
+        }).then(function() {
+          set(ref(database, 'users/' + user.uid + '/mealplans/'), {
+            username: username,
+          }).then(function() {
+            set(ref(database, 'usernames/' + username), {
+              uid: user.uid,
+            }).then(function() {
+              location.replace("registerSuccess.html")
+            })
+          })
+        })
+    
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        //const errorMessage = error.message;
+        // Customise error messages to be more intuitive
+        if (errorCode == "auth/missing-password") {
+          alert("Please provide a password!")
+        }
+        if (errorCode == "auth/invalid-email") {
+          alert("Please provide a valid email format!")
+        }
+        if (errorCode == "auth/weak-password") {
+          alert("Password should be at least 6 characters long!")
+        }
+        if (errorCode == "auth/email-already-in-use") {
+          alert("Email is already in use! Please use another email.")
+        }
+      })
+    }
   })
-  .catch((error) => {
-    const errorCode = error.code;
-    //const errorMessage = error.message;
+  if (userExists) {
+    alert("Username is already taken! Please use another username.")
+  }
 
-    // Customise error messages to be more intuitive
-    if (errorCode == "auth/missing-password") {
-      alert("Please provide a password!")
-    }
-    if (errorCode == "auth/invalid-email") {
-      alert("Please provide a valid email format!")
-    }
-    if (errorCode == "auth/weak-password") {
-      alert("Password should be at least 6 characters long!")
-    }
-  })
 })
+
+

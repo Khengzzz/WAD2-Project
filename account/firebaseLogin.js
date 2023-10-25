@@ -27,21 +27,17 @@ const database = getDatabase(app);
 document.getElementById("btnLogin").addEventListener('click', (e) => {
   var emailLogin = document.getElementById("emailLoginField").value;
   var passwordLogin = document.getElementById("passwordLoginField").value;
-  console.log(emailLogin);
-  console.log(passwordLogin);
   signInWithEmailAndPassword(auth, emailLogin, passwordLogin)
   .then((userCredential) => {
     // Logged in
     const user = userCredential.user;
-    console.log(emailLogin);
-    console.log(passwordLogin);
 
     const date = new Date();
     update(ref(database, 'users/' + user.uid), {
       last_login: date,
     }).then(function() {
       alert('Successfully logged in! You will now be redirected to the home page.');
-      location.replace("../homepage.html")
+      location.replace("../mainpages/homepage.html")
     })
   })
   .catch((error) => {
@@ -59,3 +55,4 @@ document.getElementById("btnLogin").addEventListener('click', (e) => {
     }
   })
 })
+
