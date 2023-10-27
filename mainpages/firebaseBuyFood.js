@@ -51,7 +51,7 @@ onValue(postedSales, (snapshot) => {
                     // Card Header Div
                     var cardHeaderDiv = document.createElement('div')
                     cardHeaderDiv.classList.add('card-header')
-                    var cardHeaderText = document.createTextNode(selectedSalesData.postedon)
+                    var cardHeaderText = document.createTextNode("Posted On: " + selectedSalesData.postedon)
                     cardHeaderDiv.appendChild(cardHeaderText)
 
                     // Card Body Div
@@ -61,7 +61,7 @@ onValue(postedSales, (snapshot) => {
                     // H5 tag Card title
                     var shopNameElem = document.createElement('h5')
                     shopNameElem.classList.add('card-title')
-                    var shopNameText = document.createTextNode(sale)
+                    var shopNameText = document.createTextNode("Location: " + sale)
                     shopNameElem.appendChild(shopNameText)
 
                     // P tag contactnumber
@@ -97,8 +97,14 @@ onValue(postedSales, (snapshot) => {
                         localStorage.setItem('location', sale);
                         location.href = "map.html";
                     })
+        
+                    var imgElem = document.createElement('img')
+                    imgElem.width = '400'
+                    imgElem.height = '250'
+                    imgElem.setAttribute('src', selectedSalesData.saleimage) 
 
                     cardBodyDiv.appendChild(shopNameElem)
+                    cardBodyDiv.appendChild(imgElem)
                     cardBodyDiv.appendChild(contactNoElem)
                     cardBodyDiv.appendChild(salesDescElem)
                     cardBodyDiv.appendChild(salesPeriodElem)
@@ -119,166 +125,26 @@ onValue(postedSales, (snapshot) => {
 btnCommunity.addEventListener('click', (e) => {
     var btnValue = btnCommunity.value;
     contentDisplay.innerHTML = ""
-    const selectedSaleType = ref(database, 'saleposts/' + btnValue)
-    onValue(selectedSaleType, (snapshot) => {
-        const selectedSaleTypeData = snapshot.val()
-        for (let sale in selectedSaleTypeData) {
-            const selectedSale = ref(database, 'saleposts/' + btnValue + '/' + sale)
-            onValue(selectedSale, (snapshot) => {
-                const selectedSalesData = snapshot.val()
-                // Card div
-                var cardDiv = document.createElement('div')
-                cardDiv.classList.add('card')
-
-                // Card Header Div
-                var cardHeaderDiv = document.createElement('div')
-                cardHeaderDiv.classList.add('card-header')
-                var cardHeaderText = document.createTextNode(selectedSalesData.postedon)
-                cardHeaderDiv.appendChild(cardHeaderText)
-
-                // Card Body Div
-                var cardBodyDiv = document.createElement('div')
-                cardBodyDiv.classList.add('card-body')
-
-                // H5 tag Card title
-                var shopNameElem = document.createElement('h5')
-                shopNameElem.classList.add('card-title')
-                var shopNameText = document.createTextNode(sale)
-                shopNameElem.appendChild(shopNameText)
-
-                // P tag contactnumber
-                var contactNoElem = document.createElement('p')
-                contactNoElem.classList.add('card-text')
-                var contactNoText = document.createTextNode("Contact Number: " + selectedSalesData.contactno)
-                contactNoElem.appendChild(contactNoText)
-                // P tag salesdesc
-                var salesDescElem = document.createElement('p')
-                salesDescElem.classList.add('card-text')
-                var salesDescText = document.createTextNode("Sales Information: " + selectedSalesData.salesdescription)
-                salesDescElem.appendChild(salesDescText)
-                // P tag salesperiod
-                var salesPeriodElem = document.createElement('p')
-                salesPeriodElem.classList.add('card-text')
-                var salesPeriodText = document.createTextNode("Sales Period: " + selectedSalesData.salesperiod)
-                salesPeriodElem.appendChild(salesPeriodText)
-                // P tag discountedprice
-                var discountedPriceElem = document.createElement('p')
-                discountedPriceElem.classList.add('card-text')
-                var discountedPriceText = document.createTextNode("Discounts: " + selectedSalesData.discountedprice)
-                discountedPriceElem.appendChild(discountedPriceText)
-                
-                // Button Locate
-                var locateAElem = document.createElement('a')
-                locateAElem.classList.add('btn')
-                locateAElem.classList.add('btn-primary')
-                var locateAText = document.createTextNode('Find Location')
-                locateAElem.appendChild(locateAText)
-
-                // Add event listener to go maps page and send location name over to map
-                locateAElem.addEventListener('click', (e) => {
-                    localStorage.setItem('location', sale);
-                    location.href = "map.html";
-                })
-
-                cardBodyDiv.appendChild(shopNameElem)
-                cardBodyDiv.appendChild(contactNoElem)
-                cardBodyDiv.appendChild(salesDescElem)
-                cardBodyDiv.appendChild(salesPeriodElem)
-                cardBodyDiv.appendChild(discountedPriceElem)
-                cardBodyDiv.appendChild(locateAElem)
-
-                cardDiv.appendChild(cardHeaderDiv)
-                cardDiv.appendChild(cardBodyDiv)
-                contentDisplay.appendChild(cardDiv)
-            })
-        }
-    })
+    displayBySalesType(btnValue)
 })
 
 // When clicked, filter by food chain sale posts
 btnFoodChain.addEventListener('click', (e) => {
     var btnValue = btnFoodChain.value;
     contentDisplay.innerHTML = ""
-    const selectedSaleType = ref(database, 'saleposts/' + btnValue)
-    onValue(selectedSaleType, (snapshot) => {
-        const selectedSaleTypeData = snapshot.val()
-        for (let sale in selectedSaleTypeData) {
-            const selectedSale = ref(database, 'saleposts/' + btnValue + '/' + sale)
-            onValue(selectedSale, (snapshot) => {
-                const selectedSalesData = snapshot.val()
-                // Card div
-                var cardDiv = document.createElement('div')
-                cardDiv.classList.add('card')
-
-                // Card Header Div
-                var cardHeaderDiv = document.createElement('div')
-                cardHeaderDiv.classList.add('card-header')
-                var cardHeaderText = document.createTextNode(selectedSalesData.postedon)
-                cardHeaderDiv.appendChild(cardHeaderText)
-
-                // Card Body Div
-                var cardBodyDiv = document.createElement('div')
-                cardBodyDiv.classList.add('card-body')
-
-                // H5 tag Card title
-                var shopNameElem = document.createElement('h5')
-                shopNameElem.classList.add('card-title')
-                var shopNameText = document.createTextNode(sale)
-                shopNameElem.appendChild(shopNameText)
-
-                // P tag contactnumber
-                var contactNoElem = document.createElement('p')
-                contactNoElem.classList.add('card-text')
-                var contactNoText = document.createTextNode("Contact Number: " + selectedSalesData.contactno)
-                contactNoElem.appendChild(contactNoText)
-                // P tag salesdesc
-                var salesDescElem = document.createElement('p')
-                salesDescElem.classList.add('card-text')
-                var salesDescText = document.createTextNode("Sales Information: " + selectedSalesData.salesdescription)
-                salesDescElem.appendChild(salesDescText)
-                // P tag salesperiod
-                var salesPeriodElem = document.createElement('p')
-                salesPeriodElem.classList.add('card-text')
-                var salesPeriodText = document.createTextNode("Sales Period: " + selectedSalesData.salesperiod)
-                salesPeriodElem.appendChild(salesPeriodText)
-                // P tag discountedprice
-                var discountedPriceElem = document.createElement('p')
-                discountedPriceElem.classList.add('card-text')
-                var discountedPriceText = document.createTextNode("Discounts: " + selectedSalesData.discountedprice)
-                discountedPriceElem.appendChild(discountedPriceText)
-                
-                // Button Locate
-                var locateAElem = document.createElement('a')
-                locateAElem.classList.add('btn')
-                locateAElem.classList.add('btn-primary')
-                var locateAText = document.createTextNode('Find Location')
-                locateAElem.appendChild(locateAText)
-
-                // Add event listener to go maps page and send location name over to map
-                locateAElem.addEventListener('click', (e) => {
-                    localStorage.setItem('location', sale);
-                    location.href = "map.html";
-                })
-
-                cardBodyDiv.appendChild(shopNameElem)
-                cardBodyDiv.appendChild(contactNoElem)
-                cardBodyDiv.appendChild(salesDescElem)
-                cardBodyDiv.appendChild(salesPeriodElem)
-                cardBodyDiv.appendChild(discountedPriceElem)
-                cardBodyDiv.appendChild(locateAElem)
-
-                cardDiv.appendChild(cardHeaderDiv)
-                cardDiv.appendChild(cardBodyDiv)
-                contentDisplay.appendChild(cardDiv)
-            })
-        }
-    })
+    displayBySalesType(btnValue)
 })
 
 // When clicked, filter by supermarket sale posts
 btnSupermarket.addEventListener('click', (e) => {
     var btnValue = btnSupermarket.value;
     contentDisplay.innerHTML = ""
+    displayBySalesType(btnValue)
+})
+
+
+// Create reusable function for each button filtered sales type
+function displayBySalesType(btnValue) {
     const selectedSaleType = ref(database, 'saleposts/' + btnValue)
     onValue(selectedSaleType, (snapshot) => {
         const selectedSaleTypeData = snapshot.val()
@@ -293,7 +159,7 @@ btnSupermarket.addEventListener('click', (e) => {
                 // Card Header Div
                 var cardHeaderDiv = document.createElement('div')
                 cardHeaderDiv.classList.add('card-header')
-                var cardHeaderText = document.createTextNode(selectedSalesData.postedon)
+                var cardHeaderText = document.createTextNode("Posted On: " + selectedSalesData.postedon)
                 cardHeaderDiv.appendChild(cardHeaderText)
 
                 // Card Body Div
@@ -303,7 +169,7 @@ btnSupermarket.addEventListener('click', (e) => {
                 // H5 tag Card title
                 var shopNameElem = document.createElement('h5')
                 shopNameElem.classList.add('card-title')
-                var shopNameText = document.createTextNode(sale)
+                var shopNameText = document.createTextNode("Location: " + sale)
                 shopNameElem.appendChild(shopNameText)
 
                 // P tag contactnumber
@@ -340,7 +206,13 @@ btnSupermarket.addEventListener('click', (e) => {
                     location.href = "map.html";
                 })
 
+                var imgElem = document.createElement('img')
+                imgElem.width = '400'
+                imgElem.height = '250'
+                imgElem.setAttribute('src', selectedSalesData.saleimage) 
+
                 cardBodyDiv.appendChild(shopNameElem)
+                cardBodyDiv.appendChild(imgElem)
                 cardBodyDiv.appendChild(contactNoElem)
                 cardBodyDiv.appendChild(salesDescElem)
                 cardBodyDiv.appendChild(salesPeriodElem)
@@ -353,7 +225,6 @@ btnSupermarket.addEventListener('click', (e) => {
             })
         }
     })
-})
-
+}
 
 
