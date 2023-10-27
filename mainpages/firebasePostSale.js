@@ -37,6 +37,7 @@ var salePeriod = document.getElementById('inputSalePeriod')
 var saleImage = document.getElementById('file-upload');
 var saleSecureUrl = ''
 
+// Upload and retrieve image using cloudinary api
 saleImage.addEventListener('change', function(event) {
     var file = event.target.files[0];
     var formData = new FormData()
@@ -58,6 +59,7 @@ saleImage.addEventListener('change', function(event) {
     })
 })
 
+// Submit Post
 btnPost.addEventListener('click', (e) => {
     var saleTypeValue = saleType.value.toLowerCase()
     if (saleTypeValue == "food chains") {
@@ -69,6 +71,10 @@ btnPost.addEventListener('click', (e) => {
     var saleDescriptionValue = saleDescription.value
     var salePeriodValue = salePeriod.value
     var saleSecureUrlValue = saleSecureUrl
+
+    var myApiKey = "AIzaSyAy3roqtg4LWKDferNRiTMpiki8E2tsTas"
+    var encodedAddr = encodeURI(saleLocationValue);
+    var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + encodedAddr + "&key=" + myApiKey;
 
     const dateObj = new Date();
 
@@ -96,7 +102,35 @@ btnPost.addEventListener('click', (e) => {
 
     const time = `${year}/${month}/${date} ${hour}:${minute}:${second}`;
 
-    if (saleTypeValue != '' && saleLocationValue != '' && saleContactValue != '' && salePriceValue != '' && saleDescriptionValue != '' && salePeriodValue != '' && saleSecureUrlValue != '') {
+    // Error message variable
+    var error = "";
+
+    // Validate to ensure all fields are populated
+    if (saleTypeValue == '' || saleLocationValue == '' || saleContactValue == '' || salePriceValue == '' || saleDescriptionValue == '' || salePeriodValue == '' || saleSecureUrlValue == '') {
+        error += "One or more input fields are empty! \n";
+    }
+    // Ensure userinput for sale location is valid according to the specified format
+    if (saleLocationValue != '') {
+        // Conduct an axios call using user input of saleLocation, if empty array
+        // if empty array returned = invalid location and throw error
+        axios.get(url, {
+
+        }).then(response => {
+            if (response.data.results.length == 0) {
+                error += 'Please specify a proper location according to the format specified! \n';
+            }
+        })
+    }
+    // Phone number must be exactly 8 digits long, and start with 6,8 or 9
+    if (saleContactValue.length != 8 || (saleContactValue[0] != '6' && saleContactValue[0] != '8' && saleContactValue[0] != '9')) {
+        error += 'Contact number format is invalid! Ensure format is exactly 8 digits, and must start with 6,8 or 9! \n'
+    }
+    // If there are any errors, print all of them into one alert box
+    if (error != "") {
+        alert(error);
+    }
+    // Passed all validation checks, input into database
+    else {
         set(ref(database, 'saleposts/' + saleTypeValue + '/' + saleLocationValue.toUpperCase()), {
             contactno: saleContactValue,
             discountedprice: salePriceValue,
@@ -109,8 +143,6 @@ btnPost.addEventListener('click', (e) => {
             location.replace("buyFood.html")
         })
     }
-    
-
 })
 
 
