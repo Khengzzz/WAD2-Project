@@ -46,6 +46,19 @@ const questions = [
     }    
 ];
 
+var url = "quizQnList.json"
+              
+                axios.get(url
+                )
+                .then(response =>  {
+                    console.log(response.data)
+                   
+                })
+
+
+
+
+
 const questionElement = document.getElementById("question");
 const answerChoices = document.getElementById("answer-choices");
 const nextBtn = document.getElementById("next-btn");
@@ -89,6 +102,7 @@ function resetState(){
 let selectedAnswer = null;
 function selectAnswer(e){
     const selectedBtn = e.target;
+    console.log(selectedBtn)
     // const isCorrect = selectedBtn.dataset.correct === "true";
 
     // console.log(selectedBtn);

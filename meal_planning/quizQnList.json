@@ -1,0 +1,53 @@
+{
+    "questionArrays": [
+        [
+            {
+                "question": "What is your preferred protein source for a healthy dinner?",
+                "answers": [
+                    {"text": "Spicy", "correct": true , "count":1},
+                    {"text": "Mild", "correct": true},
+                    {"text": "Just abit", "correct": true},
+                    {"text": "None", "correct": true}
+                ]
+            },
+            {
+                "question": "What kind of cuisine are you in the mood for?",
+                "answers": [
+                    {"text": "Italian", "correct": true},
+                    {"text": "Mexican", "correct": true},
+                    {"text": "Asian", "correct": true},
+                    {"text": "Mediterranean", "correct": true}
+                ]
+            }
+        ],
+        [
+            {
+                "question": "Which vegetable would you like to include in your meals?",
+                "answers": [
+                    {"text": "Spinach", "correct": true},
+                    {"text": "Kale", "correct": true},
+                    {"text": "Arugula", "correct": true},
+                    {"text": "Mixed Greens", "correct": true}
+                ]
+            },
+            {
+                "question": "What is your preferred cooking method for dinner preparation?",
+                "answers": [
+                    {"text": "Grilling", "correct": true},
+                    {"text": "Stir-frying", "correct": true},
+                    {"text": "Roasting", "correct": true},
+                    {"text": "Steaming", "correct": true}
+                ]
+            },
+            {
+                "question": "Which type of grain would you like to incorporate into your meals?",
+                "answers": [
+                    {"text": "Quinoa", "correct": true},
+                    {"text": "Brown Rice", "correct": true},
+                    {"text": "White Rice", "correct": true},
+                    {"text": "Oats", "correct": true}
+                ]
+            }
+        ]
+    ]
+}
