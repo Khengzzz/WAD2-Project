@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "firebase": "^10.5.0",
+    "firebase": "^10.5.2",
     "vuefire": "^3.1.17"
   },
   "name": "wad2-project",
