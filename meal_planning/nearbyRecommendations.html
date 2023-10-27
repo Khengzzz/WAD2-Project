@@ -14,6 +14,10 @@
 
     
     <script>
+        var foodtype=localStorage["cuisineName"];
+        // Call the function with the desired cuisine type
+        findNearbyRestaurants(foodtype); // Change the cuisine type as needed
+
         // Function to find nearby restaurants of a specific cuisine
         function findNearbyRestaurants(cuisine) {
             // Check if the Geolocation API is available
@@ -27,12 +31,6 @@
                         center: location,
                         zoom: 15
                     });
-                    const userMarker = new google.maps.Marker({
-                        position: location,
-                        map: map,
-                        title: "Your Location"
-                    });
-  
 
                     const request = {
                         location: location,
@@ -68,9 +66,8 @@
             }
         }
 
-        var foodtype="Western"
-        // Call the function with the desired cuisine type
-        findNearbyRestaurants(foodtype); // Change the cuisine type as needed
+        
+       
     </script>
 </body>
 </html>
