@@ -1482,7 +1482,8 @@ Services Style
 }
 
 .services .left-text p {
-  margin-bottom: 30px;
+  margin-bottom: 3px;
+  color: black;
 }
 
 .nacc .ticks-list span {

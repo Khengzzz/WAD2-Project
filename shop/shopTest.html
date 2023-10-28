@@ -26,12 +26,10 @@
     <link rel="stylesheet" href="shop.css">
 
     <!-- Firebase Scripts -->
-    <!-- <script type="module" src="../firebaseNavBar.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <!-- <script src="firebaseConfig.js"></script> -->
-    <script src="shop.js"></script>
-
+    <script type="module" src="../firebaseNavBar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js"></script>
+  <script script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js"></script>
 <!--
 
 TemplateMo 568 DigiMedia
@@ -127,7 +125,7 @@ https://templatemo.com/tm-568-digimedia
     <div v-for="(item, index) in data" :key="index">
       <div>
         <img :src="item.saleimage" alt="Sale Image" style="max-width: 100px;">
-        <h3>{{ item.salesdescription }}</h3>
+        <h5>{{ item.salesdescription }}</h5>
         <p>{{ item.discountedprice }}</p>
         <p>{{ item.salesperiod }}</p>
         <p>{{ item.postedon }}</p>
@@ -135,10 +133,52 @@ https://templatemo.com/tm-568-digimedia
       </div>
     </div>   
   </div>
+
+ 
+  <!-- <script type="text/javascript">
+  const config = {
+    apiKey: "AIzaSyDQuYzHV8SGG_Mr_kKCEZXeqGUwixIhX1s",
+    authDomain: "ecobites-b5084.firebaseapp.com",
+    databaseURL: "https://ecobites-b5084-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "ecobites-b5084",
+    storageBucket: "ecobites-b5084.appspot.com",
+    messagingSenderId: "256057404957",
+    appId: "1:256057404957:web:deecd1dfbcb5f83e1460f4",
+    measurementId: "G-GZ4EDQDHRT"
+  }
+  firebase.initializeApp(config)
+
+  const database = firebase.database()
+  const dbRef = firebase.database().ref('saleposts/community');
+
+  new Vue({
+    el: "#app",
+
+    data() {
+    return {
+      data: []
+    };
+  },
+    created() {
+      // Fetch data from the Firebase database
+      dbRef.on('value', (snapshot) => {
+        const data = snapshot.val();
+        const dataArray = [];
+        for (let key in data) {
+          dataArray.push(data[key]);
+        }
+        this.data = dataArray;
+        console.log(this.data);
+      });
+    }
+  })
+</script> -->
+  
   
 
   
 <!-- Scripts -->
+<!-- <script type="module" src="shop.js"></script> -->
 <script src="../homepage/vendor/jquery/jquery.min.js"></script>
 <script src="../homepage/assets/js/owl-carousel.js"></script>
 <script src="../homepage/assets/js/animation.js"></script>
