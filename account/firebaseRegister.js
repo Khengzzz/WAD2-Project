@@ -23,21 +23,27 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 // Initialize Realtime Database and get a reference to the service
 const database = getDatabase(app);
-var userExists = false
+
 document.getElementById("btnRegister").addEventListener('click', (e) => {
+  var userExists = false
   var username = document.getElementById("usernameRegisterField").value;
   var email = document.getElementById("emailRegisterField").value;
   var password = document.getElementById("passwordRegisterField").value;
   const usernames = ref(database, 'usernames/')
   // Check database "usernames" folder if selected username exists
   onValue(usernames, (snapshot) => {
-    // Username already exists 
-    if (snapshot.hasChild(username)) {
-      // Throw error message
-      userExists = true
+    const allUsernamesData = snapshot.val()
+    for (let uname in allUsernamesData) {
+      // Since JS is case-sensitive, standardise set to lower case for existing stored usernames and input
+      // for accurate comparison (E.g. john != John and will still be wrongly added to db which should not be allowed!)
+      if (uname.toLowerCase() == username.toLowerCase()) {
+         // Username already exists
+        userExists = true
+      }
+    }
+    // Username does not exist
     // Create this user into database 
-    } else {
-      userExists = false
+    if (!userExists) {
       createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
