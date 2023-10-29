@@ -83,20 +83,10 @@ if (navigator.geolocation) {
     });  
 }
 
-// When page is first loaded, display all sale posts
-onValue(postedSales, (snapshot) => {
-    const allSalesData = snapshot.val()
-
-    for (let saletype in allSalesData) {
-        const selectedSaleType = ref(database, 'saleposts/' + saletype)
-        onValue(selectedSaleType, (snapshot) => {
-            const selectedSaleTypeData = snapshot.val()
-            for (let sale in selectedSaleTypeData) {
-                const saleRef = ref(database, 'saleposts/' + saletype + '/' + sale)
+/*                 const saleRef = ref(database, 'saleposts/' + saletype + '/' + sale)
                 const orderedQuery = query(saleRef, orderByChild("distance"))
 
                 // Fetch data from the ordered query
-                // TO-DO STILL NEED TO FIX THIS
                 get(orderedQuery).then((snapshot) => {
                     if (snapshot.exists()) {
                         snapshot.forEach((childSnapshot) => {
@@ -108,14 +98,15 @@ onValue(postedSales, (snapshot) => {
                     }
                 }).catch((error) => {
                     console.error('Error getting data:', error)
-                })
- 
-                
-            }
+                }) */
 
-        })
-    }
+// On windows load, display all data
+window.addEventListener('load', (e) => {
+    displayBySalesType(btnCommunity.value)
+    displayBySalesType(btnFoodChain.value)
+    displayBySalesType(btnSupermarket.value)
 })
+
 
 // When clicked, filter by community sale posts
 btnCommunity.addEventListener('click', (e) => {
@@ -123,6 +114,7 @@ btnCommunity.addEventListener('click', (e) => {
     contentDisplay.innerHTML = ""
     displayBySalesType(btnValue)
 })
+
 
 // When clicked, filter by food chain sale posts
 btnFoodChain.addEventListener('click', (e) => {
@@ -137,6 +129,7 @@ btnSupermarket.addEventListener('click', (e) => {
     contentDisplay.innerHTML = ""
     displayBySalesType(btnValue)
 })
+
 
 
 // Create reusable function for each button filtered sales type
