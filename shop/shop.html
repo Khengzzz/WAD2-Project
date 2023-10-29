@@ -195,7 +195,7 @@ https://templatemo.com/tm-568-digimedia
                                             </div>
                                             <div class="col-12">
                                               <div class="d-flex justify-content-end">
-                                                <button class="btn btn-primary">Location</button>
+                                                <button @click="sendLocation(item.sale, item.lat, item.lng)" class="btn btn-primary">Location</button>
                                               </div>
                                             </div>
                                           </div>
@@ -242,7 +242,7 @@ https://templatemo.com/tm-568-digimedia
                                             </div>
                                             <div class="col-12">
                                               <div class="d-flex justify-content-end">
-                                                <button class="btn btn-primary">Location</button>
+                                                <button @click="sendLocation(item.sale, item.lat, item.lng)" class="btn btn-primary">Location</button>
                                               </div>
                                             </div>
                                           </div>
@@ -290,7 +290,7 @@ https://templatemo.com/tm-568-digimedia
                                             </div>
                                             <div class="col-12">
                                               <div class="d-flex justify-content-end">
-                                                <button class="btn btn-primary">Location</button>
+                                                <button @click="sendLocation(item.sale, item.lat, item.lng)" class="btn btn-primary">Location</button>
                                               </div>
                                             </div>
                                           </div>
@@ -339,6 +339,14 @@ https://templatemo.com/tm-568-digimedia
         communityData: []
       };
     },
+    methods: {
+    sendLocation(sale, lat, lng) {
+      localStorage.setItem('location', sale);
+      localStorage.setItem('lat', lat);
+      localStorage.setItem('lng', lng);
+      location.href = "mapTest.html";
+    }
+  },
     created() {
       const communityRef = database.ref('saleposts/community');
       communityRef.on('value', (snapshot) => {
@@ -360,6 +368,14 @@ https://templatemo.com/tm-568-digimedia
         foodChainsData: []
       };
     },
+    methods: {
+    sendLocation(sale, lat, lng) {
+      localStorage.setItem('location', sale);
+      localStorage.setItem('lat', lat);
+      localStorage.setItem('lng', lng);
+      location.href = "mapTest.html";
+    }
+  },
     created() {
       const foodChainsRef = database.ref('saleposts/foodchains');
       foodChainsRef.on('value', (snapshot) => {
@@ -381,6 +397,14 @@ https://templatemo.com/tm-568-digimedia
         supermarketData: []
       };
     },
+    methods: {
+    sendLocation(sale, lat, lng) {
+      localStorage.setItem('location', sale);
+      localStorage.setItem('lat', lat);
+      localStorage.setItem('lng', lng);
+      location.href = "mapTest.html";
+    }
+  },
     created() {
       const supermarketRef = database.ref('saleposts/supermarket');
       supermarketRef.on('value', (snapshot) => {
