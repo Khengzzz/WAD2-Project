@@ -36,6 +36,8 @@ var salePeriod = document.getElementById('inputSalePeriod')
 
 var saleImage = document.getElementById('file-upload');
 var saleSecureUrl = ''
+var latVal;
+var lngVal;
 
 // Upload and retrieve image using cloudinary api
 saleImage.addEventListener('change', function(event) {
@@ -119,6 +121,8 @@ btnPost.addEventListener('click', (e) => {
             if (response.data.results.length == 0) {
                 error += 'Please specify a proper location according to the format specified! \n';
             }
+            latVal = Number(response.data.results[0].geometry.location.lat);
+            lngVal = Number(response.data.results[0].geometry.location.lng);
         })
     }
     // Phone number must be exactly 8 digits long, and start with 6,8 or 9
@@ -131,17 +135,21 @@ btnPost.addEventListener('click', (e) => {
     }
     // Passed all validation checks, input into database
     else {
-        set(ref(database, 'saleposts/' + saleTypeValue + '/' + saleLocationValue.toUpperCase()), {
-            contactno: saleContactValue,
-            discountedprice: salePriceValue,
-            salesdescription: saleDescriptionValue,
-            salesperiod: salePeriodValue,
-            saleimage: saleSecureUrlValue,
-            postedon: time
-        }).then(function() {
-            alert("Your post has been successfully submitted!")
-            location.replace("buyFood.html")
-        })
+        if (latVal !== undefined && lngVal !== undefined) {
+            set(ref(database, 'saleposts/' + saleTypeValue + '/' + saleLocationValue.toUpperCase()), {
+                contactno: saleContactValue,
+                discountedprice: salePriceValue,
+                salesdescription: saleDescriptionValue,
+                salesperiod: salePeriodValue,
+                saleimage: saleSecureUrlValue,
+                postedon: time,
+                lat: latVal,
+                lng: lngVal, 
+            }).then(function() {
+                alert("Your post has been successfully submitted!")
+                location.replace("buyFood.html")
+            })
+        }
     }
 })
 
