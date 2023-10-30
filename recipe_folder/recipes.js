@@ -31,14 +31,14 @@ url
         //get array of dishes for the current cuisine
         var disheslist=test1[u].dishes
         
-        //set divId
+        //set unique divId
         var divId="a"+u
         
 
         //create div to hold cards
         var divEle=document.createElement("div")
         divEle.setAttribute("id",divId)
-        divEle.setAttribute("class","row justify-content-center")
+        divEle.setAttribute("class","row justify-content-center spacing")
 
 
         for(i in disheslist){
