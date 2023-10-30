@@ -58,6 +58,14 @@ onAuthStateChanged(auth, (user) => {
 
 
             //create upload
+            var saleImage = document.getElementById('file-upload');
+            console.log(saleImage)
+            saleImage.addEventListener('change', function(event) {
+              var file = event.target.files[0];
+              var formData = new FormData()
+              formData.append('file', file)
+              formData.append('upload_preset', cloudinary_upload_preset)
+              console.log(formData)
             var cloudinary_url = "https://api.cloudinary.com/v1_1/dspndyx8k/upload"
             var cloudinary_upload_preset = 'lx3a4q6l' 
 
@@ -70,7 +78,8 @@ onAuthStateChanged(auth, (user) => {
                 data: formData
             }).then(response => {
                 var imgLink = response.data.secure_url
-                saleSecureUrl = imgLink
+                var saleSecureUrl = imgLink
+                console.log(saleSecureUrl)
             }).catch(error => {
                 console.log(error.message)
             })
@@ -78,7 +87,7 @@ onAuthStateChanged(auth, (user) => {
 
 
 
-        } else {
+        })} else {
           console.log("No data available");
         }})
 
