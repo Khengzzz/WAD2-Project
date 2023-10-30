@@ -167,6 +167,11 @@
     }
 
     //Load the map using Google Maps API
+    var script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAy3roqtg4LWKDferNRiTMpiki8E2tsTas&callback=initMap`;
+    script.defer = true;
+    script.async = true;
+    document.head.appendChild(script);
     
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy3roqtg4LWKDferNRiTMpiki8E2tsTas&callback=initMap"
