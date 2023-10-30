@@ -11,11 +11,54 @@ url
     var cuisineList=[]
    
     getCuisines(cuisineList,test1)
+    //get div to hold everything inside
+    var overall=document.getElementById("main")
     console.log(cuisineList)
-    
-    //create carousel per cuisine
-    for( u in cuisineList){}
 
+    //get cuisine name as 1st div, 2nd div as dishes in cuisine
+    for(u in cuisineList){
+
+        //create cuisine name div
+        var cuisineNameHolder=document.createElement("div")
+        cuisineNameHolder.setAttribute("class","row text-center spacing")
+        var cuisineName=document.createElement("h2")
+        var textnode=document.createTextNode(cuisineList[u])
+        cuisineName.append(textnode)
+        cuisineNameHolder.append(cuisineName)
+        console.log(cuisineNameHolder)
+
+
+        //get array of dishes for the current cuisine
+        var disheslist=test1[u].dishes
+        
+        //set divId
+        var divId="a"+u
+        
+
+        //create div to hold cards
+        var divEle=document.createElement("div")
+        divEle.setAttribute("id",divId)
+        divEle.setAttribute("class","row justify-content-center")
+
+
+        for(i in disheslist){
+            //get name of dish
+           dishname=disheslist[i].name
+           console.log(dishname)
+            dishtime=disheslist[i].time
+            dishImg=disheslist[i].img
+            var papertrail=createCard(dishname,dishtime,dishImg,divEle,cuisineList[u])
+            
+            // console.log(dishname+" "+dishtime +" "+ dishImg+" " +"abd")
+        }
+
+     //add div with card to overall
+        overall.append(cuisineNameHolder)
+       overall.append(papertrail)
+        console.log("end")
+    }
+
+ 
     
    
    
@@ -25,22 +68,21 @@ url
 
 function getCuisines(cuisineList,database){
     for(x in database){
-        console.log(database[x].cuisine)
+       
         cuisineList.push(database[x].cuisine)
 
     }
     
 }
 
-var testing=createCard("Fish","15 minutes","chickenrice")
 
-function createCard(dishName,preptime,imglink){
+function createCard(dishName,preptime,imglink,divId,cName){
 //create card
 var card=document.createElement("div")
 
 //set card style
 card.setAttribute("class","card")
-card.style.width="18rem"
+card.style.width="15rem"
 
 //create img
 var img1=document.createElement("img")
@@ -62,11 +104,11 @@ var cooktime=document.createElement("p")
 var textnode2=document.createTextNode(preptime)
 cooktime.appendChild(textnode2)
 
-//clickable link
+//button
 
 var link=document.createElement("a")
-link.setAttribute("href","indiv_recipe.html?abcd='1'")
-var textnode3=document.createTextNode(imglink)
+link.setAttribute("href","indiv_recipe.html?cuisine="+cName+"&dish="+imglink)
+var textnode3=document.createTextNode("Click here to view dish")
 link.appendChild(textnode3)
 
 //add all tgt
@@ -75,12 +117,15 @@ body.append(cooktime)
 body.append(link)
 card.append(img1)
 card.append(body)
-console.log(card)
 
 
-var t1=document.getElementById("testing")
-console.log(testing)
-t1.append(card)
+
+
+//appendcard to div
+divId.append(card)
+
+
+return divId
+
 }
-var t1=document.getElementById("testing")
-console.log(t1)
+
