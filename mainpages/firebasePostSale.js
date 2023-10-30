@@ -137,6 +137,7 @@ btnPost.addEventListener('click', (e) => {
     else {
         if (latVal !== undefined && lngVal !== undefined) {
             set(ref(database, 'saleposts/' + saleTypeValue + '/' + saleLocationValue.toUpperCase()), {
+                location: saleLocationValue.toUpperCase(),
                 contactno: saleContactValue,
                 discountedprice: salePriceValue,
                 salesdescription: saleDescriptionValue,

@@ -27,9 +27,17 @@ var contentDisplay = document.getElementById('display');
 var btnCommunity = document.getElementById('btnCommunity')
 var btnFoodChain = document.getElementById('btnShops')
 var btnSupermarket = document.getElementById('btnSupermarkets')
+const retrievedLoc = localStorage.getItem('location')
 
 // Retrieve user's username
 const postedSales = ref(database, 'saleposts/')
+
+// On windows load, display all data
+window.addEventListener('load', (e) => {
+    displayBySalesType(btnCommunity.value)
+    displayBySalesType(btnFoodChain.value)
+    displayBySalesType(btnSupermarket.value)
+})
 
 // Degree to Radian conversion
 function degToRad(deg) {
@@ -83,29 +91,24 @@ if (navigator.geolocation) {
     });  
 }
 
-/*                 const saleRef = ref(database, 'saleposts/' + saletype + '/' + sale)
-                const orderedQuery = query(saleRef, orderByChild("distance"))
+/* const saleRef = ref(database, 'saleposts/' + 'foodchains/')
+const orderedQuery = query(saleRef, orderByChild("distance"))
 
-                // Fetch data from the ordered query
-                get(orderedQuery).then((snapshot) => {
-                    if (snapshot.exists()) {
-                        snapshot.forEach((childSnapshot) => {
-                            const childData = childSnapshot.val()
-                            console.log(childData)
-                        });
-                    } else {
-                        console.log('No data available');
-                    }
-                }).catch((error) => {
-                    console.error('Error getting data:', error)
-                }) */
+// Fetch data from the ordered query
+get(orderedQuery).then((snapshot) => {
+    if (snapshot.exists()) {
+        snapshot.forEach((childSnapshot) => {
+            const childData = childSnapshot.val()
+            console.log(childData)
+            console.log(childData.contactno)
+        });
+    } else {
+        console.log('No data available');
+    }
+}).catch((error) => {
+    console.error('Error getting data:', error)
+})  */
 
-// On windows load, display all data
-window.addEventListener('load', (e) => {
-    displayBySalesType(btnCommunity.value)
-    displayBySalesType(btnFoodChain.value)
-    displayBySalesType(btnSupermarket.value)
-})
 
 
 // When clicked, filter by community sale posts
@@ -135,12 +138,15 @@ btnSupermarket.addEventListener('click', (e) => {
 // Create reusable function for each button filtered sales type
 function displayBySalesType(btnValue) {
     const selectedSaleType = ref(database, 'saleposts/' + btnValue)
-    onValue(selectedSaleType, (snapshot) => {
-        const selectedSaleTypeData = snapshot.val()
-        for (let sale in selectedSaleTypeData) {
-            const selectedSale = ref(database, 'saleposts/' + btnValue + '/' + sale)
-            onValue(selectedSale, (snapshot) => {
-                const selectedSalesData = snapshot.val()
+    const orderedQuery = query(selectedSaleType, orderByChild("distance"))
+    // Fetch data from the ordered query
+    get(orderedQuery).then((snapshot) => {
+        if (snapshot.exists()) {
+            snapshot.forEach((childSnapshot) => {
+                const childData = childSnapshot.val()
+                console.log(childSnapshot)
+                console.log(childData)
+                console.log(childData.contactno)
                 // Card div
                 var cardDiv = document.createElement('div')
                 cardDiv.classList.add('card')
@@ -148,7 +154,7 @@ function displayBySalesType(btnValue) {
                 // Card Header Div
                 var cardHeaderDiv = document.createElement('div')
                 cardHeaderDiv.classList.add('card-header')
-                var cardHeaderText = document.createTextNode("Posted On: " + selectedSalesData.postedon)
+                var cardHeaderText = document.createTextNode("Posted On: " + childData.postedon)
                 cardHeaderDiv.appendChild(cardHeaderText)
 
                 // Card Body Div
@@ -158,28 +164,28 @@ function displayBySalesType(btnValue) {
                 // H5 tag Card title
                 var shopNameElem = document.createElement('h5')
                 shopNameElem.classList.add('card-title')
-                var shopNameText = document.createTextNode("Location: " + sale)
+                var shopNameText = document.createTextNode("Location: " + childData.location)
                 shopNameElem.appendChild(shopNameText)
 
                 // P tag contactnumber
                 var contactNoElem = document.createElement('p')
                 contactNoElem.classList.add('card-text')
-                var contactNoText = document.createTextNode("Contact Number: " + selectedSalesData.contactno)
+                var contactNoText = document.createTextNode("Contact Number: " + childData.contactno)
                 contactNoElem.appendChild(contactNoText)
                 // P tag salesdesc
                 var salesDescElem = document.createElement('p')
                 salesDescElem.classList.add('card-text')
-                var salesDescText = document.createTextNode("Sales Information: " + selectedSalesData.salesdescription)
+                var salesDescText = document.createTextNode("Sales Information: " + childData.salesdescription)
                 salesDescElem.appendChild(salesDescText)
                 // P tag salesperiod
                 var salesPeriodElem = document.createElement('p')
                 salesPeriodElem.classList.add('card-text')
-                var salesPeriodText = document.createTextNode("Sales Period: " + selectedSalesData.salesperiod)
+                var salesPeriodText = document.createTextNode("Sales Period: " + childData.salesperiod)
                 salesPeriodElem.appendChild(salesPeriodText)
                 // P tag discountedprice
                 var discountedPriceElem = document.createElement('p')
                 discountedPriceElem.classList.add('card-text')
-                var discountedPriceText = document.createTextNode("Discounts: " + selectedSalesData.discountedprice)
+                var discountedPriceText = document.createTextNode("Discounts: " + childData.discountedprice)
                 discountedPriceElem.appendChild(discountedPriceText)
                 
                 // Button Locate
@@ -191,14 +197,14 @@ function displayBySalesType(btnValue) {
 
                 // Add event listener to go maps page and send location name over to map
                 locateAElem.addEventListener('click', (e) => {
-                    localStorage.setItem('location', sale);
+                    localStorage.setItem("selectedlocation", childData.location)
                     location.href = "map.html";
                 })
 
                 var imgElem = document.createElement('img')
                 imgElem.width = '400'
                 imgElem.height = '250'
-                imgElem.setAttribute('src', selectedSalesData.saleimage) 
+                imgElem.setAttribute('src', childData.saleimage) 
 
                 cardBodyDiv.appendChild(shopNameElem)
                 cardBodyDiv.appendChild(imgElem)
@@ -211,9 +217,13 @@ function displayBySalesType(btnValue) {
                 cardDiv.appendChild(cardHeaderDiv)
                 cardDiv.appendChild(cardBodyDiv)
                 contentDisplay.appendChild(cardDiv)
-            })
+            });
+        } else {
+            console.log('No data available');
         }
-    })
+    }).catch((error) => {
+        console.error('Error getting data:', error)
+    }) 
 }
 
 
