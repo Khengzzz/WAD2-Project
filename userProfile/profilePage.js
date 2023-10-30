@@ -23,6 +23,15 @@ const auth = getAuth(app);
 // Initialize Realtime Database and get a reference to the service
 const database = getDatabase(app);
 
+//cloudinary stuff
+var cloudinary_url = "https://api.cloudinary.com/v1_1/dspndyx8k/upload"
+var cloudinary_upload_preset = 'lx3a4q6l' 
+var saleImage = document.getElementById('file-upload');
+
+//secureUrl
+var userImgUrl=''
+
+//check user signed in
 onAuthStateChanged(auth, (user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
@@ -55,10 +64,13 @@ onAuthStateChanged(auth, (user) => {
         var emailh=document.createElement("h5")
         emailh.append("Email: "+userValues.email)
         emailDiv.append(emailh)
-
-
+         
+        //get userprofile img id
+        var imgid=document.getElementById("profileImg")
+        var currentUserImg=userValues.profileImg
+        imgid.setAttribute("src",currentUserImg)
             //create upload
-            var saleImage = document.getElementById('file-upload');
+            
             console.log(saleImage)
             saleImage.addEventListener('change', function(event) {
               var file = event.target.files[0];
@@ -66,8 +78,7 @@ onAuthStateChanged(auth, (user) => {
               formData.append('file', file)
               formData.append('upload_preset', cloudinary_upload_preset)
               console.log(formData)
-            var cloudinary_url = "https://api.cloudinary.com/v1_1/dspndyx8k/upload"
-            var cloudinary_upload_preset = 'lx3a4q6l' 
+    
 
             axios({
                 url: cloudinary_url,
@@ -78,8 +89,9 @@ onAuthStateChanged(auth, (user) => {
                 data: formData
             }).then(response => {
                 var imgLink = response.data.secure_url
-                var saleSecureUrl = imgLink
-                console.log(saleSecureUrl)
+                userImgUrl = imgLink
+                imgid.src=imgLink
+                console.log(userImgUrl)
             }).catch(error => {
                 console.log(error.message)
             })
@@ -92,9 +104,27 @@ onAuthStateChanged(auth, (user) => {
         }})
 
 
+        //update button
+        var btn=document.getElementById("update")
+        btn.addEventListener("click",(e)=>{
+          var newImgUrl=userImgUrl
+          update(ref(database,"users/"+uid),{
+            profileImg:newImgUrl
+          })
+          .then(function(){
+            alert("profile updated!")
+          })
+        }
+        )
 
 
-      
+
+        
+
+
+
+
+
     } else {
       alert("You are not logged in!")
       window.location.replace('http:../recipe_folder/recipes.html');
