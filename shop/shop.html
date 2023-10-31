@@ -326,7 +326,21 @@ https://templatemo.com/tm-568-digimedia
         </div>
       </div>
     </div>
+       
   </div>
+  <div class="popover-container">
+    <div class="popover">
+      <span class="close" onclick="closePopover()">&times;</span>
+      <div id="map" style="height: 400px; width: 400px;"></div>
+      <div class="form-group">
+        <!-- the following set the lat, lng values to put a marker on the map-->
+        <input type="hidden" id="lat" name="lat" value="1.2973784" />
+        <input type="hidden" id="lng" name="lng" value="103.8495219" />
+      </div>
+      <p id="displayAddr" class="lead text-center"></p>
+    </div>
+</div>
+
 
  
   
@@ -499,7 +513,12 @@ https://templatemo.com/tm-568-digimedia
         display.innerHTML = error.message;
     }); 
 }
-//Load the map using Google Maps API
+
+function closePopover() {
+  const popover = document.querySelector('.popover-container');
+  popover.style.display = 'none';
+}
+
 
 
 
