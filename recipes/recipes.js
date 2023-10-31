@@ -1,6 +1,6 @@
 
 
-var url = "./assets/recipesStorage.json"
+var url = "recipesStorage.json"
 axios.get(
 url
 )
