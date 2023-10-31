@@ -6,7 +6,7 @@
                 {
                 "name": "Kung Pao Chicken",
                 "img":"kungPaoChicken",
-                "serve":"2",
+                "serves":"2",
                 "time": "Preparation: 15 minutes, Cooking: 15 minutes",
                 "ingredients": [
                   "2 boneless, skinless chicken breasts, cut into bite-sized pieces",
@@ -54,7 +54,7 @@
                 "name": "Sweet and Sour Pork",
                 "img":"sweetAndSourPork",
                 "time": "Preparation: 10 minutes, Cooking: 10 minutes",
-                "serve":"2",
+                "serves":"2",
                 "ingredients": [
                   "1 pound pork tenderloin, cut into 1-inch cubes",
                   "1 cup bell peppers, cut into chunks",
@@ -79,7 +79,7 @@
               {
                 "name": "Mongolian Beef",
                 "img":"mongolianBeef",
-                "serve":"2",
+                "serves":"2",
                 "time": "Preparation: 15 minutes, Cooking: 15 minutes",
                 "ingredients": [
                   "1 pound flank steak, thinly sliced",
