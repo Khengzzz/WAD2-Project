@@ -1,6 +1,8 @@
 const searchBtn = document.getElementById('searchBtn');
 const searchBox = document.getElementById('searchBox');
 
+
+
 searchBtn.addEventListener('click', function() {
     if (searchBox.style.display === 'none' || searchBox.style.display === '') {
         searchBox.style.display = 'flex';

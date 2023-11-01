@@ -86,7 +86,7 @@
 }
 
 .mealQuiz {
-    background-image: url(../homepage/assets/images/quote-bg.jpg);
+    background-image: url("../homepage final/assets2/images/quote-bg.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
