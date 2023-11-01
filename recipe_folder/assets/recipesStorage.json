@@ -31,7 +31,7 @@
                 "name": "Egg Fried Rice",
                 "img":"eggFriedRice",
                 "time": "Preparation: 10 minutes, Cooking: 10 minutes",
-                "serve":"4",
+                "serves":"4",
                 "ingredients": [
                   "3 cups cooked cold rice",
                   "2 eggs, beaten",
