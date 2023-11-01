@@ -1,5 +1,9 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif'
+}
+
 .greybg{
-    background-color: lightgrey;
+    background-color: white;
 }
 .overhead{
     padding-top: 5px;
@@ -8,41 +12,47 @@
 }
 /* background */
 .pinkbg{
+<<<<<<< HEAD
+    background-color:white;
+=======
     background-color: #E9859E;
+>>>>>>> 1314f178abae28d5446f890652625e1c0dec1309
 }
 
 
 .navbar-nav>li>.dropdown-menu{
-    background-color: lightpink;
+    background-color: rgb(251, 218, 223);
 }
 
 
 /* .navbarcolour{
-    background-color: lightpink;
+    background-color: rgb(251, 218, 223);
 } */
 
 
-
+.navbar{
+    background-color: rgb(251, 218, 223);
+}
 .navtext{
-    color: rgba(244, 246, 248, 0.903);
+    color: black;
 }
 .navbar-nav>li>.nav-link, .navbar-nav>li>.dropdown-menu>li>a, #txtchange{
     /* color:   rgba(64, 65, 66, 0.925) !important; */
 
-    color:   white !important;
-    background-color: lightpink !important ;
+    color:   black !important;
+    background-color: rgb(251, 218, 223) !important ;
 }
 
 .navbar-nav>li>.dropdown-menu>li>a:hover {
     background-color:rgba(206, 6, 6, 0.729) !important;
     /* color: rgba(64, 65, 66, 0.925) !important; */
-    color:   white !important;
+    color:   black !important;
 }
 
 .navbar>div>li>.dropdown-menu>li>a:hover {
     background-color:rgba(206, 6, 6, 0.729) !important;
     /* color: rgba(64, 65, 66, 0.925) !important; */
-    color:   white !important;
+    color: black !important;
 }
 
 
@@ -50,15 +60,84 @@
 .navbar>div>li>.dropdown-menu>li>a {
  
     /* color: rgba(64, 65, 66, 0.925) !important; */
-    color:   white !important;
+    color:   black !important;
+    background-color: rgb(251, 218, 223);
 }
 
 .navbar-nav>li>.nav-link:hover {
     background-color:rgba(206, 6, 6, 0.729);
-    color:   white !important;
+    color:   black !important;
+}
+
+/* what to Eat Quiz */
+.quizApp{
+    background-color: rgb(251, 218, 223);
+    width: 90%;
+    max-width:600px;
+    margin: 100px auto 0;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.quizApp h2{
+    font-size: 25px;
+    color: black;
+    font-weight: 600;
+    border-bottom: 1px solid #333;
+    padding-bottom: 30px;
+}
+
+.quiz{
+    padding:20px 0;
+}
+
+.quiz h4{
+    font-size: 18px;
+    color:black;
+    font-weight: 600;
+}
+
+.choice{
+    background:white;
+    color:black;
+    font-weight: 500;
+    width:100%;
+    border: 1px solid white;
+    padding: 10px;
+    margin:10px 0;
+    text-align:left;
+    border-radius: 4px;
+    cursor: pointer;
+    transition:all 0.3s
+}
+
+.choice:hover{
+    background-color: #222;
+    color:white;
+}
+
+#next-btn{
+    background-color: black;
+    color: white;
+    font-weight:500px;
+    width:150px;
+    border:0;
+    padding:10px;
+    margin:20px auto 0;
+    border-radius: 4px;
+    cursor: pointer;
+    display:none;
+}
+
+.correct{
+    background: #b05190;
+    color: white;
 }
 
 
+<<<<<<< HEAD
+
+=======
 .bg-colour-pinky{
     background-color: #fadadd;
     color: black;
@@ -80,3 +159,4 @@
     background-color: white;
     padding: 10px; /* You can adjust the padding as needed */
   }
+>>>>>>> 1314f178abae28d5446f890652625e1c0dec1309

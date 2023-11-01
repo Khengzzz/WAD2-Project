@@ -12,7 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <title>Recipes</title>
-
+    <!--axios  -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+   
+    <!-- vue -->
+    <script src="https://unpkg.com/vue@next"></script>
+    
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -64,7 +69,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 ">
               <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
                 <img src="assets/images/pngtree-plate-spoon-and-fork-icon-outline-style-png-image_1845576.jpeg" alt="">
               </div>
@@ -86,311 +91,12 @@
         </div>
         <div class="col-lg-12">
           <div class="naccs">
-            <div class="grid">
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="menu">
-                    <div class="first-thumb active">
-                      <div class="thumb">
-                        Chinese
-                      </div>
-                    </div>
-                    <div>
-                      <div class="thumb">                 
-                        Italian
-                      </div>
-                    </div>
-                    <div>
-                      <div class="thumb">                 
-                        Malaysian
-                      </div>
-                    </div>
-                    <div>
-                      <div class="thumb">               
-                        Japanese
-                      </div>
-                    </div>
-                  </div>
-                </div> 
-                <div class="col-lg-12">
-                  <ul class="nacc">
-                    <li class="active">
-                        <div class="thumb">
-                          <div class="row">
-                            <div class="align-self-center">
-                        
-                                <div class="row">
-                                  <div class="col-lg-12">
-                                    <div class="loop owl-carousel">
-                                      <div class="item">
-                                        <a href="./indiv_recipe.html">
-                                          <div class="portfolio-item">
-                                          <div class="thumb">
-                                            <img src="../images/kungpaochicken.jpeg" alt="">
-                                          </div>
-                                          <div class="down-content">
-                                            <h4>Kung Pao Chicken</h4>
-                                            <span>20 mins</span>
-                                          </div>
-                                        </div>
-                                        </a>  
-                                      </div>
-                                      <div class="item">
-                                        <a href="./indiv_recipe.html">
-                                          <div class="portfolio-item">
-                                          <div class="thumb">
-                                            <img src="../images/kungpaochicken.jpeg" alt="">
-                                          </div>
-                                          <div class="down-content">
-                                            <h4>Kung Pao Chicken</h4>
-                                            <span>20 mins</span>
-                                          </div>
-                                        </div>
-                                        </a>  
-                                      </div>
-                                      <div class="item">
-                                        <a href="./indiv_recipe.html">
-                                          <div class="portfolio-item">
-                                          <div class="thumb">
-                                            <img src="../images/kungpaochicken.jpeg" alt="">
-                                          </div>
-                                          <div class="down-content">
-                                            <h4>Kung Pao Chicken</h4>
-                                            <span>20 mins</span>
-                                          </div>
-                                        </div>
-                                        </a>  
-                                      </div>
-                                      <div class="item">
-                                        <a href="./indiv_recipe.html">
-                                          <div class="portfolio-item">
-                                          <div class="thumb">
-                                            <img src="../images/kungpaochicken.jpeg" alt="">
-                                          </div>
-                                          <div class="down-content">
-                                            <h4>Kung Pao Chicken</h4>
-                                            <span>20 mins</span>
-                                          </div>
-                                        </div>
-                                        </a>  
+            <div class="grid" id="main">
 
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-    
-                    <li>
-                      <div>
-                        <div class="thumb">
-                          <div class="row">
-                            <div class="align-self-center">
-                        
-                                <div class="row">
-                                  <div class="col-lg-12">
-                                    <div class="loop owl-carousel">
-                                      <div class="item">
-                                        <a href="#">
-                                          <div class="portfolio-item">
-                                          <div class="thumb">
-                                            <img src="../images/risotto.jpeg" alt="">
-                                          </div>
-                                          <div class="down-content">
-                                            <h4>Mushroom Risotto</h4>
-                                            <span>60 mins</span>
-                                          </div>
-                                        </div>
-                                        </a>  
-                                      </div>
-                                      <div class="item">
-                                        <a href="#">
-                                          <div class="portfolio-item">
-                                          <div class="thumb">
-                                            <img src="../images/risotto.jpeg" alt="">
-                                          </div>
-                                          <div class="down-content">
-                                            <h4>Mushroom Risotto</h4>
-                                            <span>60 mins</span>
-                                          </div>
-                                        </div>
-                                        </a>  
-                                      </div>
-                                      <div class="item">
-                                        <a href="#">
-                                          <div class="portfolio-item">
-                                          <div class="thumb">
-                                            <img src="../images/risotto.jpeg" alt="">
-                                          </div>
-                                          <div class="down-content">
-                                            <h4>Mushroom Risotto</h4>
-                                            <span>60 mins</span>
-                                          </div>
-                                        </div>
-                                        </a>  
-                                      </div>
-                                      <div class="item">
-                                        <a href="#">
-                                          <div class="portfolio-item">
-                                          <div class="thumb">
-                                            <img src="../images/risotto.jpeg" alt="">
-                                          </div>
-                                          <div class="down-content">
-                                            <h4>Mushroom Risotto</h4>
-                                            <span>60 mins</span>
-                                          </div>
-                                        </div>
-                                        </a>  
 
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        <div class="thumb">
-                          <div class="row">
-                            <div class="align-self-center">
-        
-                              <div class="row">
-                                <div class="col-lg-12">
-                                  <div class="loop owl-carousel">
-                                    <div class="item">
-                                      <a href="#">
-                                        <div class="portfolio-item">
-                                        <div class="thumb">
-                                          <img src="../images/nasilemaj.jpeg" alt="">
-                                        </div>
-                                        <div class="down-content">
-                                          <h4>Nasi Lemak</h4>
-                                          <span>40 mins</span>
-                                        </div>
-                                      </div>
-                                      </a>  
-                                    </div>
-                                    <div class="item">
-                                      <a href="#">
-                                        <div class="portfolio-item">
-                                        <div class="thumb">
-                                          <img src="../images/nasilemaj.jpeg" alt="">
-                                        </div>
-                                        <div class="down-content">
-                                          <h4>Nasi Lemak</h4>
-                                          <span>40 mins</span>
-                                        </div>
-                                      </div>
-                                      </a>  
-                                    </div>
-                                    <div class="item">
-                                      <a href="#">
-                                        <div class="portfolio-item">
-                                        <div class="thumb">
-                                          <img src="../images/nasilemaj.jpeg" alt="">
-                                        </div>
-                                        <div class="down-content">
-                                          <h4>Nasi Lemak</h4>
-                                          <span>40 mins</span>
-                                        </div>
-                                      </div>
-                                      </a>  
-                                    </div>
-                                    <div class="item">
-                                      <a href="#">
-                                        <div class="portfolio-item">
-                                          <div class="thumb">
-                                            <img src="../images/nasilemaj.jpeg" alt="">
-                                          </div>
-                                          <div class="down-content">
-                                            <h4>Nasi Lemak</h4>
-                                            <span>40 mins</span>
-                                          </div>
-                                      </div>
-                                      </a>  
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    </li>
-                    <li>
-                      <div>
-                        <div class="thumb">
-                          <div class="row">
-                            <div class="align-self-center">
-        
-                              <div class="row">
-                                <div class="col-lg-12">
-                                  <div class="loop owl-carousel">
-                                    <div class="item">
-                                      <a href="#">
-                                        <div class="portfolio-item">
-                                        <div class="thumb">
-                                          <img src="../images/nasilemaj.jpeg" alt="">
-                                        </div>
-                                        <div class="down-content">
-                                          <h4>Nasi Lemak</h4>
-                                          <span>40 mins</span>
-                                        </div>
-                                      </div>
-                                      </a>  
-                                    </div>
-                                    <div class="item">
-                                      <a href="#">
-                                        <div class="portfolio-item">
-                                        <div class="thumb">
-                                          <img src="../images/nasilemaj.jpeg" alt="">
-                                        </div>
-                                        <div class="down-content">
-                                          <h4>Nasi Lemak</h4>
-                                          <span>40 mins</span>
-                                        </div>
-                                      </div>
-                                      </a>  
-                                    </div>
-                                    <div class="item">
-                                      <a href="#">
-                                        <div class="portfolio-item">
-                                        <div class="thumb">
-                                          <img src="../images/nasilemaj.jpeg" alt="">
-                                        </div>
-                                        <div class="down-content">
-                                          <h4>Nasi Lemak</h4>
-                                          <span>40 mins</span>
-                                        </div>
-                                      </div>
-                                      </a>  
-                                    </div>
-                                    <div class="item">
-                                      <a href="#">
-                                        <div class="portfolio-item">
-                                          <div class="thumb">
-                                            <img src="../images/nasilemaj.jpeg" alt="">
-                                          </div>
-                                          <div class="down-content">
-                                            <h4>Nasi Lemak</h4>
-                                            <span>40 mins</span>
-                                          </div>
-                                      </div>
-                                      </a>  
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>          
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  
-  
-  
-
   
 
 
@@ -402,5 +108,7 @@
   <script src="assets/js/imagesloaded.js"></script>
   <script src="assets/js/custom.js"></script>
 
+  <!-- js script -->
+  <script src="recipes.js"></script>
 </body>
 </html>
