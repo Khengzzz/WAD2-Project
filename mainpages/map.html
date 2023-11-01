@@ -121,7 +121,7 @@
 
     //Initialize and add the map
     var display = document.getElementById("displayAddr")
-    const retrievedLocation = localStorage.getItem('location')
+    const retrievedLocation = localStorage.getItem('selectedlocation')
     console.log(retrievedLocation)
 
     function initMap() {
@@ -156,7 +156,7 @@
             infoMarker.setMap(map)
 
             var fullAddr = selectedLocation.formatted_address
-            display.innerHTML = "Address: " + fullAddr;
+            display.innerHTML = "Location: " + "<b>" + retrievedLocation + '</b>' + '<br>' + "Address: " + '<b>' + fullAddr + '</b>'
         })
         .catch(error => {
             console.log(error.message)
