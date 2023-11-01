@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <!-- Favicons -->
+    <link href="../homepage final/assets2/images/appicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -31,9 +35,10 @@
     <!-- Bootstrap core CSS -->
     <link href="../homepage final/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap core CSS -->
-    <link href="../homepage final/vendor2/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  
+    <!-- Template Main CSS File -->
+    <!-- This CSS is causing the misalignments -->
+    <link href="../homepage final/assets/css/style.css" rel="stylesheet">
+
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="../homepage final/assets2/css/fontawesome.css">
     <link rel="stylesheet" href="../homepage final/assets2/css/templatemo-digimedia-v1.css">
@@ -63,7 +68,7 @@ https://templatemo.com/tm-568-digimedia
 <body>
 
   <!-- ***** Preloader Start ***** -->
-  <!-- <div id="js-preloader" class="js-preloader">
+  <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
       <span class="dot"></span>
       <div class="dots">
@@ -72,20 +77,19 @@ https://templatemo.com/tm-568-digimedia
         <span></span>
       </div>
     </div>
-  </div> -->
+  </div>
   <!-- ***** Preloader End ***** -->
 
   <div class="pre-header">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-7 col-sm-7 col-6 d-flex justify-content-start">
-
-            </div>
-            <div class="col-lg-5 col-sm-5 col-5 text-end d-flex justify-content-end align-items-center">
               <!-- Dynamic Display 1 -->
               <div id="display">
 
               </div>
+            </div>
+            <div class="col-lg-5 col-sm-5 col-5 text-end d-flex justify-content-end align-items-center">
               <div class="dropdown d-flex">
                   <!-- Dynamic Display 2 -->
                   <div id="display2">
@@ -107,14 +111,14 @@ https://templatemo.com/tm-568-digimedia
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
             <a href="index.html" class="logo">
-              <img src="../images/ecobiteslogo.png" alt="" style="width: 150px;">
+              <img src="../images/ecobiteslogo.png" alt="" style="width: 150px;display:flex;justify-content:left;">
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav justify-content">
               <li class="scroll-to-section"><a href="../homepage final/index.html">Home</a></li>
-              <li class="scroll-to-section"><a href="../meal_planning/whatToEat.html">Meal Planning</a></li>
-              <li class="scroll-to-section"><a href="shop.html" class="active">Shop</a></li>
+              <li class="scroll-to-section"><a href="../meal_planning/choose.html">Meal Planning</a></li>
+              <li class="scroll-to-section"><a href="../shop/shop.html" class="active">Shop</a></li>
               <!-- <li class="scroll-to-section"><a href="#contact">Contact</a></li>  -->
             </ul>        
             <a class='menu-trigger'>
@@ -126,6 +130,7 @@ https://templatemo.com/tm-568-digimedia
       </div>
     </div>
   </header>
+  <!-- ***** Nav Bar Header Area End Here ***** -->
 
   <!-- shop layout -->
   <div id="shop" class="services section">
@@ -162,7 +167,7 @@ https://templatemo.com/tm-568-digimedia
                     <div>
                       <div class="thumb">                 
                         <span class="icon"><img src="images/grocery-cart.png" alt=""></span>
-                        Supermarket <br> Clearence
+                        Supermarket <br> Clearance
                       </div>
                     </div>
                     
@@ -671,6 +676,7 @@ document.getElementById('mapModal').addEventListener('shown.bs.modal', function 
 
 
 </script>
+
   <!-- Vendor JS Files -->
   <script src="../homepage final/assets/vendor/aos/aos.js"></script>
   <script src="../homepage final/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -680,7 +686,7 @@ document.getElementById('mapModal').addEventListener('shown.bs.modal', function 
   <script src="../homepage final/assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <!-- <script src="../homepage final/assets2/js/main.js"></script> -->
+<!--   <script src="../homepage final/assets2/js/main.js"></script> -->
   <!-- Scripts -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy3roqtg4LWKDferNRiTMpiki8E2tsTas&callback=initMap" async defer></script>
   <script src="../homepage final/vendor2/jquery/jquery.min.js"></script>
