@@ -126,12 +126,12 @@ onAuthStateChanged(auth, user => {
 
         // Create a 2 <a> elements linking to register.html and login.html respectively
         var registerAElem = document.createElement('a')
-        registerAElem.href = "../account/register.html"
+        registerAElem.href = "../register/register.html"
         registerAElem.style.marginRight = "10px"
         var registerText = document.createTextNode('Sign Up')
 
         var loginAElem = document.createElement('a')
-        loginAElem.href = "../account/login.html"
+        loginAElem.href = "../login/login.html"
         var loginText = document.createTextNode('Login')
 
         // Combining all elements and adding to dynamicDisplay1
