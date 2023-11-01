@@ -119,6 +119,7 @@ btnPost.addEventListener('click', (e) => {
 
         }).then(response => {
             if (response.data.results.length == 0) {
+                console.log(response.data.results.length)
                 error += 'Please specify a proper location according to the format specified! \n';
             }
             latVal = Number(response.data.results[0].geometry.location.lat);

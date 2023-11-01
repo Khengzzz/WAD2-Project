@@ -13,9 +13,7 @@
 
     <title>Shop | EcoBites</title>
 
-    <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- <link rel="icon" type="image/png" href="path/to/your/icon.png"> -->
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -35,20 +33,12 @@
 
     <!-- Bootstrap core CSS -->
     <link href="../homepage final/vendor2/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap core CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Bootstrap JavaScript Bundle with Popper -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-
-
-
+  
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="../homepage final/assets2/css/fontawesome.css">
     <link rel="stylesheet" href="../homepage final/assets2/css/templatemo-digimedia-v1.css">
     <link rel="stylesheet" href="../homepage final/assets2/css/animated.css">
     <link rel="stylesheet" href="../homepage final/assets2/css/owl.css">
-    <link rel="stylesheet" href="quiz.css">
     <link rel="stylesheet" href="shop.css">
     <link rel="stylesheet" href="shopMap.css">
 
@@ -386,7 +376,15 @@ https://templatemo.com/tm-568-digimedia
       retrievedLocation = sale; 
       console.log(sale)
       initMap(retrievedLocation); // Call the initMap function
-    }
+    },
+    getLocationOnButtonClick() {
+        if (navigator.geolocation) {
+          navigator.geolocation.watchPosition(function (position) {
+            pos.lat = position.coords.latitude;
+            pos.lng = position.coords.longitude;
+          });
+        }
+      }
   },
   created() {
     const communityRef= database.ref('saleposts/community');
@@ -434,12 +432,12 @@ https://templatemo.com/tm-568-digimedia
       console.log("Community Data: ", this.communityData);
     });
 
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        pos.lat = position.coords.latitude;
-        pos.lng = position.coords.longitude;
-      });
-    }
+    // if (navigator.geolocation) {
+    //   navigator.geolocation.watchPosition(function (position) {
+    //     pos.lat = position.coords.latitude;
+    //     pos.lng = position.coords.longitude;
+    //   });
+    // }
   }
 });
 
@@ -460,7 +458,15 @@ https://templatemo.com/tm-568-digimedia
       retrievedLocation = sale; 
       console.log(sale)
       initMap(retrievedLocation); 
-    }
+    },
+    getLocationOnButtonClick() {
+        if (navigator.geolocation) {
+          navigator.geolocation.watchPosition(function (position) {
+            pos.lat = position.coords.latitude;
+            pos.lng = position.coords.longitude;
+          });
+        }
+      }
   },
   created() {
     const foodChainsRef= database.ref('saleposts/foodchains');
@@ -508,12 +514,12 @@ https://templatemo.com/tm-568-digimedia
       console.log("Food Chain Data: ", this.foodChainsData);
     });
 
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        pos.lat = position.coords.latitude;
-        pos.lng = position.coords.longitude;
-      });
-    }
+    // if (navigator.geolocation) {
+    //   navigator.geolocation.watchPosition(function (position) {
+    //     pos.lat = position.coords.latitude;
+    //     pos.lng = position.coords.longitude;
+    //   });
+    // }
   }
 });
 
@@ -533,7 +539,15 @@ https://templatemo.com/tm-568-digimedia
       retrievedLocation = sale;
       console.log(sale)
       initMap(retrievedLocation); 
-    }
+    },
+    getLocationOnButtonClick() {
+        if (navigator.geolocation) {
+          navigator.geolocation.watchPosition(function (position) {
+            pos.lat = position.coords.latitude;
+            pos.lng = position.coords.longitude;
+          });
+        }
+      }
     
   },
   created() {
@@ -582,12 +596,12 @@ https://templatemo.com/tm-568-digimedia
       console.log("Supermarket Data: ", this.supermarketData);
     });
 
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        pos.lat = position.coords.latitude;
-        pos.lng = position.coords.longitude;
-      });
-    }
+    // if (navigator.geolocation) {
+    //   navigator.geolocation.watchPosition(function (position) {
+    //     pos.lat = position.coords.latitude;
+    //     pos.lng = position.coords.longitude;
+    //   });
+    // }
   }
 });
 
@@ -638,7 +652,16 @@ document.getElementById('mapModal').addEventListener('shown.bs.modal', function 
     initMap(retrievedLocation);
   });
 
-function showMap() {
+  document.getElementById('mapButton').addEventListener('click', function () {
+    // Trigger the appropriate method in the Vue app to request geolocation info
+    app.getLocationOnButtonClick();
+  });
+
+  document.getElementById('mapModal').addEventListener('shown.bs.modal', function () {
+    initMap(retrievedLocation);
+  });
+
+  function showMap() {
     // Show the map display
     var myModal = new bootstrap.Modal(document.getElementById('mapModal'), {
       keyboard: false
@@ -657,7 +680,7 @@ function showMap() {
   <script src="../homepage final/assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <!-- <script src="../homepage final/assets2/js/main.js"></script> -->
   <!-- Scripts -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy3roqtg4LWKDferNRiTMpiki8E2tsTas&callback=initMap" async defer></script>
   <script src="../homepage final/vendor2/jquery/jquery.min.js"></script>
@@ -666,8 +689,6 @@ function showMap() {
   <script src="../homepage final/assets2/js/animation.js"></script>
   <script src="../homepage final/assets2/js/imagesloaded.js"></script>
   <script src="../homepage final/assets2/js/custom.js"></script>
-  <script src="../homepage final/homepage.js"></script>
-  <script src="quizScript.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
