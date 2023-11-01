@@ -489,12 +489,12 @@ header
   position: relative;
   z-index: 999;
   display: flex;
-  justify-content: center;
+  justify-content: right;
 }
 
 .header-area .main-nav .nav li {
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 /* .header-area .main-nav .nav li:last-child {
