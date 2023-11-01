@@ -11,29 +11,49 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Recipes</title>
-    <!--axios  -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-   
-    <!-- vue -->
-    <script src="https://unpkg.com/vue@next"></script>
-    
+    <title>EcoBites</title>
+
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../homepage/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
 
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-digimedia-v1.css">
-    <link rel="stylesheet" href="assets/css/animated.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="../homepage/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../homepage/assets/css/templatemo-digimedia-v1.css">
+    <link rel="stylesheet" href="../homepage/assets/css/animated.css">
+    <link rel="stylesheet" href="../homepage/assets/css/owl.css">
+    <link rel="stylesheet" href="quiz.css">
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="shopMap.css">
 
-  </head>
+    <!-- Firebase Scripts -->
+    <script type="module" src="../firebaseNavBar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+    <!-- additional links -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+<!--
+
+TemplateMo 568 DigiMedia
+
+https://templatemo.com/tm-568-digimedia
+
+-->
+</head>
 
 <body>
 
   <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
+  <!-- <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
       <span class="dot"></span>
       <div class="dots">
@@ -42,11 +62,78 @@
         <span></span>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- ***** Preloader End ***** -->
 
+  <div class="pre-header">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7 col-sm-7 col-6 d-flex justify-content-start">
+                <ul class="social-media mb-3">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-lg-5 col-sm-5 col-5 text-end d-flex justify-content-end align-items-center">
+              <h6 class="d-none d-sm-block">Welcome, John!</h6>
+                <div class="dropdown d-flex">
+                    <button class="btn dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fa fa-user"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="../userProfile/profilePage.html">Profile</a></li>
+                        <li><a class="dropdown-item" href="../userProfile/settings.html">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                    </ul>
+                    <div id="searchBox" style="display:none; border-radius: 70px;">
+                      <input type="text" id="searchInput" placeholder="Search">
+                    </div>
+                    <button class="btn btn-close-black" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#searchCollapse" aria-expanded="false" aria-controls="searchCollapse" id="searchBtn">
+                      <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
+  <!-- Pre-header End -->
 
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="index.html" class="logo">
+              <img src="../images/ecobiteslogo-removebg.png" alt="" style="width: 150px;">
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav justify-content">
+              <li class="scroll-to-section"><a href="../homepage/homepagev2.html">Home</a></li>
+              <li class="scroll-to-section"><a href="#about">About</a></li>
+              <li class="scroll-to-section"><a href="../meal_planning/whatToEat.html">Meal Planning</a></li>
+              <li class="scroll-to-section"><a href="#shop" class="active">Shop</a></li>
+              <li class="scroll-to-section"><a href="#recipe">Recipes</a></li>
+              <!-- <li class="scroll-to-section"><a href="#contact">Contact</a></li>  -->
+            </ul>        
+            <a class='menu-trigger'>
+                <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <!-- banner start -->
   <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
     <div class="container">
       <div class="row">
@@ -56,20 +143,19 @@
               <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                 <div class="row">
                   <div class="col-lg-12">
+                    <!-- <h6>Digital Media Agency</h6> -->
                     <h2>Recipes</h2>
-                    <h1 >Here you can find many different recipes & click on it to learn more about it!</h1>
+                    <p>Here you can find many different recipes & click on it to learn more about it!</p>
                   </div>
                   <div class="col-lg-12">
                     <div class="border-first-button scroll-to-section">
-                      <br>
-                      <br>
-                      <a href="#cuisines">View More</a>
+                      <a href="#contact">Browse</a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 ">
+            <div class="col-lg-6">
               <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
                 <img src="assets/images/pngtree-plate-spoon-and-fork-icon-outline-style-png-image_1845576.jpeg" alt="">
               </div>
@@ -79,36 +165,164 @@
       </div>
     </div>
   </div>
+  <!-- banner end  -->
 
-  <div id="cuisines" class="services section">
+  <!-- shop layout -->
+  <div id="contact" class="services section">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <div class="section-heading">
-            <h4>Cuisines</h4>
+          <div class="section-heading  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
+            <h6>Discover</h6>
+            <h4>Recipes Sorted by <em>Cuisines</em>!</h4>
             <div class="line-dec"></div>
           </div>
         </div>
         <div class="col-lg-12">
           <div class="naccs">
-            <div class="grid" id="main">
+            <div class="grid">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="menu">
+                    <div class="first-thumb active">
+                      <div class="thumb">
+                        
+                        Chinese
+                      </div>
+                    </div>
+                    <div>
+                      <div class="thumb">                 
+                        
+                        Italian
+                      </div>
+                    </div>
+                    <div>
+                      <div class="thumb">                 
+                        
+                        Malay
+                      </div>
+                    </div>
+                    <div>
+                      <div class="thumb">                 
+                        
+                        Japanese
+                      </div>
+                    </div>
+                    
+                    </div>
+                  </div>
+                </div> 
+                <div class="col-lg-12">
+                  <ul class="nacc">
+                    <li class="active">
+                      <div>
+                        <div class="thumb">
+                          <div class="row">
+                            <div class="col-lg-12 align-self-center">
+                              <div class="left-text">
+                                <div id="chinese" class="justify-content-center m-5" >
+                                  <span>
+                                  <div class="row text-center">
+                                  
 
+                                  </div>
+                                </span>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <div class="thumb">
+                          <div class="row">
+                            <div class="col-lg-12 align-self-center">
+                              <div class="left-text">
+                                <div id="italian" class="justify-content-center m-5">
+                                  <div class="row">
+                                    
 
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <div class="thumb">
+                          <div class="row">
+                            <div class="col-lg-12 align-self-center">
+                              <div class="left-text">
+                                <div id="malay" class="justify-content-center m-5">
+                                  <div class="row">
+                                    
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <div class="thumb">
+                          <div class="row">
+                            <div class="col-lg-12 align-self-center">
+                              <div class="left-text">
+                                <div id="japanese" class="justify-content-center m-5">
+                                  <div class="row">
+                                    
+                                    
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>          
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+
+
+ 
   
+    
+
+  <script>
+    
 
 
-  <!-- Scripts -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/animation.js"></script>
-  <script src="assets/js/imagesloaded.js"></script>
-  <script src="assets/js/custom.js"></script>
 
-  <!-- js script -->
-  <script src="recipes.js"></script>
+
+</script>
+<!-- Scripts -->
+
+<!-- Scripts -->
+<script src="../homepage/vendor/jquery/jquery.min.js"></script>
+<script src="../homepage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../homepage/assets/js/owl-carousel.js"></script>
+<script src="../homepage/assets/js/animation.js"></script>
+<script src="../homepage/assets/js/imagesloaded.js"></script>
+<script src="../homepage/assets/js/custom.js"></script>
+
+<!-- js script -->
+<script src="recipes.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
+
 </html>

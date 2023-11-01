@@ -47,6 +47,11 @@ url
     var imglink=actualDish.img
     console.log(imglink)
 
+     //get and set food img
+     var img1=document.getElementById("imgid")
+     img1.setAttribute("src","../images/foodImgs/"+imglink+".jpeg")
+
+
     //get time
     var time=actualDish.time
     
@@ -128,7 +133,8 @@ function fillInstruction(ins){
 function fillIngredients(ingredientList){
 
     console.log("abcd "+ ingredientList)
-    
+   
+
     //get ingredientList div
     ingredientDiv=document.getElementById("ingredients")
 
