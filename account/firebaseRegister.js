@@ -49,16 +49,13 @@ document.getElementById("btnRegister").addEventListener('click', (e) => {
         const user = userCredential.user;
         set(ref(database, 'users/' + user.uid), {
           email: email,
+          username: username,
           // Set redirecting user to registration success page to occur ONLY AFTER the data has been written into the database
         }).then(function() {
-          set(ref(database, 'users/' + user.uid + '/mealplans/'), {
-            username: username,
+          set(ref(database, 'usernames/' + username), {
+            uid: user.uid,
           }).then(function() {
-            set(ref(database, 'usernames/' + username), {
-              uid: user.uid,
-            }).then(function() {
-              location.replace("registerSuccess.html")
-            })
+            location.replace("registerSuccess.html")
           })
         })
     
