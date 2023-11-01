@@ -89,6 +89,7 @@ function createCard(dishName, preptime, imglink, divId, cName) {
   var textnode3 = document.createTextNode("Click here to view dish");
   link.appendChild(textnode3);
 
+  
   //append everything to body
   body.appendChild(title);
   body.appendChild(cooktime);
