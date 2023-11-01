@@ -86,8 +86,10 @@ card.style.width="15rem"
 
 //create img
 var img1=document.createElement("img")
-img1.setAttribute("src","../images/"+imglink+".jpeg")
+img1.setAttribute("src","../images/foodImgs/"+imglink+".jpeg")
 img1.setAttribute("class","card-img-top" )
+img1.setAttribute("height","200px")
+
 
 //create class body
 var body=document.createElement("div")
@@ -108,7 +110,7 @@ cooktime.appendChild(textnode2)
 
 var link=document.createElement("a")
 link.setAttribute("href","indiv_recipe.html?cuisine="+cName+"&dish="+imglink)
-var textnode3=document.createTextNode("Click here to view dish")
+var textnode3=document.createTextNode("Click here to view more")
 link.appendChild(textnode3)
 
 //add all tgt
