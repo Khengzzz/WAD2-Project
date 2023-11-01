@@ -14,13 +14,7 @@
     <title>EcoBites</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../homepage final/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap core CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Bootstrap JavaScript Bundle with Popper -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-
+    <link href="../homepage final/vendor2/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
     <!-- Additional CSS Files -->
@@ -30,31 +24,9 @@
     <link rel="stylesheet" href="../homepage final/assets2/css/owl.css">
     <link rel="stylesheet" href="quiz.css">
     <link rel="stylesheet" href="shop.css">
-    <link rel="stylesheet" href="shopMap.css">
 
     <!-- Firebase Scripts -->
     <script type="module" src="../firebaseNavBar.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-
-    <!-- additional links -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    
-    <!-- Template Main CSS File -->
-    <link href="../homepage final/assets/css/style.css" rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
-    <link href="../homepage final/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-    <link href="../homepage final/assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="../homepage final/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../homepage final/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="../homepage final/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="../homepage final/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="../homepage final/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="../homepage final/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-
 <!--
 
 TemplateMo 568 DigiMedia
@@ -83,22 +55,34 @@ https://templatemo.com/tm-568-digimedia
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-7 col-sm-7 col-6 d-flex justify-content-start">
+                <ul class="social-media mb-3">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-lg-5 col-sm-5 col-5 text-end d-flex justify-content-end align-items-center">
               <!-- Dynamic Display 1 -->
               <div id="display">
 
               </div>
-            </div>
-            <div class="col-lg-5 col-sm-5 col-5 text-end d-flex justify-content-end align-items-center">
               <div class="dropdown d-flex">
                   <!-- Dynamic Display 2 -->
                   <div id="display2">
 
                   </div>
+                  <div id="searchBox" style="display:none; border-radius: 70px;">
+                    <input type="text" id="searchInput" placeholder="Search">
+                  </div>
+                  <button class="btn btn-close-black" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#searchCollapse" aria-expanded="false" aria-controls="searchCollapse" id="searchBtn">
+                    <i class="fa fa-search"></i>
+                  </button>
               </div>
           </div>
         </div>
     </div>
-  </div>
+</div>
 
   <!-- Pre-header End -->
 
@@ -110,14 +94,16 @@ https://templatemo.com/tm-568-digimedia
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
             <a href="index.html" class="logo">
-              <img src="../images/ecobiteslogo.png" alt="" style="width: 150px;display:flex;justify-content:left;">
+              <img src="../images/ecobiteslogo-removebg.png" alt="" style="width: 150px;">
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav justify-content">
               <li class="scroll-to-section"><a href="../homepage final/index.html">Home</a></li>
-              <li class="scroll-to-section"><a href="#">Meal Planning</a></li>
-              <li class="scroll-to-section"><a href="shop.html" class="active">Shop</a></li>
+              <li class="scroll-to-section"><a href="#about">About</a></li>
+              <li class="scroll-to-section"><a href="../meal_planning/whatToEat.html">Meal Planning</a></li>
+              <li class="scroll-to-section"><a href="#shop" class="active">Shop</a></li>
+              <li class="scroll-to-section"><a href="#recipe">Recipes</a></li>
               <!-- <li class="scroll-to-section"><a href="#contact">Contact</a></li>  -->
             </ul>        
             <a class='menu-trigger'>
@@ -129,24 +115,21 @@ https://templatemo.com/tm-568-digimedia
       </div>
     </div>
   </header>
-  <!-- ***** Nav Bar Header Area End Here ***** -->
+  <!-- ***** Header Area End ***** -->
 
   <!-- shop layout -->
   <div id="shop" class="services section">
     <div class="container">
-   
-    <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="section-heading  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
-            <a href="postSale.html" class="btn btn-pink"><h6>Add Listing</h6></a><br>
-            <h4>Browse Food Items at <em>Discounted</em> Prices</h4>
+            <h6>shop</h6>
+            <h4>Food items at  <em>discounted</em> prices now!</h4>
             <div class="line-dec"></div>
           </div>
         </div>
         <div class="col-lg-12">
           <div class="naccs">
-            <div class="overlay">
             <div class="grid">
               <div class="row">
                 <div class="col-lg-12">
@@ -160,110 +143,333 @@ https://templatemo.com/tm-568-digimedia
                     <div>
                       <div class="thumb">                 
                         <span class="icon"><img src="images/store.png" alt=""></span>
-                        Food <br>Chains
+                        Small <br>Businesses
                       </div>
                     </div>
                     <div>
                       <div class="thumb">                 
                         <span class="icon"><img src="images/grocery-cart.png" alt=""></span>
-                        Supermarket <br> Clearence
+                        Reputable Supermarkets
                       </div>
-                    </div>
-                    
                     </div>
                   </div>
                 </div> 
                 <div class="col-lg-12">
                   <ul class="nacc">
                     <li class="active">
-                      <div>
+                      <div class="comMem">
                         <div class="thumb">
                           <div class="row">
                             <div class="col-lg-12 align-self-center">
-                              <div class="left-text">
-                                <div id="app-community" class="m-5">
-                                  <div class="row">
-                                    <div v-for="(item, index) in communityData" :key="index" class="col-12 my-4">
-                                      <div class="row align-items-center">
-                                        <div class="col-md-3 col-sm-12">
-                                          <img :src="item.saleimage" alt="Sale Image" class="img-fluid" style="height: 100%; object-fit: cover;">
-                                        </div>
-                                        <div class="col-9">
-                                          <div class="row">
-                                            <div class="col-12">
-                                              <h5>{{ item.salesdescription }}</h5>
-                                            </div>
-                                            <div class="col-12">
-                                              <p>{{ item.discountedprice }}</p>
-                                            </div>
-                                            <div class="col-12">
-                                              <p>{{ item.salesperiod }}</p>
-                                            </div>
-                                            <div class="col-12">
-                                              <p>{{ item.contactno }}</p>
-                                            </div>
-                                            <div class="col-12">
-                                              <p class="text-muted font-italic" style="font-size: 12px;">{{ item.postedon }}</p>
-                                            </div>
-                                            <div class="col-12">
-                                              <div class="d-flex justify-content-end">
-                                                <button id="mapBtn" onclick="showMap()" @click="sendLocation(item.location, item.lat, item.lng)" class="btn btn-primary">Location</button>
-                                                
+                              <!-- grid -->
+                              <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
+                                    <div class="product-grid row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+                  
+                                        <div class="col">
+                                          <div class="product-item">
+                                            <span class="badge bg-success position-absolute m-3">-30%</span>
+                                            <a href="#" class="btn-wishlist"><i class="fa fa-heart" style="color:#726ae3"></i></a>
+                                            <figure>
+                                              <a href="single-product.html" title="Product Title">
+                                                <img src="images/thumb-bananas.png"  class="tab-image">
+                                              </a>
+                                            </figure>
+                                            <h3>Sunstar Fresh Melon Juice</h3>
+                                            <span class="qty">1 Unit</span><span class="rating"><svg width="24" height="24" class="text-primary"><use xlink:href="#star-solid"></use></svg> 4.5</span>
+                                            <span class="price">$18.00</span>
+                                            <div class="d-flex align-items-center justify-content-between">
+                                              <div class="input-group product-qty">
+                                                  <span class="input-group-btn">
+                                                      <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus">
+                                                        <svg width="16" height="16"><use xlink:href="#minus"></use></svg>
+                                                      </button>
+                                                  </span>
+                                                  <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1">
+                                                  <span class="input-group-btn">
+                                                      <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus">
+                                                          <svg width="16" height="16"><use xlink:href="#plus"></use></svg>
+                                                      </button>
+                                                  </span>
                                               </div>
+                                              <a href="#" class="nav-link">Add to Cart <iconify-icon icon="uil:shopping-cart"></a>
                                             </div>
                                           </div>
                                         </div>
-                                        </div>
-                                      <hr style="border-top: 1px solid rgba(0,0,0,.1);">
-                                    </div>
-                                  </div>
-                                </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        <div class="thumb">
-                          <div class="row">
-                            <div class="col-lg-12 align-self-center">
-                              <div class="left-text">
-                                <div id="app-food-chains" class="m-5">
-                                  <div class="row">
-                                    <div v-for="(item, index) in foodChainsData" :key="index" class="col-12 my-4">
-                                      <div class="row align-items-center">
-                                        <div class="col-md-3 col-sm-12">
-                                          <img :src="item.saleimage" alt="Sale Image" class="img-fluid" style="height: 100%; object-fit: cover;">
-                                        </div>
-                                        <div class="col-9">
-                                          <div class="row">
-                                            <div class="col-12">
-                                              <h5>{{ item.salesdescription }}</h5>
-                                            </div>
-                                            <div class="col-12">
-                                              <p>{{ item.discountedprice }}</p>
-                                            </div>
-                                            <div class="col-12">
-                                              <p>{{ item.salesperiod }}</p>
-                                            </div>
-                                            <div class="col-12">
-                                              <p>{{ item.contactno }}</p>
-                                            </div>
-                                            <div class="col-12">
-                                              <p class="text-muted font-italic" style="font-size: 12px;">{{ item.postedon }}</p>
-                                            </div>
-                                            <div class="col-12">
-                                              <div class="d-flex justify-content-end">
-                                                <button id="mapBtn" onclick="showMap()" @click="sendLocation(item.location, item.lat, item.lng)" class="btn btn-primary">Location</button>
+                    
+                                        <div class="col">
+                                          <div class="product-item">
+                                            <span class="badge bg-success position-absolute m-3">-30%</span>
+                                            <a href="#" class="btn-wishlist"><i class="fa fa-heart" style="color:#726ae3"></i></a>
+                                            <figure>
+                                              <a href="single-product.html" title="Product Title">
+                                                <img src="images/thumb-biscuits.png"  class="tab-image">
+                                              </a>
+                                            </figure>
+                                            <h3>Sunstar Fresh Melon Juice</h3>
+                                            <span class="qty">1 Unit</span><span class="rating"><svg width="24" height="24" class="text-primary"><use xlink:href="#star-solid"></use></svg> 4.5</span>
+                                            <span class="price">$18.00</span>
+                                            <div class="d-flex align-items-center justify-content-between">
+                                  
+                                          <div class="input-group product-qty">
+                                                  <span class="input-group-btn">
+                                                      <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus">
+                                                        <svg width="16" height="16"><use xlink:href="#minus"></use></svg>
+                                                      </button>
+                                                  </span>
+                                                  <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1">
+                                                  <span class="input-group-btn">
+                                                      <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus">
+                                                          <svg width="16" height="16"><use xlink:href="#plus"></use></svg>
+                                                      </button>
+                                                  </span>
                                               </div>
+                                              <a href="#" class="nav-link">Add to Cart</a>
                                             </div>
                                           </div>
                                         </div>
+                    
+                                        <div class="col">
+                                          <div class="product-item">
+                                            <a href="#" class="btn-wishlist"><i class="fa fa-heart" style="color:#726ae3"></i></a>
+                                            <figure>
+                                              <a href="single-product.html" title="Product Title">
+                                                <img src="images/thumb-cucumber.png"  class="tab-image">
+                                              </a>
+                                            </figure>
+                                            <h3>Sunstar Fresh Melon Juice</h3>
+                                            <span class="qty">1 Unit</span><span class="rating"><svg width="24" height="24" class="text-primary"><use xlink:href="#star-solid"></use></svg> 4.5</span>
+                                            <span class="price">$18.00</span>
+                                            <div class="d-flex align-items-center justify-content-between">
+                                              <div class="input-group product-qty">
+                                                  <span class="input-group-btn">
+                                                      <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus">
+                                                        <svg width="16" height="16"><use xlink:href="#minus"></use></svg>
+                                                      </button>
+                                                  </span>
+                                                  <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1">
+                                                  <span class="input-group-btn">
+                                                      <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus">
+                                                          <svg width="16" height="16"><use xlink:href="#plus"></use></svg>
+                                                      </button>
+                                                  </span>
+                                              </div>
+                                              <a href="#" class="nav-link">Add to Cart <iconify-icon icon="uil:shopping-cart"></a>
+                                            </div>
+                                          </div>
+                                        </div>
+                    
+                                        <div class="col">
+                                          <div class="product-item">
+                                            <a href="#" class="btn-wishlist"><i class="fa fa-heart" style="color:#726ae3"></i></a>
+                                            <figure>
+                                              <a href="single-product.html" title="Product Title">
+                                                <img src="images/thumb-milk.png"  class="tab-image">
+                                              </a>
+                                            </figure>
+                                            <h3>Sunstar Fresh Melon Juice</h3>
+                                            <span class="qty">1 Unit</span><span class="rating"><svg width="24" height="24" class="text-primary"><use xlink:href="#star-solid"></use></svg> 4.5</span>
+                                            <span class="price">$18.00</span>
+                                            <div class="d-flex align-items-center justify-content-between">
+                                              <div class="input-group product-qty">
+                                                  <span class="input-group-btn">
+                                                      <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus">
+                                                        <svg width="16" height="16"><use xlink:href="#minus"></use></svg>
+                                                      </button>
+                                                  </span>
+                                                  <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1">
+                                                  <span class="input-group-btn">
+                                                      <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus">
+                                                          <svg width="16" height="16"><use xlink:href="#plus"></use></svg>
+                                                      </button>
+                                                  </span>
+                                              </div>
+                                              <a href="#" class="nav-link">Add to Cart <iconify-icon icon="uil:shopping-cart"></a>
+                                            </div>
+                                          </div>
+                                        </div>
+                    
+                                        <div class="col">
+                                          <div class="product-item">
+                                            <a href="#" class="btn-wishlist"><i class="fa fa-heart" style="color:#726ae3"></i></a>
+                                            <figure>
+                                              <a href="single-product.html" title="Product Title">
+                                                <img src="images/thumb-bananas.png"  class="tab-image">
+                                              </a>
+                                            </figure>
+                                            <h3>Sunstar Fresh Melon Juice</h3>
+                                            <span class="qty">1 Unit</span><span class="rating"><svg width="24" height="24" class="text-primary"><use xlink:href="#star-solid"></use></svg> 4.5</span>
+                                            <span class="price">$18.00</span>
+                                            <div class="d-flex align-items-center justify-content-between">
+                                              <div class="input-group product-qty">
+                                                  <span class="input-group-btn">
+                                                      <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus">
+                                                        <svg width="16" height="16"><use xlink:href="#minus"></use></svg>
+                                                      </button>
+                                                  </span>
+                                                  <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1">
+                                                  <span class="input-group-btn">
+                                                      <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus">
+                                                          <svg width="16" height="16"><use xlink:href="#plus"></use></svg>
+                                                      </button>
+                                                  </span>
+                                              </div>
+                                              <a href="#" class="nav-link">Add to Cart <iconify-icon icon="uil:shopping-cart"></a>
+                                            </div>
+                                          </div>
+                                        </div>
+                    
+                                        <div class="col">
+                                          <div class="product-item">
+                                            <a href="#" class="btn-wishlist"><i class="fa fa-heart" style="color:#726ae3"></i></a>
+                                            <figure>
+                                              <a href="single-product.html" title="Product Title">
+                                                <img src="images/thumb-biscuits.png"  class="tab-image">
+                                              </a>
+                                            </figure>
+                                            <h3>Sunstar Fresh Melon Juice</h3>
+                                            <span class="qty">1 Unit</span><span class="rating"><svg width="24" height="24" class="text-primary"><use xlink:href="#star-solid"></use></svg> 4.5</span>
+                                            <span class="price">$18.00</span>
+                                            <div class="d-flex align-items-center justify-content-between">
+                                              <div class="input-group product-qty">
+                                                  <span class="input-group-btn">
+                                                      <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus">
+                                                        <svg width="16" height="16"><use xlink:href="#minus"></use></svg>
+                                                      </button>
+                                                  </span>
+                                                  <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1">
+                                                  <span class="input-group-btn">
+                                                      <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus">
+                                                          <svg width="16" height="16"><use xlink:href="#plus"></use></svg>
+                                                      </button>
+                                                  </span>
+                                              </div>
+                                              <a href="#" class="nav-link">Add to Cart <iconify-icon icon="uil:shopping-cart"></a>
+                                            </div>
+                                          </div>
+                                        </div>
+                    
+                                        <div class="col">
+                                          <div class="product-item">
+                                            <a href="#" class="btn-wishlist"><i class="fa fa-heart" style="color:#726ae3"></i></a>
+                                            <figure>
+                                              <a href="single-product.html" title="Product Title">
+                                                <img src="images/thumb-cucumber.png"  class="tab-image">
+                                              </a>
+                                            </figure>
+                                            <h3>Sunstar Fresh Melon Juice</h3>
+                                            <span class="qty">1 Unit</span><span class="rating"><svg width="24" height="24" class="text-primary"><use xlink:href="#star-solid"></use></svg> 4.5</span>
+                                            <span class="price">$18.00</span>
+                                            <div class="d-flex align-items-center justify-content-between">
+                                              <div class="input-group product-qty">
+                                                  <span class="input-group-btn">
+                                                      <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus">
+                                                        <svg width="16" height="16"><use xlink:href="#minus"></use></svg>
+                                                      </button>
+                                                  </span>
+                                                  <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1">
+                                                  <span class="input-group-btn">
+                                                      <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus">
+                                                          <svg width="16" height="16"><use xlink:href="#plus"></use></svg>
+                                                      </button>
+                                                  </span>
+                                              </div>
+                                              <a href="#" class="nav-link">Add to Cart <iconify-icon icon="uil:shopping-cart"></a>
+                                            </div>
+                                          </div>
+                                        </div>
+                    
+                                        <div class="col">
+                                          <div class="product-item">
+                                            <a href="#" class="btn-wishlist"><i class="fa fa-heart" style="color:#726ae3"></i></a>
+                                            <figure>
+                                              <a href="single-product.html" title="Product Title">
+                                                <img src="images/thumb-milk.png"  class="tab-image">
+                                              </a>
+                                            </figure>
+                                            <h3>Sunstar Fresh Melon Juice</h3>
+                                            <span class="qty">1 Unit</span><span class="rating"><svg width="24" height="24" class="text-primary"><use xlink:href="#star-solid"></use></svg> 4.5</span>
+                                            <span class="price">$18.00</span>
+                                            <div class="d-flex align-items-center justify-content-between">
+                                              <div class="input-group product-qty">
+                                                  <span class="input-group-btn">
+                                                      <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus">
+                                                        <svg width="16" height="16"><use xlink:href="#minus"></use></svg>
+                                                      </button>
+                                                  </span>
+                                                  <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1">
+                                                  <span class="input-group-btn">
+                                                      <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus">
+                                                          <svg width="16" height="16"><use xlink:href="#plus"></use></svg>
+                                                      </button>
+                                                  </span>
+                                              </div>
+                                              <a href="#" class="nav-link">Add to Cart <iconify-icon icon="uil:shopping-cart"></a>
+                                            </div>
+                                          </div>
+                                        </div>
+                    
+                                        <div class="col">
+                                          <div class="product-item">
+                                            <a href="#" class="btn-wishlist"><i class="fa fa-heart" style="color:#726ae3"></i></a>
+                                            <figure>
+                                              <a href="single-product.html" title="Product Title">
+                                                <img src="images/thumb-bananas.png"  class="tab-image">
+                                              </a>
+                                            </figure>
+                                            <h3>Sunstar Fresh Melon Juice</h3>
+                                            <span class="qty">1 Unit</span><span class="rating"><svg width="24" height="24" class="text-primary"><use xlink:href="#star-solid"></use></svg> 4.5</span>
+                                            <span class="price">$18.00</span>
+                                            <div class="d-flex align-items-center justify-content-between">
+                                              <div class="input-group product-qty">
+                                                  <span class="input-group-btn">
+                                                      <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus">
+                                                        <svg width="16" height="16"><use xlink:href="#minus"></use></svg>
+                                                      </button>
+                                                  </span>
+                                                  <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1">
+                                                  <span class="input-group-btn">
+                                                      <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus">
+                                                          <svg width="16" height="16"><use xlink:href="#plus"></use></svg>
+                                                      </button>
+                                                  </span>
+                                              </div>
+                                              <a href="#" class="nav-link">Add to Cart <iconify-icon icon="uil:shopping-cart"></a>
+                                            </div>
+                                          </div>
+                                        </div>
+                    
+                                        <div class="col">
+                                          <div class="product-item">
+                                            <a href="#" class="btn-wishlist"><i class="fa fa-heart" style="color:#726ae3"></i></a>
+                                            <figure>
+                                              <a href="single-product.html" title="Product Title">
+                                                <img src="images/thumb-biscuits.png"  class="tab-image">
+                                              </a>
+                                            </figure>
+                                            <h3>Sunstar Fresh Melon Juice</h3>
+                                            <span class="qty">1 Unit</span><span class="rating"><svg width="24" height="24" class="text-primary"><use xlink:href="#star-solid"></use></svg> 4.5</span>
+                                            <span class="price">$18.00</span>
+                                            <div class="d-flex align-items-center justify-content-between">
+                                              <div class="input-group product-qty">
+                                                  <span class="input-group-btn">
+                                                      <button type="button" class="quantity-left-minus btn btn-danger btn-number" data-type="minus">
+                                                        <svg width="16" height="16"><use xlink:href="#minus"></use></svg>
+                                                      </button>
+                                                  </span>
+                                                  <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1">
+                                                  <span class="input-group-btn">
+                                                      <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus">
+                                                          <svg width="16" height="16"><use xlink:href="#plus"></use></svg>
+                                                      </button>
+                                                  </span>
+                                              </div>
+                                              <a href="#" class="nav-link">Add to Cart <iconify-icon icon="uil:shopping-cart"></a>
+                                            </div>
+                                          </div>
+                                        </div>
+                    
                                       </div>
-                                      <hr style="border-top: 1px solid rgba(0,0,0,.1);">
-                                    </div>
-                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -275,44 +481,88 @@ https://templatemo.com/tm-568-digimedia
                       <div>
                         <div class="thumb">
                           <div class="row">
-                            <div class="col-lg-12 align-self-center">
+                            <div class="col-lg-6 align-self-center">
                               <div class="left-text">
-                                <div id="app-supermarket" class="m-5">
-                                  <div class="row">
-                                    <div v-for="(item, index) in supermarketData" :key="index" class="col-12 my-4">
-                                      <div class="row align-items-center">
-                                        <div class="col-md-3 col-sm-12">
-                                          <img :src="item.saleimage" alt="Sale Image" class="img-fluid" style="height: 100%; object-fit: cover;">
-                                        </div>
-                                        <div class="col-9">
-                                          <div class="row">
-                                            <div class="col-12">
-                                              <h5>{{ item.salesdescription }}</h5>
-                                            </div>
-                                            <div class="col-12">
-                                              <p>{{ item.discountedprice }}</p>
-                                            </div>
-                                            <div class="col-12">
-                                              <p>{{ item.salesperiod }}</p>
-                                            </div>
-                                            <div class="col-12">
-                                              <p>{{ item.contactno }}</p>
-                                            </div>
-                                            <div class="col-12">
-                                              <p class="text-muted font-italic" style="font-size: 12px;">{{ item.postedon }}</p>
-                                            </div>
-                                            <div class="col-12">
-                                              <div class="d-flex justify-content-end">
-                                                <button id="mapBtn" onclick="showMap()" @click="sendLocation(item.location, item.lat, item.lng)" class="btn btn-primary">Location</button>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <hr style="border-top: 1px solid rgba(0,0,0,.1);">
-                                    </div>
-                                  </div>
-                                </div>
+                                <h4>Healthy Food &amp; Life</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt ut labore et dolore kengan darwin doerski token.
+                                  dover lipsum lorem and the others.</p>
+                                <div class="ticks-list"><span><i class="fa fa-check"></i> Optimized Template</span> <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span>
+                                  <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span> <span><i class="fa fa-check"></i> Optimized Template</span></div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt.</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-6 align-self-center">
+                              <div class="right-image">
+                                <img src="assets/images/services-image-02.jpg" alt="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <div class="thumb">
+                          <div class="row">
+                            <div class="col-lg-6 align-self-center">
+                              <div class="left-text">
+                                <h4>Car Re-search &amp; Transport</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt ut labore et dolore kengan darwin doerski token.
+                                  dover lipsum lorem and the others.</p>
+                                <div class="ticks-list"><span><i class="fa fa-check"></i> Optimized Template</span> <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span>
+                                  <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span> <span><i class="fa fa-check"></i> Optimized Template</span></div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt.</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-6 align-self-center">
+                              <div class="right-image">
+                                <img src="assets/images/services-image-03.jpg" alt="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <div class="thumb">
+                          <div class="row">
+                            <div class="col-lg-6 align-self-center">
+                              <div class="left-text">
+                                <h4>Online Shopping &amp; Tracking ID</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt ut labore et dolore kengan darwin doerski token.
+                                  dover lipsum lorem and the others.</p>
+                                <div class="ticks-list"><span><i class="fa fa-check"></i> Optimized Template</span> <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span>
+                                  <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span> <span><i class="fa fa-check"></i> Optimized Template</span></div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt.</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-6 align-self-center">
+                              <div class="right-image">
+                                <img src="assets/images/services-image-04.jpg" alt="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <div class="thumb">
+                          <div class="row">
+                            <div class="col-lg-6 align-self-center">
+                              <div class="left-text">
+                                <h4>Enjoy &amp; Travel</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt ut labore et dolore kengan darwin doerski token.
+                                  dover lipsum lorem and the others.</p>
+                                <div class="ticks-list"><span><i class="fa fa-check"></i> Optimized Template</span> <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span>
+                                  <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i> SEO Analysis</span> <span><i class="fa fa-check"></i> Optimized Template</span></div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis tempor incididunt.</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-6 align-self-center">
+                              <div class="right-image">
+                                <img src="assets/images/services-image.jpg" alt="">
                               </div>
                             </div>
                           </div>
@@ -326,325 +576,13 @@ https://templatemo.com/tm-568-digimedia
           </div>
         </div>
       </div>
-      <div class="modal fade" id="mapModal" tabindex="-1" aria-labelledby="mapModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="mapModalLabel">Location Map</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <div id="display"></div>
-              <div id="map" style="height: 300px; width: 100%;"></div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-     
-    
-
-  <script>
-  
-  const config = {
-      apiKey: "AIzaSyDQuYzHV8SGG_Mr_kKCEZXeqGUwixIhX1s",
-      authDomain: "ecobites-b5084.firebaseapp.com",
-      databaseURL: "https://ecobites-b5084-default-rtdb.asia-southeast1.firebasedatabase.app",
-      projectId: "ecobites-b5084",
-      storageBucket: "ecobites-b5084.appspot.com",
-      messagingSenderId: "256057404957",
-      appId: "1:256057404957:web:deecd1dfbcb5f83e1460f4",
-      measurementId: "G-GZ4EDQDHRT"
-    };
-
-    const app = firebase.initializeApp(config);
-    const database = app.database();
-
-    var retrievedLocation;
-
-    new Vue({
-  el: "#app-community",
-  data() {
-    return {
-      communityData: []
-    };
-  },
-  methods: {
-    sendLocation(sale, lat, lng) {
-      
-      localStorage.setItem('location', sale);
-      localStorage.setItem('lat', lat);
-      localStorage.setItem('lng', lng);
-      retrievedLocation = sale; 
-      console.log(sale)
-      initMap(retrievedLocation); // Call the initMap function
-    }
-  },
-  created() {
-    const communityRef= database.ref('saleposts/community');
-    const pos = { lat: 0, lng: 0 }; // Initialize pos here
-
-    function degToRad(deg) {
-      return deg * (Math.PI / 180);
-    }
-
-    function getDistance(lat1, lon1, lat2, lon2) {
-      var earthRadius = 6371;
-      var dLat = degToRad(lat2 - lat1);
-      var dLon = degToRad(lon2 - lon1);
-      var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(degToRad(lat1)) * Math.cos(degToRad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
-      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      var distance = earthRadius * c;
-      return distance;
-    }
-
-    communityRef.on('value', (snapshot) => {
-      const data = snapshot.val();
-      const dataArray = [];
-
-      for (let key in data) {
-        if (data.hasOwnProperty(key)) {
-          const item = data[key];
-          item.location = key; 
-          var calculatedDist = getDistance(item.lat, item.lng, pos.lat, pos.lng);
-          if (calculatedDist !== undefined) {
-            database.ref('saleposts/community/' + key).update({
-              distance: calculatedDist
-            });
-          }
-          dataArray.push(item);
-        }
-      }
-
-      const sortedData = dataArray.sort((a, b) => {
-        const distA = getDistance(a.lat, a.lng, pos.lat, pos.lng);
-        const distB = getDistance(b.lat, b.lng, pos.lat, pos.lng);
-        return distA - distB;
-      });
-
-      this.communityData = sortedData;
-      console.log("Community Data: ", this.communityData);
-    });
-
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        pos.lat = position.coords.latitude;
-        pos.lng = position.coords.longitude;
-      });
-    }
-  }
-});
-
-  
-  new Vue({
-  el: "#app-food-chains",
-  data() {
-    return {
-      foodChainsData: []
-    };
-  },
-  methods: {
-    sendLocation(sale, lat, lng) {
-      
-      localStorage.setItem('location', sale);
-      localStorage.setItem('lat', lat);
-      localStorage.setItem('lng', lng);
-      retrievedLocation = sale; 
-      console.log(sale)
-      initMap(retrievedLocation); 
-    }
-  },
-  created() {
-    const foodChainsRef= database.ref('saleposts/foodchains');
-    const pos = { lat: 0, lng: 0 }; 
-
-    function degToRad(deg) {
-      return deg * (Math.PI / 180);
-    }
-
-    function getDistance(lat1, lon1, lat2, lon2) {
-      var earthRadius = 6371;
-      var dLat = degToRad(lat2 - lat1);
-      var dLon = degToRad(lon2 - lon1);
-      var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(degToRad(lat1)) * Math.cos(degToRad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
-      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      var distance = earthRadius * c;
-      return distance;
-    }
-
-    foodChainsRef.on('value', (snapshot) => {
-      const data = snapshot.val();
-      const dataArray = [];
-
-      for (let key in data) {
-        if (data.hasOwnProperty(key)) {
-          const item = data[key];
-          item.location = key; 
-          var calculatedDist = getDistance(item.lat, item.lng, pos.lat, pos.lng);
-          if (calculatedDist !== undefined) {
-            database.ref('saleposts/foodchains/' + key).update({
-              distance: calculatedDist
-            });
-          }
-          dataArray.push(item);
-        }
-      }
-
-      const sortedData = dataArray.sort((a, b) => {
-        const distA = getDistance(a.lat, a.lng, pos.lat, pos.lng);
-        const distB = getDistance(b.lat, b.lng, pos.lat, pos.lng);
-        return distA - distB;
-      });
-
-      this.foodChainsData = sortedData;
-      console.log("Food Chain Data: ", this.foodChainsData);
-    });
-
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        pos.lat = position.coords.latitude;
-        pos.lng = position.coords.longitude;
-      });
-    }
-  }
-});
-
-
-  new Vue({
-  el: "#app-supermarket",
-  data() {
-    return {
-      supermarketData: []
-    };
-  },
-  methods: {
-    sendLocation(sale, lat, lng) {
-      localStorage.setItem('location', sale);
-      localStorage.setItem('lat', lat);
-      localStorage.setItem('lng', lng);
-      retrievedLocation = sale;
-      console.log(sale)
-      initMap(retrievedLocation); 
-    }
-    
-  },
-  created() {
-    const supermarketRef = database.ref('saleposts/supermarket');
-    const pos = { lat: 0, lng: 0 }; 
-
-    function degToRad(deg) {
-      return deg * (Math.PI / 180);
-    }
-
-    function getDistance(lat1, lon1, lat2, lon2) {
-      var earthRadius = 6371;
-      var dLat = degToRad(lat2 - lat1);
-      var dLon = degToRad(lon2 - lon1);
-      var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(degToRad(lat1)) * Math.cos(degToRad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
-      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      var distance = earthRadius * c;
-      return distance;
-    }
-
-    supermarketRef.on('value', (snapshot) => {
-      const data = snapshot.val();
-      const dataArray = [];
-
-      for (let key in data) {
-        if (data.hasOwnProperty(key)) {
-          const item = data[key];
-          item.location = key; 
-          var calculatedDist = getDistance(item.lat, item.lng, pos.lat, pos.lng);
-          if (calculatedDist !== undefined) {
-            database.ref('saleposts/supermarket/' + key).update({
-              distance: calculatedDist
-            });
-          }
-          dataArray.push(item);
-        }
-      }
-
-      const sortedData = dataArray.sort((a, b) => {
-        const distA = getDistance(a.lat, a.lng, pos.lat, pos.lng);
-        const distB = getDistance(b.lat, b.lng, pos.lat, pos.lng);
-        return distA - distB;
-      });
-
-      this.supermarketData = sortedData;
-      console.log("Supermarket Data: ", this.supermarketData);
-    });
-
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        pos.lat = position.coords.latitude;
-        pos.lng = position.coords.longitude;
-      });
-    }
-  }
-});
-
-  function initMap(retrievedLocation) {
-    console.log(retrievedLocation);
-    var display = document.getElementById('display');
+    </div>
+  </div>
 
     
-    var myApiKey = "AIzaSyAy3roqtg4LWKDferNRiTMpiki8E2tsTas"
-    var encodedAddr = encodeURI(retrievedLocation);
-    var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + encodedAddr + "&key=" + myApiKey;
-    axios.get(url, {
 
-    })
-    .then(response =>  {
-        console.log(response.data)
-        var selectedLocation = response.data.results[0]
-        var latVal = Number(selectedLocation.geometry.location.lat)
-        var lngVal = Number(selectedLocation.geometry.location.lng)
-
-        // Create new map 
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: latVal, lng: lngVal},
-            zoom: 16
-        });
-
-        infoMarker = new google.maps.Marker({
-            position: {lat: latVal, lng: lngVal},
-            map,
-        })
-
-        
-        map.setCenter(selectedLocation.geometry.location)
-        infoMarker.setPosition(selectedLocation.geometry.location)
-        infoMarker.setMap(map)
-
-        var fullAddr = selectedLocation.formatted_address
-        display.innerHTML = "Location: " + "<b>" + retrievedLocation + '</b>' + '<br>' + "Address: " + '<b>' + fullAddr + '</b>'
-    })
-    .catch(error => {
-        console.log(error.message)
-        display.innerHTML = error.message;
-    }); 
-};
-
-document.getElementById('mapModal').addEventListener('shown.bs.modal', function () {
-    
-    initMap(retrievedLocation);
-  });
-
-function showMap() {
-    // Show the map display
-    var myModal = new bootstrap.Modal(document.getElementById('mapModal'), {
-      keyboard: false
-    });
-    myModal.show();
-  }
-
-
-</script>
 <!-- Scripts -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy3roqtg4LWKDferNRiTMpiki8E2tsTas&callback=initMap" async defer></script>
-x`<script src="../homepage final/vendor2/jquery/jquery.min.js"></script>
+<script src="../homepage final/vendor2/jquery/jquery.min.js"></script>
 <script src="../homepage final/assets2/js/owl-carousel.js"></script>
 <script src="../homepage final/assets2/js/animation.js"></script>
 <script src="../homepage final/assets2/js/imagesloaded.js"></script>
