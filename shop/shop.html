@@ -141,7 +141,7 @@ https://templatemo.com/tm-568-digimedia
       <div class="row">
         <div class="col-lg-12">
           <div class="section-heading  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
-            <a href="#" class="btn btn-pink"><h6>Add Listing</h6></a><br>
+            <a href="postSale.html" class="btn btn-pink"><h6>Add Listing</h6></a><br>
             <h4>Browse Food Items at <em>Discounted</em> Prices</h4>
             <div class="line-dec"></div>
           </div>
@@ -375,11 +375,11 @@ https://templatemo.com/tm-568-digimedia
   },
   methods: {
     sendLocation(sale, lat, lng) {
-      // Your existing method code here
+      
       localStorage.setItem('location', sale);
       localStorage.setItem('lat', lat);
       localStorage.setItem('lng', lng);
-      retrievedLocation = sale; // Set the retrievedLocation variable
+      retrievedLocation = sale; 
       console.log(sale)
       initMap(retrievedLocation); // Call the initMap function
     }
@@ -409,7 +409,7 @@ https://templatemo.com/tm-568-digimedia
       for (let key in data) {
         if (data.hasOwnProperty(key)) {
           const item = data[key];
-          item.location = key; // Set the parent node name as the location property
+          item.location = key; 
           var calculatedDist = getDistance(item.lat, item.lng, pos.lat, pos.lng);
           if (calculatedDist !== undefined) {
             database.ref('saleposts/community/' + key).update({
@@ -449,18 +449,18 @@ https://templatemo.com/tm-568-digimedia
   },
   methods: {
     sendLocation(sale, lat, lng) {
-      // Your existing method code here
+      
       localStorage.setItem('location', sale);
       localStorage.setItem('lat', lat);
       localStorage.setItem('lng', lng);
-      retrievedLocation = sale; // Set the retrievedLocation variable
+      retrievedLocation = sale; 
       console.log(sale)
-      initMap(retrievedLocation); // Call the initMap function
+      initMap(retrievedLocation); 
     }
   },
   created() {
     const foodChainsRef= database.ref('saleposts/foodchains');
-    const pos = { lat: 0, lng: 0 }; // Initialize pos here
+    const pos = { lat: 0, lng: 0 }; 
 
     function degToRad(deg) {
       return deg * (Math.PI / 180);
@@ -483,7 +483,7 @@ https://templatemo.com/tm-568-digimedia
       for (let key in data) {
         if (data.hasOwnProperty(key)) {
           const item = data[key];
-          item.location = key; // Set the parent node name as the location property
+          item.location = key; 
           var calculatedDist = getDistance(item.lat, item.lng, pos.lat, pos.lng);
           if (calculatedDist !== undefined) {
             database.ref('saleposts/foodchains/' + key).update({
@@ -523,19 +523,18 @@ https://templatemo.com/tm-568-digimedia
   },
   methods: {
     sendLocation(sale, lat, lng) {
-      // Your existing method code here
       localStorage.setItem('location', sale);
       localStorage.setItem('lat', lat);
       localStorage.setItem('lng', lng);
-      retrievedLocation = sale; // Set the retrievedLocation variable
+      retrievedLocation = sale;
       console.log(sale)
-      initMap(retrievedLocation); // Call the initMap function
+      initMap(retrievedLocation); 
     }
     
   },
   created() {
     const supermarketRef = database.ref('saleposts/supermarket');
-    const pos = { lat: 0, lng: 0 }; // Initialize pos here
+    const pos = { lat: 0, lng: 0 }; 
 
     function degToRad(deg) {
       return deg * (Math.PI / 180);
@@ -558,7 +557,7 @@ https://templatemo.com/tm-568-digimedia
       for (let key in data) {
         if (data.hasOwnProperty(key)) {
           const item = data[key];
-          item.location = key; // Set the parent node name as the location property
+          item.location = key; 
           var calculatedDist = getDistance(item.lat, item.lng, pos.lat, pos.lng);
           if (calculatedDist !== undefined) {
             database.ref('saleposts/supermarket/' + key).update({
@@ -592,7 +591,7 @@ https://templatemo.com/tm-568-digimedia
     console.log(retrievedLocation);
     var display = document.getElementById('display');
 
-    //Use location name retrieved from buyFood.html; make an Async request to load the address/postcode; and display on map
+    
     var myApiKey = "AIzaSyAy3roqtg4LWKDferNRiTMpiki8E2tsTas"
     var encodedAddr = encodeURI(retrievedLocation);
     var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + encodedAddr + "&key=" + myApiKey;
@@ -605,7 +604,7 @@ https://templatemo.com/tm-568-digimedia
         var latVal = Number(selectedLocation.geometry.location.lat)
         var lngVal = Number(selectedLocation.geometry.location.lng)
 
-        // Create new map and new marker variables to update new location specified
+        // Create new map 
         map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: latVal, lng: lngVal},
             zoom: 16
@@ -616,7 +615,7 @@ https://templatemo.com/tm-568-digimedia
             map,
         })
 
-        // Obtain coords of newly searched location and set it to new map and new marker variables, then set the new marker to the new map
+        
         map.setCenter(selectedLocation.geometry.location)
         infoMarker.setPosition(selectedLocation.geometry.location)
         infoMarker.setMap(map)
@@ -631,12 +630,12 @@ https://templatemo.com/tm-568-digimedia
 };
 
 document.getElementById('mapModal').addEventListener('shown.bs.modal', function () {
-    // Assuming retrievedLocation is available here or pass it as an argument
+    
     initMap(retrievedLocation);
   });
 
 function showMap() {
-    // Show the map modal
+    // Show the map display
     var myModal = new bootstrap.Modal(document.getElementById('mapModal'), {
       keyboard: false
     });
