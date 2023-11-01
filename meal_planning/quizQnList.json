@@ -4,115 +4,29 @@
             {
                 "question": "How much spice would you like?",
                 "answers": [
-                    {"text": "Spicy", "correct": true , "count":1},
-                    {"text": "Mild", "correct": true,"count":2},
-                    {"text": "Just abit", "correct": true,"count":3},
-                    {"text": "None", "correct": true , "count":4}
+                    { "text": "Spicy", "correct": true, "count": 1 },
+                    { "text": "Mild", "correct": true, "count": 2 },
+                    { "text": "Just a bit", "correct": true, "count": 3 },
+                    { "text": "None", "correct": true, "count": 4 }
                 ]
             },
             {
                 "question": "What sort of meat would you want to eat?",
                 "answers": [
-                    {"text": "Fish", "correct": true, "count":1},
-                    {"text": "Fried chicken", "correct": true, "count":2},
-                    {"text": "Roasted chicken", "correct": true, "count":3},
-                    {"text": "beef", "correct": true, "count":4}
-                ]
-            },   
-            {
-                "question": "Would you like to go vegetarian?",
-                "answers": [
-                    {"text": "Yes", "correct": true, "count":1},
-                    {"text": "Not really", "correct": true, "count":2},
-                    {"text": "Just a bit", "correct": true, "count":3},
-                    {"text": "Never", "correct": true, "count":4}
+                    { "text": "Fish", "correct": true, "count": 1 },
+                    { "text": "Fried chicken", "correct": true, "count": 2 },
+                    { "text": "Roasted chicken", "correct": true, "count": 3 },
+                    { "text": "Beef", "correct": true, "count": 4 }
                 ]
             },
+            
             {
                 "question": "How adventurous are you feeling?",
                 "answers": [
-                    {"text": "Not really", "correct": true, "count":1},
-                    {"text": "Mildly", "correct": true, "count":2},
-                    {"text": "Not today", "correct": true, "count":3},
-                    {"text": "Very", "correct": true, "count":4}
-                ]
-            }
-        ],
-
-        [
-            {
-                "question": "What type of cuisine are you in the mood for?",
-                "answers": [
-                    {"text": "Indian","correct": true, "count":1},
-                    {"text": "Mexican","correct": true, "count":2},
-                    {"text": "Chinese","correct": true, "count":3},
-                    {"text": "japanese", "correct": true,"count":4}
-                ]
-            },
-            {
-                "question": "Do you prefer something spicy or mild?",
-                "answers": [
-                    {"text": "Spicy","correct": true, "count":1},
-                    {"text": "Mild","correct": true, "count":2},
-                    {"text": "Medium","correct": true, "count":3},
-                    {"text": "Varied","correct": true, "count":4}
-                ]
-            },
-            {
-                "question": "Are you in the mood for meat or a vegetarian option?",
-                "answers": [
-                    {"text": "Meat","correct": true, "count":1},
-                    {"text": "Vegetarian","correct": true, "count":2},
-                    {"text": "Seafood","correct": true, "count":3},
-                    {"text": "Anything","correct": true, "count":4}
-                ]
-            },
-            {
-                "question": "Which cuisine do you find most exotic?",
-                "answers": [
-                    {"text": "Japanese","correct": true, "count":1},
-                    {"text": "Thai", "correct": true,"count":2},
-                    {"text": "Greek", "correct": true,"count":3},
-                    {"text": "Moroccan","correct": true, "count":4}
-                ]
-            }
-        ],
-
-        [
-            {
-                "question": "What type of cuisine appeals to you right now?",
-                "answers": [
-                    {"text": "Savory", "correct": true, "count": 1},
-                    {"text": "Sweet", "correct": true, "count": 2},
-                    {"text": "Something refreshing", "correct": true, "count": 3},
-                    {"text": "Anything will do", "correct": true, "count": 4}
-                ]
-            },
-            {
-                "question": "How hungry are you right now? ",
-                "answers": [
-                    {"text": "Super hungry", "correct": true, "count": 1},
-                    {"text": "Very hungry", "correct": true, "count": 2},
-                    {"text": "Moderately hungry", "correct": true, "count": 3},
-                    {"text": "Not really", "correct": true, "count": 4}
-                ]
-            },
-            {
-                "question": "Are you in the mood for a meat-based dish or a vegetarian option?",
-                "answers": [
-                    {"text": "Meat", "correct": true, "count": 1},
-                    {"text": "Vegetarian", "correct": true, "count": 2},
-                    {"text": "Seafood", "correct": true, "count": 3},
-                    {"text": "Anything", "correct": true, "count": 4}
-                ]
-            },
-            {
-                "question": "Which cuisine do you consider the most exotic and intriguing?",
-                "answers": [
-                    {"text": "Japanese", "correct": true, "count": 1},
-                    {"text": "Thai", "correct": true, "count": 2},
-                    {"text": "Greek", "correct": true, "count": 3},
-                    {"text": "Moroccan", "correct": true, "count": 4}
+                    { "text": "Not really", "correct": true, "count": 1 },
+                    { "text": "Mildly", "correct": true, "count": 2 },
+                    { "text": "Not today", "correct": true, "count": 3 },
+                    { "text": "Very", "correct": true, "count": 4 }
                 ]
             }
         ]
