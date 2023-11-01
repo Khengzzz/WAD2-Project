@@ -68,7 +68,10 @@ onAuthStateChanged(auth, (user) => {
         //get userprofile img id
         var imgid=document.getElementById("profileImg")
         var currentUserImg=userValues.profileImg
-        imgid.setAttribute("src",currentUserImg)
+        // If user currently has a profile picture, replaces default profile picture with user's current profile picture
+        if (currentUserImg != "") {
+          imgid.setAttribute("src",currentUserImg)
+        }
             //create upload
             
             console.log(saleImage)
@@ -104,28 +107,24 @@ onAuthStateChanged(auth, (user) => {
         }})
 
 
-        //update button
-        var btn=document.getElementById("update")
-        btn.addEventListener("click",(e)=>{
+        // Update/Save Changes button
+        var btnUpdate=document.getElementById("update")
+        btnUpdate.addEventListener("click",(e)=>{
           var newImgUrl=userImgUrl
-          update(ref(database,"users/"+uid),{
-            profileImg:newImgUrl
-          })
-          .then(function(){
-            alert("profile updated!")
-          })
-        }
-        )
+          console.log(newImgUrl)
+          // Condition prevents user from saving until image has been fully uploaded to cloudinary
+          if (newImgUrl != "") {
+            update(ref(database,"users/"+uid),{
+              profileImg:newImgUrl
+            })
+            .then(function(){
+              alert("Profile changes have been updated!")
+            })
+          }
 
-
-
-        
-
-
-
-
+        })
     } else {
       alert("You are not logged in!")
-      window.location.replace('http:../recipe_folder/recipes.html');
+      location.replace("../homepage final/index.html")
     }
   });
