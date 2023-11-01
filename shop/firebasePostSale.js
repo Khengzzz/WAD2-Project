@@ -148,7 +148,7 @@ btnPost.addEventListener('click', (e) => {
                 lng: lngVal, 
             }).then(function() {
                 alert("Your post has been successfully submitted!")
-                location.replace("buyFood.html")
+                location.replace("shop.html")
             })
         }
     }

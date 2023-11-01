@@ -23,6 +23,12 @@
     <link rel="stylesheet" href="../homepage final/assets2/css/animated.css">
     <link rel="stylesheet" href="../homepage final/assets2/css/owl.css">
     <link rel="stylesheet" href="postSale.css">
+
+    <!-- sends Data to... -->
+    <script type="module" src="firebasePostSale.js"></script>
+
+    <!-- Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
 <!--
 
 TemplateMo 568 DigiMedia
@@ -134,31 +140,26 @@ https://templatemo.com/tm-568-digimedia
               <div class="about-right-content">
                 <div class="container">
                   <div class="text">
-                     Add Listing Today
+                     Add Listing!
                   </div>
                   <form action="#">
-                    <div class="form-row">
-                      <!-- <div class="input-data">
-                         <input type="text" required>
-                         <div class="underline" class="form_input" id="name"></div>
-                         <label for="name" class="form_label">Subject</label>
-                      </div> -->
-                   </div>
                      <div class="form-row">
-                        <div class="input-data">
+                        <!-- <div class="input-data">
                            <input type="text" required>
                            <div class="form_input" id="name"></div>
                            <label for="name" class="form_label">Name</label>
-                        </div>
+                        </div> -->
                      </div>
                      <div class="form-row">
+                      <div class="input-data">
+                         <input type="text" id="inputLocation" required>
+                         <div class="underline" class="form_input"></div>
+                         <label for="inputLocation" class="form_label">Location/Shope Name: (i.e. Shope name @ Location)</label>
+                      </div>
+                   </div>
+                     <div class="form-row">
                         <div class="input-data">
-                           <input type="email" required>
-                           <div class="form_input" id="email"></div>
-                           <label for="email" class="form_label">Email Address</label>
-                        </div>
-                        <div class="input-data">
-                           <div class="underline"></div>
+                           <div class=""></div>
                            <label for="inputSaleType" style="font-weight: unset;">Select Sale Type:</label><br><select class="form-control" id="inputSaleType">
                             <option>Community</option>
                             <option>Food Chains</option>
@@ -167,57 +168,39 @@ https://templatemo.com/tm-568-digimedia
                         </div>
                      </div>
                      <div class="form-row">
-                      <div class="input-data">
-                         <input type="text" required>
-                         <div class="underline" class="form_input" id="subject"></div>
-                         <label for="subject" class="form_label">Subject</label>
-                      </div>
-                   </div>
-                     <div class="form-row">
                       <div class="input-data textarea">
-                        <textarea rows="8" cols="80" required></textarea>
+                        <textarea id="inputSaleDescription" rows="8" cols="80" required></textarea>
                         <br />
-                        <div class="underline"></div>
-                        <label for="">Write your message</label>
+                        <div class="underline" class="form_input"></div>
+                        <label for="inputSaleDescription" class="form_label">Post Description</label>
                         <br />
                      </div>
                      </div>
-                     <div class="form-row">
-                      <div class="input-data">
-                         <input type="text" required>
-                         <div class="underline" class="form_input" id="name"></div>
-                         <label for="inputLocation" class="form_label">Location/Shope Name: (i.e. Shope name @ Location)</label>
-                      </div>
-                   </div>
                    <div class="form-row">
                     <div class="input-data">
-                       <input type="text" required>
-                       <div class="underline" class="form_input" id="inputContactNo"></div>
+                       <input id="inputContactNo" type="text" required>
+                       <div class="underline" class="form_input"></div>
                        <label for="inputContactNo" class="form_label">Contact Number</label>
                     </div>
                     <div class="input-data">
-                      <input type="text" required>
-                      <div class="underline" class="form_input" id="inputContactNo"></div>
+                      <input id="inputSalePrice" type="text" required>
+                      <div class="underline" class="form_input"></div>
                       <label for="inputSalePrice" class="form_label">Sale Price (S$)</label>
                    </div>
                    </div>
                    <div class="form-row">
+            
                     <div class="input-data">
-                       <input type="text" required>
-                       <div class="underline" class="form_input" id="inputSaleDescription"></div>
-                       <label for="inputSaleDescription" class="form_label">Sale Description</label>
-                    </div>
-                    <div class="input-data">
-                      <input type="text" required>
-                      <div class="underline" class="form_input" id="inputSalePeriod"></div>
+                      <input id="inputSalePeriod" type="text" required>
+                      <div class="underline" class="form_input"></div>
                       <label for="inputSalePeriod" class="form_label">Sale Period</label>
                    </div>
                  </div>
                  <div class="form-row">
                   <label for="file-upload" class="form_label">Sale Image:</label>
                   <div class="input-data">
-                      <input type="file" required>
-                      <div class="underline" class="form_input" id="file-upload"></div>
+                      <input id="file-upload" type="file" required>
+                      <div class="underline" class="form_input"></div>
                   </div>
               </div>
               <div class="form-row">
@@ -230,7 +213,7 @@ https://templatemo.com/tm-568-digimedia
                    <div class="form-row submit-btn">
                       <div class="input-data">
                          <div class="inner text-center"></div>
-                         <input type="submit" value="submit">
+                         <input type="button" id="btnPost" value="submit">
                       </div>
                    </div>
                   </div>
@@ -256,7 +239,7 @@ https://templatemo.com/tm-568-digimedia
   <script src="../homepage final/assets2/js/animation.js"></script>
   <script src="../homepage final/assets2/js/imagesloaded.js"></script>
   <script src="../homepage final/assets2/js/custom.js"></script>
-  <script src="homepage.js"></script>
+  <!-- <script src="homepage.js"></script> -->
 
 </body>
 </html>
