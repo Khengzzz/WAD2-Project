@@ -55,7 +55,7 @@ document.getElementById("btnRegister").addEventListener('click', (e) => {
           set(ref(database, 'usernames/' + username), {
             uid: user.uid,
           }).then(function() {
-            location.replace("registerSuccess.html")
+            location.replace("../login/login.html")
           })
         })
     
