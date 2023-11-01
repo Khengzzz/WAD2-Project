@@ -68,6 +68,7 @@ btnPost.addEventListener('click', (e) => {
         saleTypeValue = saleTypeValue.split(" ").join("")
     }
     var saleLocationValue = saleLocation.value
+    console.log(saleLocationValue)
     var saleContactValue = saleContact.value
     var salePriceValue = salePrice.value
     var saleDescriptionValue = saleDescription.value
@@ -112,17 +113,21 @@ btnPost.addEventListener('click', (e) => {
         error += "One or more input fields are empty! \n";
     }
     // Ensure userinput for sale location is valid according to the specified format
-    if (saleLocationValue != '') {
+    if (saleLocationValue) {
         // Conduct an axios call using user input of saleLocation, if empty array
         // if empty array returned = invalid location and throw error
         axios.get(url, {
 
         }).then(response => {
-            if (response.data.results.length == 0) {
+            console.log(response.data)
+            console.log(response.data.results)
+            if (!response.data.results.length) {
                 error += 'Please specify a proper location according to the format specified! \n';
             }
-            latVal = Number(response.data.results[0].geometry.location.lat);
-            lngVal = Number(response.data.results[0].geometry.location.lng);
+            else {
+                latVal = Number(response.data.results[0].geometry.location.lat);
+                lngVal = Number(response.data.results[0].geometry.location.lng);
+            }
         })
     }
     // Phone number must be exactly 8 digits long, and start with 6,8 or 9
