@@ -48,7 +48,7 @@ onAuthStateChanged(auth, (user) => {
       console.log(email)
 
 
-        var usernameDiv=document.getElementById("username")
+      var usernameDiv=document.getElementById("username")
       var emailDiv=document.getElementById("email")
 
       //get uid
@@ -120,7 +120,6 @@ onAuthStateChanged(auth, (user) => {
 
 
         
-
 
 
 
