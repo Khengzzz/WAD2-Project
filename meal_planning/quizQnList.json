@@ -1,0 +1,35 @@
+{
+    "questionArrays": [
+        [
+            {
+                "question": "How much spice would you like?",
+                "answers": [
+                    { "text": "Spicy", "correct": true, "count": 1 },
+                    { "text": "Mild", "correct": true, "count": 2 },
+                    { "text": "Just a bit", "correct": true, "count": 3 },
+                    { "text": "None", "correct": true, "count": 4 }
+                ]
+            },
+            {
+                "question": "What sort of meat would you want to eat?",
+                "answers": [
+                    { "text": "Fish", "correct": true, "count": 1 },
+                    { "text": "Fried chicken", "correct": true, "count": 2 },
+                    { "text": "Roasted chicken", "correct": true, "count": 3 },
+                    { "text": "Beef", "correct": true, "count": 4 }
+                ]
+            },
+            
+            {
+                "question": "How adventurous are you feeling?",
+                "answers": [
+                    { "text": "Not really", "correct": true, "count": 1 },
+                    { "text": "Mildly", "correct": true, "count": 2 },
+                    { "text": "Not today", "correct": true, "count": 3 },
+                    { "text": "Very", "correct": true, "count": 4 }
+                ]
+            }
+        ]
+        
+    ]
+}

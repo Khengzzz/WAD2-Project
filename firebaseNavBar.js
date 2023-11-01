@@ -49,8 +49,6 @@ onAuthStateChanged(auth, user => {
             if (dynamicDisplay1.innerHTML == "") {
                 // Create h6 tag
                 var h6Elem = document.createElement('h6');
-                h6Elem.classList.add('d-none')
-                h6Elem.classList.add('d-sm-block')
                 var h6textNode = document.createTextNode('Welcome, ' + userData.username + "!")
                 h6Elem.appendChild(h6textNode);
                 // Append to dynamicDisplay1 elem
@@ -58,37 +56,14 @@ onAuthStateChanged(auth, user => {
             }
         })
         // Populate the display
-        // Create button Elem
-        var buttonElem = document.createElement('button')
-        buttonElem.classList.add('btn')
-        buttonElem.classList.add('dropdown-toggle')
-        buttonElem.type = "button"
-        buttonElem.setAttribute('id', 'userDropdown')
-        
-        buttonElem.setAttribute('data-bs-toggle', 'dropdown')
-        buttonElem.setAttribute('aria-expanded', 'false')
-
-        // Create <i> element
-        var iElem = document.createElement('i')
-        iElem.classList.add("fa")
-        iElem.classList.add("fa-user")
-
-        // Create dropdownlist with Profile and Logout list elements
-        var ulElem = document.createElement('ul')
-        ulElem.classList.add("dropdown-menu");
-        ulElem.classList.add("dropdown-menu-end");
-        ulElem.setAttribute('aria-labelledby', 'userDropdown')
-        var profileLiElem = document.createElement("li")
-        var logoutLiElem = document.createElement("li")
+        // Create a 2 <a> elements linking to profile page and to logout respectively
         var profileAElem = document.createElement('a')
-        var logoutAElem = document.createElement('a')
-        profileAElem.classList.add('dropdown-item');
         profileAElem.href = "../userProfile/profilePage.html"
-        logoutAElem.classList.add('dropdown-item');
-        var profileAElemText = document.createTextNode('Profile')
-        var logoutAElemText = document.createTextNode('Logout')
-        profileAElem.appendChild(profileAElemText)
-        logoutAElem.appendChild(logoutAElemText)
+        profileAElem.style.marginRight = "10px"
+        var profileText = document.createTextNode('Profile')
+
+        var logoutAElem = document.createElement('a')
+        var logoutText = document.createTextNode('Logout')
 
         // Set event listener to sign out user from firebase auth once they click logout
         logoutAElem.addEventListener('click', (e) => {
@@ -100,22 +75,20 @@ onAuthStateChanged(auth, user => {
                     last_logged_out: date,
                 }).then(function() {
                     alert('You have logged out successfully!');
-                    location.replace("../homepage/homepage.html")
+                    location.replace("../homepage final/index.html")
                 })
             })
             .catch((error) => {
                 alert(error.code)
             })
         })
-        // Combining all elements and adding to dynamicDisplay2 elem
-        buttonElem.appendChild(iElem)
-        profileLiElem.appendChild(profileAElem)
-        logoutLiElem.appendChild(logoutAElem)
-        ulElem.appendChild(profileLiElem)
-        ulElem.appendChild(logoutLiElem)
+
+        // Combining all elements and adding to dynamicDisplay2
+        profileAElem.appendChild(profileText)
+        logoutAElem.appendChild(logoutText)
         
-        dynamicDisplay2.appendChild(buttonElem)
-        dynamicDisplay2.appendChild(ulElem)
+        dynamicDisplay2.appendChild(profileAElem)
+        dynamicDisplay2.appendChild(logoutAElem)
 
     // Not logged in display
     } else {
@@ -126,19 +99,19 @@ onAuthStateChanged(auth, user => {
 
         // Create a 2 <a> elements linking to register.html and login.html respectively
         var registerAElem = document.createElement('a')
-        registerAElem.href = "../account/register.html"
+        registerAElem.href = "../register/register.html"
         registerAElem.style.marginRight = "10px"
         var registerText = document.createTextNode('Sign Up')
 
         var loginAElem = document.createElement('a')
-        loginAElem.href = "../account/login.html"
+        loginAElem.href = "../login/login.html"
         var loginText = document.createTextNode('Login')
 
         // Combining all elements and adding to dynamicDisplay1
         registerAElem.appendChild(registerText)
         loginAElem.appendChild(loginText)
-        dynamicDisplay1.appendChild(registerAElem)
-        dynamicDisplay1.appendChild(loginAElem)
+        dynamicDisplay2.appendChild(registerAElem)
+        dynamicDisplay2.appendChild(loginAElem)
 
     }
 })
