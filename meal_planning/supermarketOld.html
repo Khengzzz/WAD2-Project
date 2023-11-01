@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Nearby Supermarkets</title>
+
+    <!-- Maps API and places library -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDOfw5q-bAzWK-LZTFdVNR3K2ToMKN6tc&libraries=places,directions"></script>
+</head>
+<body>
+    <h1>Nearby Supermarkets</h1>
+    <div id="map" style="width: 100%; height: 400px;"></div>
+    <h2>Supermarket List:</h2>
+    <ul id="supermarketList"></ul>
+    <div id="directionsPanel">
+        <strong>Estimated Time:</strong> <span id="duration"></span>
+    </div>
+
+    <script>
+        var directionsService = new google.maps.DirectionsService();
+        var directionsDisplay = new google.maps.DirectionsRenderer({
+            panel: document.getElementById('directionsPanel')
+        });
+        
+        // Call the function to find nearby supermarkets
+        findNearbySupermarkets(); 
+
+        // Function to find nearby supermarkets
+        function findNearbySupermarkets() {
+            // Check if the Geolocation API is available
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    const location = new google.maps.LatLng(latitude, longitude);
+                    const map = new google.maps.Map(document.getElementById('map'), {
+                        center: location,
+                        zoom: 15
+                    });
+
+                    directionsDisplay.setMap(map);
+
+                    const request = {
+                        location: location,
+                        radius: 2000,
+                        type: 'supermarket', // Specify the type for supermarkets
+                        keyword: 'supermarket' // Use a keyword like 'supermarket' to find supermarkets
+                    };
+
+                    const service = new google.maps.places.PlacesService(map);
+                    service.nearbySearch(request, function (results, status) {
+                        if (status === google.maps.places.PlacesServiceStatus.OK) {
+                            const supermarketList = document.getElementById('supermarketList');
+                            for (let i = 0; i < results.length; i++) {
+                                const place = results[i];
+                                const marker = new google.maps.Marker({
+                                    position: place.geometry.location,
+                                    map: map,
+                                    title: place.name
+                                });
+
+                                marker.addListener('click', function () {
+                                    const infowindow = new google.maps.InfoWindow({
+                                        content: place.name
+                                    });
+                                    infowindow.open(map, marker);
+
+                                    // Provide directions when the supermarket is clicked
+                                    calculateAndDisplayRoute(location, place.geometry.location);
+                                });
+
+                                // Add supermarket name and address to the list
+                                const listItem = document.createElement('li');
+                                listItem.innerHTML = `<strong>${place.name}</strong><br>${place.vicinity}`;
+                                supermarketList.appendChild(listItem);
+                            }
+                        }
+                    });
+                });
+            } else {
+                alert("Geolocation is not available in your browser.");
+            }
+        }
+
+        // Function to calculate and display route and instructions
+        function calculateAndDisplayRoute(origin, destination) {
+            directionsService.route({
+                origin: origin,
+                destination: destination,
+                travelMode: google.maps.TravelMode.DRIVING
+            }, function (response, status) {
+                if (status === 'OK') {
+                    directionsDisplay.setDirections(response);
+
+                    // Display the estimated time
+                    const route = response.routes[0];
+                    const leg = route.legs[0];
+                    const duration = leg.duration.text;
+                    document.getElementById('duration').textContent = duration;
+                } else {
+                    window.alert('Directions request failed due to ' + status);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
