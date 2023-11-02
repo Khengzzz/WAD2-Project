@@ -110,7 +110,7 @@ https://templatemo.com/tm-568-digimedia
         <div class="col-12 col-md-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="index.html" class="logo">
+            <a href="../homepage final/index.html" class="logo">
               <img src="../images/ecobiteslogo.png" alt="" style="width: 150px;display:flex;justify-content:left;">
             </a>
             <!-- ***** Logo End ***** -->
@@ -657,10 +657,6 @@ document.getElementById('mapModal').addEventListener('shown.bs.modal', function 
     initMap(retrievedLocation);
   });
 
-  document.getElementById('mapButton').addEventListener('click', function () {
-    // Trigger the appropriate method in the Vue app to request geolocation info
-    app.getLocationOnButtonClick();
-  });
 
   document.getElementById('mapModal').addEventListener('shown.bs.modal', function () {
     initMap(retrievedLocation);

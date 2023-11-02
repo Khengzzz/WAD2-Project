@@ -108,10 +108,7 @@ btnPost.addEventListener('click', (e) => {
     // Error message variable
     var error = "";
 
-    // Validate to ensure all fields are populated
-    if (saleTypeValue == '' || saleLocationValue == '' || saleContactValue == '' || salePriceValue == '' || saleDescriptionValue == '' || salePeriodValue == '' || saleSecureUrlValue == '') {
-        error += "One or more input fields are empty! \n";
-    }
+
     // Ensure userinput for sale location is valid according to the specified format
     if (saleLocationValue) {
         // Conduct an axios call using user input of saleLocation, if empty array
@@ -121,43 +118,73 @@ btnPost.addEventListener('click', (e) => {
         }).then(response => {
             console.log(response.data)
             console.log(response.data.results)
-            if (!response.data.results.length) {
-                error += 'Please specify a proper location according to the format specified! \n';
+            var numbering=response.data.results
+            console.log(numbering)
+            if (numbering==0) {
+                console.log("as")
+                var error1='Please specify a proper location according to the format specified! \n';
+                error += error1 
+                console.log(error1)
+                console.log(error +"+2")
+
+                
             }
-            else {
-                latVal = Number(response.data.results[0].geometry.location.lat);
-                lngVal = Number(response.data.results[0].geometry.location.lng);
+            if (saleContactValue.length != 8 || (saleContactValue[0] != '6' && saleContactValue[0] != '8' && saleContactValue[0] != '9')) {
+                error += 'Contact number format is invalid! Ensure format is exactly 8 digits, and must start with 6,8 or 9! \n'
             }
-        })
+    // Validate to ensure all fields are populated
+    console.log(saleSecureUrlValue+"saleTypeValue")
+    console.log(saleDescriptionValue+"saleLocationValue")
+    if (saleTypeValue == '' || saleLocationValue == '' || saleContactValue == '' || salePriceValue == '' || saleDescriptionValue == '' || salePeriodValue == '' || saleSecureUrlValue == '') {
+        console.log()
+        error += "One or more input fields are empty! \n";
     }
-    // Phone number must be exactly 8 digits long, and start with 6,8 or 9
-    if (saleContactValue.length != 8 || (saleContactValue[0] != '6' && saleContactValue[0] != '8' && saleContactValue[0] != '9')) {
-        error += 'Contact number format is invalid! Ensure format is exactly 8 digits, and must start with 6,8 or 9! \n'
-    }
-    // If there are any errors, print all of them into one alert box
     if (error != "") {
+        console.log(error)
         alert(error);
     }
-    // Passed all validation checks, input into database
-    else {
-        if (latVal !== undefined && lngVal !== undefined) {
-            set(ref(database, 'saleposts/' + saleTypeValue + '/' + saleLocationValue.toUpperCase()), {
-                location: saleLocationValue.toUpperCase(),
-                contactno: saleContactValue,
-                discountedprice: salePriceValue,
-                salesdescription: saleDescriptionValue,
-                salesperiod: salePeriodValue,
-                saleimage: saleSecureUrlValue,
-                postedon: time,
-                lat: latVal,
-                lng: lngVal, 
-            }).then(function() {
-                alert("Your post has been successfully submitted!")
-                location.replace("shop.html")
-            })
-        }
+            
+          
+            
+
+   
+        latVal = Number(response.data.results[0].geometry.location.lat);
+        lngVal = Number(response.data.results[0].geometry.location.lng);
+        })
     }
-})
+    console.log("3")
+    // Phone number must be exactly 8 digits long, and start with 6,8 or 9
+    // if (saleContactValue.length != 8 || (saleContactValue[0] != '6' && saleContactValue[0] != '8' && saleContactValue[0] != '9')) {
+    //     error += 'Contact number format is invalid! Ensure format is exactly 8 digits, and must start with 6,8 or 9! \n'
+    // }
+    // If there are any errors, print all of them into one alert box
+  
+    // Passed all validation checks, input into database
+    console.log(latVal,lngVal )
+    if (latVal !== undefined && lngVal !== undefined) {
+        console.log("a")
+        console.log("error")
+        set(ref(database, 'saleposts/' + saleTypeValue + '/' + saleLocationValue.toUpperCase()), {
+            location: saleLocationValue.toUpperCase(),
+            contactno: saleContactValue,
+            discountedprice: salePriceValue,
+            salesdescription: saleDescriptionValue,
+            salesperiod: salePeriodValue,
+            saleimage: saleSecureUrlValue,
+            postedon: time,
+            lat: latVal,
+            lng: lngVal, 
+           
+        }
+        ).then(function() {
+            
+            alert("Your post has been successfully submitted!")
+            location.replace("shop.html")
+        })
+    }
+
+    }
+)
 
 
 
