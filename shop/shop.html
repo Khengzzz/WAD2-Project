@@ -207,8 +207,7 @@ https://templatemo.com/tm-568-digimedia
                                             </div>
                                             <div class="col-12">
                                               <div class="d-flex justify-content-end">
-                                                <button id="mapBtn" onclick="showMap()" @click="sendLocation(item.location, item.lat, item.lng)" class="btn btn-primary">Location</button>
-                                                
+                                                <button id="mapBtn" v-on:click="sendLocation(item.location, item.lat, item.lng)" class="btn btn-primary">Location</button>
                                               </div>
                                             </div>
                                           </div>
@@ -255,7 +254,7 @@ https://templatemo.com/tm-568-digimedia
                                             </div>
                                             <div class="col-12">
                                               <div class="d-flex justify-content-end">
-                                                <button id="mapBtn" onclick="showMap()" @click="sendLocation(item.location, item.lat, item.lng)" class="btn btn-primary">Location</button>
+                                                <button id="mapBtn" v-on:click="sendLocation(item.location, item.lat, item.lng)" class="btn btn-primary">Location</button>
                                               </div>
                                             </div>
                                           </div>
@@ -303,7 +302,7 @@ https://templatemo.com/tm-568-digimedia
                                             </div>
                                             <div class="col-12">
                                               <div class="d-flex justify-content-end">
-                                                <button id="mapBtn" onclick="showMap()" @click="sendLocation(item.location, item.lat, item.lng)" class="btn btn-primary">Location</button>
+                                                <button id="mapBtn" v-on:click="sendLocation(item.location, item.lat, item.lng)" class="btn btn-primary">Location</button>
                                               </div>
                                             </div>
                                           </div>
@@ -378,14 +377,14 @@ https://templatemo.com/tm-568-digimedia
       localStorage.setItem('lng', lng);
       retrievedLocation = sale; 
       console.log(sale)
-      initMap(retrievedLocation); // Call the initMap function
+      // initMap(retrievedLocation);
+      showMap();
     }
   },
   created() {
     
     const communityRef= database.ref('saleposts/community');
-    const pos = { lat: 0, lng: 0 }; // Initialize pos here
-    
+    const pos = { lat: 0, lng: 0 }; 
 
     function degToRad(deg) {
       return deg * (Math.PI / 180);
@@ -454,7 +453,8 @@ https://templatemo.com/tm-568-digimedia
       localStorage.setItem('lng', lng);
       retrievedLocation = sale; 
       console.log(sale)
-      initMap(retrievedLocation); 
+      // initMap(retrievedLocation); 
+      showMap();
     }
   },
   created() {
@@ -527,7 +527,8 @@ https://templatemo.com/tm-568-digimedia
       localStorage.setItem('lng', lng);
       retrievedLocation = sale;
       console.log(sale)
-      initMap(retrievedLocation); 
+      // initMap(retrievedLocation);
+      showMap();
     }
     
   },
@@ -634,7 +635,7 @@ https://templatemo.com/tm-568-digimedia
     } 
 };
 
-document.getElementById('mapModal').addEventListener('shown.bs.modal', function () {
+  document.getElementById('mapModal').addEventListener('shown.bs.modal', function () {
     
     initMap(retrievedLocation);
   });
@@ -646,7 +647,8 @@ document.getElementById('mapModal').addEventListener('shown.bs.modal', function 
       keyboard: false
     });
     myModal.show();
-  } else {
+  } 
+  else {
     console.log("Location data not available");
   }
 }
