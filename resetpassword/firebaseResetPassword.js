@@ -25,14 +25,20 @@ const auth = getAuth(app);
 const database = getDatabase(app);
 
 
+
 document.getElementById('btnReset').addEventListener('click', (e) => {
-  var registeredEmail = document.getElementById("registeredEmail").value;
-  sendPasswordResetEmail(auth, registeredEmail)
-  .then(() => {
-    // Password reset email sent!
-    alert("Password reset email sent successfully!")
-  })
-  .catch((error) => {
-    alert("Failed to send password reset email, please try again.")
-  });
+  var registeredEmail = document.getElementById("emailInputField").value
+  if (!registeredEmail) {
+    alert("Please indicate your email!")
+  }
+  else {
+    sendPasswordResetEmail(auth, registeredEmail)
+    .then(() => {
+      // Password reset email sent!
+      alert("Password reset email sent successfully!")
+    })
+    .catch((error) => {
+      alert("Failed to send password reset email, please try again.")
+    });
+  }
 })
