@@ -106,8 +106,8 @@ https://templatemo.com/tm-568-digimedia
         <div class="col-12 col-md-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="index.html" class="logo">
-              <img src="../images/ecobiteslogo.png" alt="" style="width: 150px;">
+            <a href="../homepage final/index.html" class="logo">
+              <img src="../images/ecobiteslogo.png" alt="" style="width: 150px;display:flex;justify-content:left;">
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
@@ -357,7 +357,7 @@ https://templatemo.com/tm-568-digimedia
 
     const app = firebase.initializeApp(config);
     const database = app.database();
-
+    var pos = { lat: 0, lng: 0 };
     var retrievedLocation;
     var isPositionSet = false; 
 
@@ -389,8 +389,7 @@ https://templatemo.com/tm-568-digimedia
   },
   created() {
     const communityRef= database.ref('saleposts/community');
-    const pos = { lat: 0, lng: 0 }; // Initialize pos here
-
+    // const pos = { lat: 0, lng: 0 }; 
     function degToRad(deg) {
       return deg * (Math.PI / 180);
     }
