@@ -433,12 +433,12 @@ https://templatemo.com/tm-568-digimedia
       console.log("Community Data: ", this.communityData);
     });
 
-    // if (navigator.geolocation) {
-    //   navigator.geolocation.watchPosition(function (position) {
-    //     pos.lat = position.coords.latitude;
-    //     pos.lng = position.coords.longitude;
-    //   });
-    // }
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(function (position) {
+        pos.lat = position.coords.latitude;
+        pos.lng = position.coords.longitude;
+      });
+    }
   }
 });
 
