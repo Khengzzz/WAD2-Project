@@ -11,6 +11,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+    <!-- Favicons -->
+    <link href="../homepage final/assets2/images/appicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    
     <title>Shop | EcoBites</title>
 
     <!-- <link rel="icon" type="image/png" href="path/to/your/icon.png"> -->
@@ -31,10 +35,9 @@
     <!-- Bootstrap core CSS -->
     <link href="../homepage final/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Template Main CSS File -->
-    <!-- This CSS is causing the misalignments -->
-<!--     <link href="../homepage final/assets/css/style.css" rel="stylesheet"> -->
-
+    <!-- Bootstrap core CSS -->
+    <link href="../homepage final/vendor2/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="../homepage final/assets2/css/fontawesome.css">
     <link rel="stylesheet" href="../homepage final/assets2/css/templatemo-digimedia-v1.css">
@@ -106,7 +109,7 @@ https://templatemo.com/tm-568-digimedia
         <div class="col-12 col-md-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="../homepage final/index.html" class="logo">
+            <a href="index.html" class="logo">
               <img src="../images/ecobiteslogo.png" alt="" style="width: 150px;display:flex;justify-content:left;">
             </a>
             <!-- ***** Logo End ***** -->
@@ -163,7 +166,7 @@ https://templatemo.com/tm-568-digimedia
                     <div>
                       <div class="thumb">                 
                         <span class="icon"><img src="images/grocery-cart.png" alt=""></span>
-                        Supermarket <br> Clearence
+                        Supermarket <br> Clearance
                       </div>
                     </div>
                     
@@ -341,9 +344,8 @@ https://templatemo.com/tm-568-digimedia
         </div>
       </div>
      
-    
 
-  <script>
+<script>
   
   const config = {
       apiKey: "AIzaSyDQuYzHV8SGG_Mr_kKCEZXeqGUwixIhX1s",
@@ -358,21 +360,8 @@ https://templatemo.com/tm-568-digimedia
 
     const app = firebase.initializeApp(config);
     const database = app.database();
-    var pos = { lat: 0, lng: 0 };
+
     var retrievedLocation;
-
-    var isPositionSet = false; // Flag to prevent continuous position setting
-
-  if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(function (position) {
-      if (!isPositionSet) {
-        pos.lat = position.coords.latitude;
-        pos.lng = position.coords.longitude;
-        isPositionSet = true;
-      }
-    })
-  };
-
 
     new Vue({
   el: "#app-community",
@@ -390,19 +379,12 @@ https://templatemo.com/tm-568-digimedia
       retrievedLocation = sale; 
       console.log(sale)
       initMap(retrievedLocation); // Call the initMap function
-    },
-    getLocationOnButtonClick() {
-        if (navigator.geolocation) {
-          navigator.geolocation.watchPosition(function (position) {
-            pos.lat = position.coords.latitude;
-            pos.lng = position.coords.longitude;
-          });
-        }
-      }
+    }
   },
   created() {
     const communityRef= database.ref('saleposts/community');
-    // const pos = { lat: 0, lng: 0 }; 
+    const pos = { lat: 0, lng: 0 }; // Initialize pos here
+
     function degToRad(deg) {
       return deg * (Math.PI / 180);
     }
@@ -445,12 +427,12 @@ https://templatemo.com/tm-568-digimedia
       console.log("Community Data: ", this.communityData);
     });
 
-    // if (navigator.geolocation) {
-    //   navigator.geolocation.watchPosition(function (position) {
-    //     pos.lat = position.coords.latitude;
-    //     pos.lng = position.coords.longitude;
-    //   });
-    // }
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        pos.lat = position.coords.latitude;
+        pos.lng = position.coords.longitude;
+      });
+    }
   }
 });
 
@@ -519,12 +501,12 @@ https://templatemo.com/tm-568-digimedia
       console.log("Food Chain Data: ", this.foodChainsData);
     });
 
-    // if (navigator.geolocation) {
-    //   navigator.geolocation.watchPosition(function (position) {
-    //     pos.lat = position.coords.latitude;
-    //     pos.lng = position.coords.longitude;
-    //   });
-    // }
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        pos.lat = position.coords.latitude;
+        pos.lng = position.coords.longitude;
+      });
+    }
   }
 });
 
@@ -593,12 +575,12 @@ https://templatemo.com/tm-568-digimedia
       console.log("Supermarket Data: ", this.supermarketData);
     });
 
-    // if (navigator.geolocation) {
-    //   navigator.geolocation.watchPosition(function (position) {
-    //     pos.lat = position.coords.latitude;
-    //     pos.lng = position.coords.longitude;
-    //   });
-    // }
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        pos.lat = position.coords.latitude;
+        pos.lng = position.coords.longitude;
+      });
+    }
   }
 });
 
@@ -656,8 +638,6 @@ function showMap() {
     });
     myModal.show();
   }
-
-
 
 
 </script>

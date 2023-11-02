@@ -24,35 +24,46 @@ const auth = getAuth(app);
 // Initialize Realtime Database and get a reference to the service
 const database = getDatabase(app);
 
-document.getElementById("btnLogin").addEventListener('click', (e) => {
-  var emailLogin = document.getElementById("emailLoginField").value;
-  var passwordLogin = document.getElementById("passwordLoginField").value;
-  signInWithEmailAndPassword(auth, emailLogin, passwordLogin)
-  .then((userCredential) => {
-    // Logged in
-    const user = userCredential.user;
-
-    const date = new Date();
-    update(ref(database, 'users/' + user.uid), {
-      last_login: date,
-    }).then(function() {
-      alert('Successfully logged in! You will now be redirected to the home page.');
-      location.replace("../homepage final/index.html")
+//check user signed in
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, instantly redirect them to the homepage
+    location.replace("../homepage final/index.html")
+  }
+  // Not signed in
+  else {
+    document.getElementById("btnLogin").addEventListener('click', (e) => {
+      var emailLogin = document.getElementById("emailLoginField").value;
+      var passwordLogin = document.getElementById("passwordLoginField").value;
+      signInWithEmailAndPassword(auth, emailLogin, passwordLogin)
+      .then((userCredential) => {
+        // Logged in
+        const user = userCredential.user;
+    
+        const date = new Date();
+        update(ref(database, 'users/' + user.uid), {
+          last_login: date,
+        }).then(function() {
+          //alert('Successfully logged in! You will now be redirected to the home page.');
+          location.replace("../homepage final/index.html")
+        })
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        // const errorMessage = error.message;
+        // Customise error messages to be more intuitive
+        if (errorCode == "auth/missing-password") {
+          alert("Please provide a password!")
+        }
+        if (errorCode == "auth/invalid-email") {
+          alert("Please provide a valid email format!")
+        }
+        if (errorCode == "auth/invalid-login-credentials") {
+          alert("Invalid login credentials! Check that you have entered them correctly.")
+        }
+      })
     })
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    // const errorMessage = error.message;
-    // Customise error messages to be more intuitive
-    if (errorCode == "auth/missing-password") {
-      alert("Please provide a password!")
-    }
-    if (errorCode == "auth/invalid-email") {
-      alert("Please provide a valid email format!")
-    }
-    if (errorCode == "auth/invalid-login-credentials") {
-      alert("Invalid login credentials! Check that you have entered them correctly.")
-    }
-  })
-})
+  }
+
+});
 
