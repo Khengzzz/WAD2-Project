@@ -361,6 +361,19 @@ https://templatemo.com/tm-568-digimedia
 
     var retrievedLocation;
 
+    var isPositionSet = false; // Flag to prevent continuous position setting
+
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(function (position) {
+      if (!isPositionSet) {
+        pos.lat = position.coords.latitude;
+        pos.lng = position.coords.longitude;
+        isPositionSet = true;
+      }
+    })
+  };
+
+
     new Vue({
   el: "#app-community",
   data() {
@@ -433,12 +446,12 @@ https://templatemo.com/tm-568-digimedia
       console.log("Community Data: ", this.communityData);
     });
 
-    if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(function (position) {
-        pos.lat = position.coords.latitude;
-        pos.lng = position.coords.longitude;
-      });
-    }
+    // if (navigator.geolocation) {
+    //   navigator.geolocation.watchPosition(function (position) {
+    //     pos.lat = position.coords.latitude;
+    //     pos.lng = position.coords.longitude;
+    //   });
+    // }
   }
 });
 
@@ -507,12 +520,12 @@ https://templatemo.com/tm-568-digimedia
       console.log("Food Chain Data: ", this.foodChainsData);
     });
 
-    if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(function (position) {
-        pos.lat = position.coords.latitude;
-        pos.lng = position.coords.longitude;
-      });
-    }
+    // if (navigator.geolocation) {
+    //   navigator.geolocation.watchPosition(function (position) {
+    //     pos.lat = position.coords.latitude;
+    //     pos.lng = position.coords.longitude;
+    //   });
+    // }
   }
 });
 
@@ -581,12 +594,12 @@ https://templatemo.com/tm-568-digimedia
       console.log("Supermarket Data: ", this.supermarketData);
     });
 
-    if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(function (position) {
-        pos.lat = position.coords.latitude;
-        pos.lng = position.coords.longitude;
-      });
-    }
+    // if (navigator.geolocation) {
+    //   navigator.geolocation.watchPosition(function (position) {
+    //     pos.lat = position.coords.latitude;
+    //     pos.lng = position.coords.longitude;
+    //   });
+    // }
   }
 });
 
