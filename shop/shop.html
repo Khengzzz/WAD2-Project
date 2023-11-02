@@ -382,8 +382,10 @@ https://templatemo.com/tm-568-digimedia
     }
   },
   created() {
+    
     const communityRef= database.ref('saleposts/community');
     const pos = { lat: 0, lng: 0 }; // Initialize pos here
+    
 
     function degToRad(deg) {
       return deg * (Math.PI / 180);
@@ -585,7 +587,9 @@ https://templatemo.com/tm-568-digimedia
 });
 
   function initMap(retrievedLocation) {
-    console.log(retrievedLocation);
+    // console.log(retrievedLocation);
+    // var display = document.getElementById('mapDisplay');
+    if (retrievedLocation) {
     var display = document.getElementById('mapDisplay');
 
     
@@ -623,7 +627,11 @@ https://templatemo.com/tm-568-digimedia
     .catch(error => {
         console.log(error.message)
         display.innerHTML = error.message;
-    }); 
+    });
+    }
+    else {
+      // console.log("Location data is not available") for debugging purposes
+    } 
 };
 
 document.getElementById('mapModal').addEventListener('shown.bs.modal', function () {
@@ -631,13 +639,17 @@ document.getElementById('mapModal').addEventListener('shown.bs.modal', function 
     initMap(retrievedLocation);
   });
 
-function showMap() {
-    // Show the map display
+  function showMap() {
+  // Show the map display only if retrievedLocation is available
+  if (retrievedLocation) {
     var myModal = new bootstrap.Modal(document.getElementById('mapModal'), {
       keyboard: false
     });
     myModal.show();
+  } else {
+    console.log("Location data not available");
   }
+}
 
 
 </script>
