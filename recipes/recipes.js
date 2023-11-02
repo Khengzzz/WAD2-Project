@@ -1,5 +1,5 @@
 
-
+//pull from json file
 var url = "recipesStorage.json"
 axios.get(
 url
@@ -77,55 +77,55 @@ function getCuisines(cuisineList,database){
 
 
 function createCard(dishName,preptime,imglink,divId,cName){
-//create card
-var card=document.createElement("div")
+    //create card
+    var card=document.createElement("div")
 
-//set card style
-card.setAttribute("class","card")
-card.style.width="15rem"
+    //set card style
+    card.setAttribute("class","card")
+    card.style.width="15rem"
 
-//create img
-var img1=document.createElement("img")
-img1.setAttribute("src","../images/"+imglink+".jpeg")
-img1.setAttribute("class","card-img-top" )
+    //create img
+    var img1=document.createElement("img")
+    img1.setAttribute("src","../images/"+imglink+".jpeg")
+    img1.setAttribute("class","card-img-top" )
 
-//create class body
-var body=document.createElement("div")
-body.setAttribute("class","card-body")
+    //create class body
+    var body=document.createElement("div")
+    body.setAttribute("class","card-body")
 
-//create card title, time to cook, clickable link
-var title=document.createElement("h5")
-title.setAttribute("class","card-title")
-var textnode=document.createTextNode(dishName)
-title.appendChild(textnode)
+    //create card title, time to cook, clickable link
+    var title=document.createElement("h5")
+    title.setAttribute("class","card-title")
+    var textnode=document.createTextNode(dishName)
+    title.appendChild(textnode)
 
-//cooking time
-var cooktime=document.createElement("p")
-var textnode2=document.createTextNode(preptime)
-cooktime.appendChild(textnode2)
+    //cooking time
+    var cooktime=document.createElement("p")
+    var textnode2=document.createTextNode(preptime)
+    cooktime.appendChild(textnode2)
 
-//button
+    //button
 
-var link=document.createElement("a")
-link.setAttribute("href","indiv_recipe.html?cuisine="+cName+"&dish="+imglink)
-var textnode3=document.createTextNode("Click here to view dish")
-link.appendChild(textnode3)
+    var link=document.createElement("a")
+    link.setAttribute("href","indiv_recipe.html?cuisine="+cName+"&dish="+imglink)
+    var textnode3=document.createTextNode("Click here to view dish")
+    link.appendChild(textnode3)
 
-//add all tgt
-body.append(title)
-body.append(cooktime)
-body.append(link)
-card.append(img1)
-card.append(body)
-
-
+    //add all tgt
+    body.append(title)
+    body.append(cooktime)
+    body.append(link)
+    card.append(img1)
+    card.append(body)
 
 
-//appendcard to div
-divId.append(card)
 
 
-return divId
+    //appendcard to div
+    divId.append(card)
+
+
+    return divId
 
 }
 
