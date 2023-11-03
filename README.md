@@ -10,6 +10,8 @@ choose,nearbyRecommendations (restaurant recommendation), supermarket(supermarke
 
 register page located under: register
 
+reset password page located under: resetpassword
+
 Shop pages located under: shop
 
 Profile page located under: profile
