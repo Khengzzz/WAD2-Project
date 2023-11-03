@@ -81,7 +81,7 @@ var url = "quizQnList.json"
                     function getCuisine(number1){
                         var cuisine=""
                         if(number1<7){
-                            cuisine="Indian"
+                            cuisine="Malay"
 
                         }
                         else if(number1<11){
