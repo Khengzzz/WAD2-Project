@@ -38,6 +38,7 @@ var saleImage = document.getElementById('file-upload');
 var saleSecureUrl = ''
 var latVal;
 var lngVal;
+var axiosDone = false;
 
 // Upload and retrieve image using cloudinary api
 saleImage.addEventListener('change', function(event) {
@@ -119,11 +120,13 @@ btnPost.addEventListener('click', (e) => {
         axios.get(url, {
 
         }).then(response => {
+            axiosDone = true;
             console.log(response.data)
             console.log(response.data.results)
             if (response.data.results.length == 0) {
 /*                 error += 'Please specify a proper location according to the format specified! \n'; */
                 alert("Please specify a proper location according to the format specified!")
+                axiosDone = false;
             }
             else {
                 latVal = Number(response.data.results[0].geometry.location.lat);
@@ -141,7 +144,7 @@ btnPost.addEventListener('click', (e) => {
     }
     // Passed all validation checks, input into database
     else {
-        if (latVal !== undefined && lngVal !== undefined) {
+        if (latVal !== undefined && lngVal !== undefined && axiosDone === true) {
             set(ref(database, 'saleposts/' + saleTypeValue + '/' + saleLocationValue.toUpperCase()), {
                 location: saleLocationValue.toUpperCase(),
                 contactno: saleContactValue,
