@@ -127,6 +127,6 @@ onAuthStateChanged(auth, (user) => {
         })
     } else {
       alert("You are not logged in!")
-      location.replace("../homepage final/index.html")
+      location.replace("../index.html")
     }
   });

@@ -28,7 +28,7 @@ const database = getDatabase(app);
 onAuthStateChanged(auth, (user) => {
   if (user) {
     // User is signed in, instantly redirect them to the homepage
-    location.replace("../homepage final/index.html")
+    location.replace("../index.html")
   }
   // Not signed in
   else {
@@ -45,7 +45,7 @@ onAuthStateChanged(auth, (user) => {
           last_login: date,
         }).then(function() {
           //alert('Successfully logged in! You will now be redirected to the home page.');
-          location.replace("../homepage final/index.html")
+          location.replace("../index.html")
         })
       })
       .catch((error) => {
