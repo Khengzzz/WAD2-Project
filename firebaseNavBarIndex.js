@@ -58,7 +58,7 @@ onAuthStateChanged(auth, user => {
         // Populate the display
         // Create a 2 <a> elements linking to profile page and to logout respectively
         var profileAElem = document.createElement('a')
-        profileAElem.href = "../userProfile/profilePage.html"
+        profileAElem.href = "./userProfile/profilePage.html"
         profileAElem.style.marginRight = "10px"
         var profileText = document.createTextNode('Profile')
 
@@ -75,7 +75,7 @@ onAuthStateChanged(auth, user => {
                     last_logged_out: date,
                 }).then(function() {
                     alert('You have logged out successfully!');
-                    location.replace("../index.html")
+                    location.replace("./index.html")
                 })
             })
             .catch((error) => {
@@ -99,12 +99,12 @@ onAuthStateChanged(auth, user => {
 
         // Create a 2 <a> elements linking to register.html and login.html respectively
         var registerAElem = document.createElement('a')
-        registerAElem.href = "../register/register.html"
+        registerAElem.href = "./register/register.html"
         registerAElem.style.marginRight = "10px"
         var registerText = document.createTextNode('Sign Up')
 
         var loginAElem = document.createElement('a')
-        loginAElem.href = "../login/login.html"
+        loginAElem.href = "./login/login.html"
         var loginText = document.createTextNode('Login')
 
         // Combining all elements and adding to dynamicDisplay1
