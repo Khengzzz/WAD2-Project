@@ -16,7 +16,7 @@ Shop pages located under: shop(folder)
 
 Profile page located under: profile(folder)
 
-
+Github link: https://github.com/Khengzzz/WAD2-Project
 
 1. Start running your MAMP/WAMP
 2. Open up the folder and run the file stated above
