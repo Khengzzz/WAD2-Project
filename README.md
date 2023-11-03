@@ -4,17 +4,17 @@ Homepage is located under: index.html
 
 Recipes, indivdual recipe pages are located under: recipe_folder
 
-login page located under: login
+login page located under: login(folder)
 
 choose,nearbyRecommendations (restaurant recommendation), supermarket(supermarket recommendation) and whattoeat(quiz) pages located under: meal_planning
 
-register page located under: register
+register page located under: register(folder)
 
-reset password page located under: resetpassword
+reset password page located under: resetpassword(folder)
 
-Shop pages located under: shop
+Shop pages located under: shop(folder)
 
-Profile page located under: profile
+Profile page located under: profile(folder)
 
 
 
