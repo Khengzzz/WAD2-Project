@@ -5,7 +5,7 @@ Homepage is located under: index.html
 Recipes, indivdual recipe pages are located under: recipe_folder
 
 login page located under: login
-
+<br>
 choose,nearbyRecommendations (restaurant recommendation), supermarket(supermarket recommendation) and whattoeat(quiz) pages located under: meal_planning
 
 register page located under: register
