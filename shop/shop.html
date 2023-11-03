@@ -207,8 +207,7 @@ https://templatemo.com/tm-568-digimedia
                                             </div>
                                             <div class="col-12">
                                               <div class="d-flex justify-content-end">
-                                                <button id="mapBtn" onclick="showMap()" @click="sendLocation(item.location, item.lat, item.lng)" class="btn btn-primary">Location</button>
-                                                
+                                                <button id="mapBtn" v-on:click="sendLocation(item.location, item.lat, item.lng)" class="btn btn-primary">Location</button>
                                               </div>
                                             </div>
                                           </div>
@@ -255,7 +254,7 @@ https://templatemo.com/tm-568-digimedia
                                             </div>
                                             <div class="col-12">
                                               <div class="d-flex justify-content-end">
-                                                <button id="mapBtn" onclick="showMap()" @click="sendLocation(item.location, item.lat, item.lng)" class="btn btn-primary">Location</button>
+                                                <button id="mapBtn" v-on:click="sendLocation(item.location, item.lat, item.lng)" class="btn btn-primary">Location</button>
                                               </div>
                                             </div>
                                           </div>
@@ -303,7 +302,7 @@ https://templatemo.com/tm-568-digimedia
                                             </div>
                                             <div class="col-12">
                                               <div class="d-flex justify-content-end">
-                                                <button id="mapBtn" onclick="showMap()" @click="sendLocation(item.location, item.lat, item.lng)" class="btn btn-primary">Location</button>
+                                                <button id="mapBtn" v-on:click="sendLocation(item.location, item.lat, item.lng)" class="btn btn-primary">Location</button>
                                               </div>
                                             </div>
                                           </div>
@@ -362,6 +361,7 @@ https://templatemo.com/tm-568-digimedia
     const database = app.database();
 
     var retrievedLocation;
+    
 
     new Vue({
   el: "#app-community",
@@ -378,12 +378,14 @@ https://templatemo.com/tm-568-digimedia
       localStorage.setItem('lng', lng);
       retrievedLocation = sale; 
       console.log(sale)
-      initMap(retrievedLocation); // Call the initMap function
+      // initMap(retrievedLocation);
+      showMap();
     }
   },
   created() {
+    
     const communityRef= database.ref('saleposts/community');
-    const pos = { lat: 0, lng: 0 }; // Initialize pos here
+    const pos = { lat: 0, lng: 0 }; 
 
     function degToRad(deg) {
       return deg * (Math.PI / 180);
@@ -399,7 +401,7 @@ https://templatemo.com/tm-568-digimedia
       return distance;
     }
 
-    communityRef.on('value', (snapshot) => {
+    communityRef.once('value', (snapshot) => {
       const data = snapshot.val();
       const dataArray = [];
 
@@ -452,7 +454,8 @@ https://templatemo.com/tm-568-digimedia
       localStorage.setItem('lng', lng);
       retrievedLocation = sale; 
       console.log(sale)
-      initMap(retrievedLocation); 
+      // initMap(retrievedLocation); 
+      showMap();
     }
   },
   created() {
@@ -473,7 +476,7 @@ https://templatemo.com/tm-568-digimedia
       return distance;
     }
 
-    foodChainsRef.on('value', (snapshot) => {
+    foodChainsRef.once('value', (snapshot) => {
       const data = snapshot.val();
       const dataArray = [];
 
@@ -525,7 +528,8 @@ https://templatemo.com/tm-568-digimedia
       localStorage.setItem('lng', lng);
       retrievedLocation = sale;
       console.log(sale)
-      initMap(retrievedLocation); 
+      // initMap(retrievedLocation);
+      showMap();
     }
     
   },
@@ -547,7 +551,7 @@ https://templatemo.com/tm-568-digimedia
       return distance;
     }
 
-    supermarketRef.on('value', (snapshot) => {
+    supermarketRef.once('value', (snapshot) => {
       const data = snapshot.val();
       const dataArray = [];
 
@@ -585,7 +589,9 @@ https://templatemo.com/tm-568-digimedia
 });
 
   function initMap(retrievedLocation) {
-    console.log(retrievedLocation);
+    // console.log(retrievedLocation);
+    // var display = document.getElementById('mapDisplay');
+    if (retrievedLocation) {
     var display = document.getElementById('mapDisplay');
 
     
@@ -623,21 +629,30 @@ https://templatemo.com/tm-568-digimedia
     .catch(error => {
         console.log(error.message)
         display.innerHTML = error.message;
-    }); 
+    });
+    }
+    else {
+      // console.log("Location data is not available") for debugging purposes
+    } 
 };
 
-document.getElementById('mapModal').addEventListener('shown.bs.modal', function () {
+  document.getElementById('mapModal').addEventListener('shown.bs.modal', function () {
     
     initMap(retrievedLocation);
   });
 
-function showMap() {
-    // Show the map display
+  function showMap() {
+  // Show the map display only if retrievedLocation is available
+  if (retrievedLocation) {
     var myModal = new bootstrap.Modal(document.getElementById('mapModal'), {
       keyboard: false
     });
     myModal.show();
+  } 
+  else {
+    console.log("Location data not available");
   }
+}
 
 
 </script>
