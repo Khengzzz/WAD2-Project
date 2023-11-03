@@ -361,6 +361,7 @@ https://templatemo.com/tm-568-digimedia
     const database = app.database();
 
     var retrievedLocation;
+    
 
     new Vue({
   el: "#app-community",
@@ -400,7 +401,7 @@ https://templatemo.com/tm-568-digimedia
       return distance;
     }
 
-    communityRef.on('value', (snapshot) => {
+    communityRef.once('value', (snapshot) => {
       const data = snapshot.val();
       const dataArray = [];
 
@@ -425,7 +426,7 @@ https://templatemo.com/tm-568-digimedia
       });
 
       this.communityData = sortedData;
-      // console.log("Community Data: ", this.communityData);
+      console.log("Community Data: ", this.communityData);
     });
 
     if (navigator.geolocation) {
@@ -475,7 +476,7 @@ https://templatemo.com/tm-568-digimedia
       return distance;
     }
 
-    foodChainsRef.on('value', (snapshot) => {
+    foodChainsRef.once('value', (snapshot) => {
       const data = snapshot.val();
       const dataArray = [];
 
@@ -500,7 +501,7 @@ https://templatemo.com/tm-568-digimedia
       });
 
       this.foodChainsData = sortedData;
-      // console.log("Food Chain Data: ", this.foodChainsData);
+      console.log("Food Chain Data: ", this.foodChainsData);
     });
 
     if (navigator.geolocation) {
@@ -550,7 +551,7 @@ https://templatemo.com/tm-568-digimedia
       return distance;
     }
 
-    supermarketRef.on('value', (snapshot) => {
+    supermarketRef.once('value', (snapshot) => {
       const data = snapshot.val();
       const dataArray = [];
 
@@ -575,7 +576,7 @@ https://templatemo.com/tm-568-digimedia
       });
 
       this.supermarketData = sortedData;
-      // console.log("Supermarket Data: ", this.supermarketData);
+      console.log("Supermarket Data: ", this.supermarketData);
     });
 
     if (navigator.geolocation) {

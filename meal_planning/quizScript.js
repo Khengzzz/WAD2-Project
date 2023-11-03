@@ -124,12 +124,14 @@ var url = "quizQnList.json"
                     nextBtn.addEventListener("click", ()=>{
                         if (currentQuestionIndex < questions.length){
                             console.log(selectedAnswer);
-                            let answer = selectedAnswer.value;
-                            answerscore+=Number(answer)
+                            if (selectedAnswer != null) {
+                                let answer = selectedAnswer.value;
+                                answerscore+=Number(answer)
+                                handleNextButton();
+                            } else {
+                                alert("Please select an option!")
+                            }
                         
-            
-                        
-                            handleNextButton();
                         }
                         else{
                             startQuiz();
